@@ -97,6 +97,20 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
       <a class="btn primary" href="meals.html" style="display:inline-flex;align-items:center;justify-content:center;margin-top:10px">Open meal planner →</a>
     </div>
 
+    <div class="card soft">
+      <h2>🗓️ My weekly schedule</h2>
+      <div class="note"><b>Monday–Tuesday:</b> Wake around 6:30 AM • office by 8:00 AM • gym after work.<br><br><b>Wednesday–Friday:</b> Wake 4:30 AM • leave around 5:00 AM • husband at work around 5:45 AM • gym around 6:30 AM • finish around 7:20–7:30 AM • quick change/clean up • clock in by 8:00 AM.<br><br><b>Saturday–Sunday:</b> Off work.</div>
+      <div class="list">
+        <div class="item"><div><b>Monday 🍑 Lower Body A</b><small>Gym after work</small></div></div>
+        <div class="item"><div><b>Tuesday 🐾 Upper Body + Abs</b><small>Gym after work</small></div></div>
+        <div class="item"><div><b>Wednesday 🚶 Recovery gym</b><small>6:30 AM • easy cardio + optional light accessories</small></div></div>
+        <div class="item"><div><b>Thursday 🍑 Lower Body B</b><small>6:30 AM • main glute day</small></div></div>
+        <div class="item"><div><b>Friday 🐾 Light Glutes + Legs + Abs</b><small>6:30 AM • keep it efficient</small></div></div>
+        <div class="item"><div><b>Saturday 🧸 Rest / easy walk</b><small>No required gym</small></div></div>
+        <div class="item"><div><b>Sunday 🌙 Rest / meal prep</b><small>Set up Monday to be easy</small></div></div>
+      </div>
+    </div>
+
     <div class="card">
       <h2>🐾 What do I do now?</h2>
       <div class="grid">
@@ -171,7 +185,7 @@ const plans={
 Monday:[['Leg Press','3 × 10–12',5],['Seated Leg Curl','3 × 10–15',5],['Hip Abduction','4 × 15–20',5],['Glute Drive / Hip Thrust','3 × 10–12',5],['Leg Extension','2 × 12–15',5]],
 Tuesday:[['Lat Pulldown','3 × 10–12',5],['Seated Row','3 × 10–12',5],['Chest Press','2 × 10–12',5],['Lateral Raise','3 × 12–15',2.5],['Ab Crunch','3 × 12–15',5]],
 Thursday:[['Glute Drive / Hip Thrust','3 × 10–12',5],['Leg Press','3 × 10–12',5],['Seated Leg Curl','3 × 10–15',5],['Hip Abduction','4 × 15–20',5],['Glute Kickback','3 × 12–15 / leg',5]],
-Saturday:[['Leg Press','2 × 12–15',5],['Hip Abduction','3 × 20',5],['Glute Kickback','3 × 15 / leg',5],['Seated Leg Curl','2 × 12–15',5],['Ab Crunch','3 × 15',5]]
+Friday:[['Leg Press','2 × 12–15',5],['Hip Abduction','3 × 20',5],['Glute Kickback','3 × 15 / leg',5],['Seated Leg Curl','2 × 12–15',5],['Ab Crunch','3 × 15',5]]
 };
 const babyItems=[['brush','🪥 Brush teeth'],['wash','🧼 Wash up / skincare'],['pjs','🩵 Cozy pajamas'],['drink','🍼 Bottle / warm drink / water'],['plush','🧸 Pick a plushie'],['calm','🌙 10-minute quiet wind-down'],['sleep','😴 Settle in for sleep']];
 const comfortList=['🧸 Plushie cuddle','🍼 Bottle / warm drink','💙 Pacifier time','📺 Comfort show','🧺 Cozy pajamas / blanket','🌙 Quiet cuddle time'];
@@ -185,7 +199,7 @@ function switchTab(id){document.querySelectorAll('.section').forEach(x=>x.classL
 document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
 
 function addFood(n,c,p){n=n??foodName.value.trim();c=Number(c??foodCal.value);p=Number(p??foodPro.value);if(!n)return;(foods[TODAY]??=[]).push({id:Date.now()+Math.random(),name:n,cal:c||0,pro:p||0});set('pupfit_foods',foods);foodName.value=foodCal.value=foodPro.value='';render()}
-function quickAdd(){let p=quick.value.split('|').map(x=>x.trim());if(p.length<3)return alert('Use: Food name | calories | protein');addFood(p[0],p[1],p[2]);quick.value=''}
+function quickAdd(){let p=quick.value.split('|').map(x=>x.trim());if(p.length<3)return alert('Use: Food name | calories | protein');let c=parseFloat(p[1]),pr=parseFloat(p[2]);addFood(p[0],Number.isFinite(c)?c:0,Number.isFinite(pr)?pr:0);quick.value=''}
 function recentFoods(){let seen=new Set(),out=[];for(const x of Object.values(foods).flat().reverse()){let k=(x.name||'').toLowerCase();if(k&&!seen.has(k)){seen.add(k);out.push(x)}if(out.length===8)break}return out}
 function logLift(n,r,i,f,id){let w=Number(document.getElementById(id).value);if(!w)return alert('Enter the machine weight first.');lifts.push({id:Date.now()+Math.random(),ts:Date.now(),date:TODAY,name:n,reps:r,weight:w,feel:f});set('pupfit_lifts',lifts);render()}
 function workoutDone(date=TODAY){return lifts.some(x=>x.date===date)}
@@ -205,7 +219,7 @@ function render(){
  proleft.textContent=s.pro<150?`${Math.ceil(150-s.pro)}g left`:'Target reached ✅';
  stepsleft.textContent=s.st<7000?`${(7000-s.st).toLocaleString()} to minimum`:'Minimum reached ✅';
  calbar.style.width=Math.min(100,s.cal/2100*100)+'%';probar.style.width=Math.min(100,s.pro/150*100)+'%';stepsbar.style.width=Math.min(100,s.st/10000*100)+'%';
- workout.textContent=p.length?`${DAY} • ${p.length} machines`:'Recovery day';workstate.textContent=p.length?(done?'Logged today ✅':'Not logged yet'):'Light walk / rest';
+ workout.textContent=p.length?`${DAY} • ${p.length} machines`:DAY==='Wednesday'?'Recovery gym':'Recovery day';workstate.textContent=p.length?(done?'Logged today ✅':'Not logged yet'):DAY==='Wednesday'?'6:30 AM • easy cardio / optional accessories':'Light walk / rest';
  next.textContent=a[0];why.textContent=a[1];doNow.onclick=()=>switchTab(a[2]);
  scoreRing.style.setProperty('--p',score);scoreNum.textContent=score+'%';scoreText.textContent=score>=85?'Crushing it ✨':score>=60?'On track 🐾':score>=30?'Building momentum':'Fresh start';scoreHint.textContent=score>=85?'The important stuff is covered.':score>=60?'A couple small wins left.':'Just do the next tiny step.';
  const seven=[...Array(7)].map((_,i)=>{let d=new Date();d.setDate(d.getDate()-(6-i));return d});
@@ -219,7 +233,7 @@ function render(){
  document.querySelectorAll('.recent').forEach(b=>b.onclick=()=>addFood(b.dataset.n,b.dataset.c,b.dataset.p));
  const need=Math.max(0,Math.ceil(150-s.pro));rescue.innerHTML=need?`You need about <b>${need}g more protein</b>. Easy picks: protein shake, Greek yogurt, chicken/turkey, tuna, cottage cheese, eggs/egg whites. Keep it simple.`:'Protein target reached ✅';
 
- gymList.innerHTML=p.length?p.map(([n,r,i],ix)=>{const l=last(n),sg=suggest(n,i),id='lift'+ix;return `<div class="exercise"><b>${n}</b><div class="muted">${r} • Last: ${l?l.weight+' lb ('+l.feel+')':'none'} • Try: <b>${sg?sg+' lb':'start light'}</b></div><div class="row" style="margin-top:7px"><input id="${id}" type="number" step="2.5" value="${sg||''}" placeholder="Weight used"><div class="actions"><button class="btn bad feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="hard" data-x="${id}">😣 Hard</button><button class="btn secondary feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="good" data-x="${id}">👍 Good</button><button class="btn good feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="easy" data-x="${id}">✨ Easy</button></div></div></div>`}).join(''):'<div class="note">Recovery day. Light walking is enough.</div>';
+ gymList.innerHTML=p.length?p.map(([n,r,i],ix)=>{const l=last(n),sg=suggest(n,i),id='lift'+ix;return `<div class="exercise"><b>${n}</b><div class="muted">${r} • Last: ${l?l.weight+' lb ('+l.feel+')':'none'} • Try: <b>${sg?sg+' lb':'start light'}</b></div><div class="row" style="margin-top:7px"><input id="${id}" type="number" step="2.5" value="${sg||''}" placeholder="Weight used"><div class="actions"><button class="btn bad feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="hard" data-x="${id}">😣 Hard</button><button class="btn secondary feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="good" data-x="${id}">👍 Good</button><button class="btn good feel" data-n="${n}" data-r="${r}" data-i="${i}" data-f="easy" data-x="${id}">✨ Easy</button></div></div></div>`}).join(''):DAY==='Wednesday'?'<div class="note"><b>6:30 AM recovery gym:</b> easy cardio plus optional light accessories. Keep it comfortable and save your legs for Thursday.</div>':'<div class="note">Recovery day. Light walking is enough.</div>';
  document.querySelectorAll('.feel').forEach(b=>b.onclick=()=>logLift(b.dataset.n,b.dataset.r,Number(b.dataset.i),b.dataset.f,b.dataset.x));
  const names=[...new Set(Object.values(plans).flat().map(x=>x[0]))],bests=names.map(n=>[n,best(n)]).filter(x=>x[1]).sort((a,b)=>b[1].ts-a[1].ts).slice(0,4);
  strengthSummary.innerHTML=bests.length?bests.map(([n,x])=>`<div class="tile"><div class="label">${n}</div><div class="big">${x.weight} lb</div><div class="muted">best logged</div></div>`).join(''):'<div class="note">Log your first workout and your best machine weights will show here.</div>';
