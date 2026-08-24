@@ -7,23 +7,27 @@
 <title>Baby PupFit Meals</title>
 <style>
 :root{--bg:#0b1224;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--green:#9af0b5;--pink:#ffb7db}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#10162a 58%,#15132b);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:960px;margin:auto;padding:16px 16px 80px}.hero{padding:10px 0 6px}.hero h1{font-size:clamp(2rem,8vw,3rem);margin:0}.hero p{color:var(--muted);margin:.35rem 0}.card{background:rgba(23,34,58,.96);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}}.tile,.day{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.muted{color:var(--muted)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.8rem;margin-top:8px}.btn{border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;margin-top:10px}.primary{background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.secondary{background:#23304c;color:var(--txt);border:1px solid var(--line)}.good{color:var(--green)}.today{border-color:var(--blue);box-shadow:0 0 0 2px rgba(139,213,255,.10)}.steps{line-height:1.65;margin-top:8px}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.note{padding:11px;border-radius:14px;background:rgba(139,213,255,.08);border:1px solid rgba(139,213,255,.22);line-height:1.5}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#13213b;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:none;z-index:10}a{color:inherit;text-decoration:none}.weektag{display:inline-block;background:rgba(255,183,219,.08);border:1px solid rgba(255,183,219,.25);padding:6px 10px;border-radius:999px;font-size:.82rem;color:#ffd9ec}.picker{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}select{flex:1;min-width:220px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#0a1426;color:var(--txt);font:inherit}.switch{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:#101a2d}.switch input{accent-color:#8bd5ff}.badge{display:inline-flex;gap:5px;align-items:center;padding:4px 8px;border-radius:999px;font-size:.75rem;border:1px solid var(--line);margin-left:6px}.fish{color:#bfeaff;background:rgba(139,213,255,.08)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#10162a 58%,#15132b);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:960px;margin:auto;padding:16px 16px 80px}.hero{padding:10px 0 6px}.hero h1{font-size:clamp(2rem,8vw,3rem);margin:0}.hero p{color:var(--muted);margin:.35rem 0}.card{background:rgba(23,34,58,.96);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}}.tile,.day{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.muted{color:var(--muted)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.8rem;margin-top:8px}.btn{border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;margin-top:10px}.primary{background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.secondary{background:#23304c;color:var(--txt);border:1px solid var(--line)}.good{color:var(--green)}.today{border-color:var(--blue);box-shadow:0 0 0 2px rgba(139,213,255,.10)}.steps{line-height:1.65;margin-top:8px}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.note{padding:11px;border-radius:14px;background:rgba(139,213,255,.08);border:1px solid rgba(139,213,255,.22);line-height:1.5}.warning{padding:11px;border-radius:14px;background:rgba(255,230,154,.08);border:1px solid rgba(255,230,154,.26);line-height:1.5;color:#fff4c7}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#13213b;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:none;z-index:10}a{color:inherit;text-decoration:none}.weektag{display:inline-block;background:rgba(255,183,219,.08);border:1px solid rgba(255,183,219,.25);padding:6px 10px;border-radius:999px;font-size:.82rem;color:#ffd9ec}.picker{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}select{flex:1;min-width:220px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#0a1426;color:var(--txt);font:inherit}.switch{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:#101a2d}.switch input{accent-color:#8bd5ff}.badge{display:inline-flex;gap:5px;align-items:center;padding:4px 8px;border-radius:999px;font-size:.75rem;border:1px solid var(--line);margin-left:6px}.fish{color:#bfeaff;background:rgba(139,213,255,.08)}.modebar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.modebtn{margin:0}.modebtn.active{background:linear-gradient(90deg,var(--pink),var(--blue));color:#07111e}.cute{font-size:1.05rem;font-weight:850}
 </style>
 </head>
 <body><div class="wrap">
-<div class="topbar"><div class="hero"><h1>🍼 Baby-simple meals</h1><p>Rotating meals, easy swaps, and pescatarian dinners for sharing.</p></div><a class="btn secondary" href="./">← Tracker</a></div>
+<div class="topbar"><div class="hero"><h1>🍼🐾 Baby Puppy Meals</h1><p>Human food dressed up like cozy baby food and puppy chow.</p></div><a class="btn secondary" href="./">← Tracker</a></div>
 
-<div class="card soft"><div class="note">Daily target: about <b>1,900–2,100 calories</b> and <b>150g+ protein</b>. Meals rotate automatically, but you can always pick a different one if you do not have the ingredients.</div><div class="weektag" id="rotationTag" style="margin-top:10px"></div></div>
+<div class="card soft">
+  <div class="note">Daily target: about <b>1,900–2,100 calories</b> and <b>150g+ protein</b>. Meals rotate automatically, and you can swap anything you do not have.</div>
+  <div class="warning" style="margin-top:10px"><b>🐾 Puppy rule:</b> “puppy food” here is only a cute name for normal human food. Do not eat actual dog food or pet treats.</div>
+  <div class="label" style="margin-top:12px">How should meals talk to you?</div>
+  <div class="modebar"><button class="btn secondary modebtn" data-mode="baby">🍼 Baby</button><button class="btn secondary modebtn" data-mode="puppy">🐾 Puppy</button><button class="btn secondary modebtn" data-mode="mix">🍼🐾 Baby Puppy</button></div>
+  <div class="weektag" id="rotationTag" style="margin-top:10px"></div>
+</div>
 
-<div class="card"><h2>☀️ Today’s daytime meals</h2><div class="grid" id="dayMeals"></div></div>
+<div class="card"><h2 id="dayTitle">☀️ Today’s little meals</h2><div class="grid" id="dayMeals"></div></div>
 
-<div class="card"><h2>🍽️ Tonight</h2><div id="tonight"></div><div class="picker"><label class="switch"><input id="pescOnly" type="checkbox"> 🐟 Pescatarian only</label><select id="dinnerPicker"></select><button class="btn secondary" id="pickDinnerBtn">Use this instead</button></div><div class="muted" style="margin-top:8px">No ingredients? Pick any dinner here. Your choice is remembered for today.</div></div>
+<div class="card"><h2 id="tonightTitle">🍽️ Tonight</h2><div id="tonight"></div><div class="picker"><label class="switch"><input id="pescOnly" type="checkbox"> 🐟 Pescatarian only</label><select id="dinnerPicker"></select><button class="btn secondary" id="pickDinnerBtn">Use this instead</button></div><div class="muted" style="margin-top:8px">No ingredients? Pick any dinner here. Your choice is remembered for today.</div></div>
 
-<div class="card"><h2>🐟 Pescatarian dinner ideas</h2><div class="grid" id="pescIdeas"></div></div>
-
-<div class="card"><h2>📅 This week’s dinners</h2><div id="week"></div></div>
-
-<div class="card"><h2>🛒 Grocery list</h2><div class="grid" id="grocery"></div></div>
+<div class="card"><h2>🐟 Pescatarian puppy suppers</h2><div class="grid" id="pescIdeas"></div></div>
+<div class="card"><h2>📅 This week’s supper bowl</h2><div id="week"></div></div>
+<div class="card"><h2>🛒 Baby-pup grocery basket</h2><div class="grid" id="grocery"></div></div>
 </div><div id="toast" class="toast">Logged ✓</div>
 
 <script>
@@ -31,77 +35,82 @@ const now=new Date(), day=now.toLocaleDateString(undefined,{weekday:'long'}), da
 const dayIndex=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].indexOf(day);
 function weekNumber(d){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const n=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-n);const y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return Math.ceil((((x-y)/86400000)+1)/7)}
 const rotation=(weekNumber(now)-1)%4;
+let mode=localStorage.getItem('pupfit_meal_mode')||'mix';
 
 const breakfasts=[
-{name:'Greek yogurt crunch bowl',cal:380,pro:38,desc:'Greek yogurt + berries + a little granola.'},
-{name:'Protein oatmeal',cal:400,pro:34,desc:'Oats + protein powder + berries + powdered peanut butter.'},
-{name:'Cottage cheese fruit bowl',cal:360,pro:36,desc:'Cottage cheese + fruit + a little granola.'},
-{name:'Protein pancakes',cal:410,pro:36,desc:'Protein pancakes + Greek yogurt + berries.'},
-{name:'Smoothie breakfast',cal:390,pro:38,desc:'Protein + banana + berries + Greek yogurt.'},
-{name:'Egg breakfast wrap',cal:420,pro:36,desc:'Eggs + egg whites + tortilla + salsa.'},
-{name:'Protein waffles',cal:400,pro:35,desc:'Protein waffles + Greek yogurt + fruit.'}
+{name:'Greek yogurt crunch bowl',baby:'Berry yogurt mush',puppy:'Berry breakfast puppy bowl',cal:380,pro:38,desc:'Greek yogurt + berries + a little granola.'},
+{name:'Protein oatmeal',baby:'Warm protein porridge',puppy:'Warm puppy porridge bowl',cal:400,pro:34,desc:'Oats + protein powder + berries + powdered peanut butter.'},
+{name:'Cottage cheese fruit bowl',baby:'Soft fruit & curds bowl',puppy:'Soft puppy snack bowl',cal:360,pro:36,desc:'Cottage cheese + fruit + a little granola.'},
+{name:'Protein pancakes',baby:'Tiny protein pancakes',puppy:'Puppy pancake bites',cal:410,pro:36,desc:'Protein pancakes + Greek yogurt + berries.'},
+{name:'Smoothie breakfast',baby:'Breakfast bottle smoothie',puppy:'Puppy shake',cal:390,pro:38,desc:'Protein + banana + berries + Greek yogurt.'},
+{name:'Egg breakfast wrap',baby:'Soft egg roll-up',puppy:'Puppy egg wrap',cal:420,pro:36,desc:'Eggs + egg whites + tortilla + salsa.'},
+{name:'Protein waffles',baby:'Little waffle bites',puppy:'Paw-print waffle bites',cal:400,pro:35,desc:'Protein waffles + Greek yogurt + fruit.'}
 ];
 const lunches=[
-{name:'Chicken wrap',cal:500,pro:48,desc:'Chicken + tortilla + lettuce + light cheese + salsa.'},
-{name:'Tuna rice bowl',cal:500,pro:45,desc:'Tuna + rice + cucumber + light soy sauce.'},
-{name:'Chicken burrito bowl',cal:530,pro:49,desc:'Chicken + rice + beans + salsa + lettuce.'},
-{name:'Tuna potato bowl',cal:490,pro:45,desc:'Tuna + potato + Greek-yogurt dressing + veggies.'},
-{name:'Chicken pasta salad',cal:530,pro:47,desc:'Chicken + pasta + vegetables + light dressing.'},
-{name:'Egg + cottage cheese plate',cal:480,pro:42,desc:'Eggs + cottage cheese + fruit + crackers.'},
-{name:'Tuna wrap',cal:490,pro:44,desc:'Tuna + tortilla + lettuce + Greek-yogurt dressing.'}
+{name:'Chicken wrap',baby:'Little chicken roll-up',puppy:'Chicken puppy wrap',cal:500,pro:48,desc:'Chicken + tortilla + lettuce + light cheese + salsa.'},
+{name:'Tuna rice bowl',baby:'Soft tuna rice bowl',puppy:'Tuna puppy bowl',cal:500,pro:45,desc:'Tuna + rice + cucumber + light soy sauce.'},
+{name:'Chicken burrito bowl',baby:'Little chicken bowl',puppy:'Big puppy power bowl',cal:530,pro:49,desc:'Chicken + rice + beans + salsa + lettuce.'},
+{name:'Tuna potato bowl',baby:'Tuna & mash bowl',puppy:'Tuna mash puppy bowl',cal:490,pro:45,desc:'Tuna + potato + Greek-yogurt dressing + veggies.'},
+{name:'Chicken pasta salad',baby:'Tiny chicken noodles',puppy:'Chicken noodle puppy bowl',cal:530,pro:47,desc:'Chicken + pasta + vegetables + light dressing.'},
+{name:'Egg + cottage cheese plate',baby:'Soft little lunch plate',puppy:'Puppy snack plate',cal:480,pro:42,desc:'Eggs + cottage cheese + fruit + crackers.'},
+{name:'Tuna wrap',baby:'Tuna roll-up',puppy:'Tuna puppy wrap',cal:490,pro:44,desc:'Tuna + tortilla + lettuce + Greek-yogurt dressing.'}
 ];
 const snacks=[
-{name:'Protein shake + fruit',cal:275,pro:28,desc:'Protein shake + banana, apple, or berries.'},
-{name:'Greek yogurt + fruit',cal:250,pro:25,desc:'Greek yogurt + fruit.'},
-{name:'Cottage cheese + pineapple',cal:260,pro:27,desc:'Cottage cheese + pineapple.'},
-{name:'Protein bar + fruit',cal:280,pro:22,desc:'Protein bar + fruit.'},
-{name:'Protein pudding',cal:260,pro:27,desc:'Greek yogurt mixed with protein powder.'},
-{name:'Shake + rice cakes',cal:280,pro:27,desc:'Protein shake + rice cakes.'},
-{name:'Yogurt crunch cup',cal:275,pro:25,desc:'Greek yogurt + cereal or granola.'}
+{name:'Protein shake + fruit',baby:'Protein bottle + fruit',puppy:'Puppy shake + fruit treat',cal:275,pro:28,desc:'Protein shake + banana, apple, or berries.'},
+{name:'Greek yogurt + fruit',baby:'Yogurt mush cup',puppy:'Puppy yogurt cup',cal:250,pro:25,desc:'Greek yogurt + fruit.'},
+{name:'Cottage cheese + pineapple',baby:'Soft pineapple cup',puppy:'Puppy pineapple snack',cal:260,pro:27,desc:'Cottage cheese + pineapple.'},
+{name:'Protein bar + fruit',baby:'Little snack bar + fruit',puppy:'Training treat + fruit',cal:280,pro:22,desc:'Protein bar + fruit.'},
+{name:'Protein pudding',baby:'Protein pudding cup',puppy:'Puppy pudding cup',cal:260,pro:27,desc:'Greek yogurt mixed with protein powder.'},
+{name:'Shake + rice cakes',baby:'Bottle shake + crunchy rounds',puppy:'Puppy shake + crunchy treats',cal:280,pro:27,desc:'Protein shake + rice cakes.'},
+{name:'Yogurt crunch cup',baby:'Crunchy yogurt cup',puppy:'Puppy crunch cup',cal:275,pro:25,desc:'Greek yogurt + cereal or granola.'}
 ];
 
 const dinners=[
-{name:'Chicken rice bowl',cal:600,pro:50,pesc:false,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Heat 1–2 cups vegetables','Add a little sauce','Eat']},
-{name:'Turkey tacos',cal:550,pro:48,pesc:false,steps:['Cook 6 oz lean turkey','Warm 3 small tortillas','Add lettuce + salsa','Add a little light cheese','Eat']},
-{name:'Salmon + potato + broccoli',cal:600,pro:42,pesc:true,steps:['Cook 6 oz salmon','Bake or microwave 1 medium potato','Cook broccoli','Season simply','Eat']},
-{name:'Chicken pasta',cal:600,pro:50,pesc:false,steps:['Cook 6 oz chicken','Cook 2 oz dry pasta','Add marinara','Add spinach or zucchini','Eat']},
-{name:'Shrimp stir-fry',cal:550,pro:44,pesc:true,steps:['Cook 6 oz shrimp','Make 1 cup cooked rice','Heat stir-fry vegetables','Add light teriyaki or soy sauce','Eat']},
-{name:'Tuna melt wrap + salad',cal:520,pro:42,pesc:true,steps:['Mix tuna with a little Greek yogurt or light mayo','Add to tortilla with light cheese','Toast in pan','Add side salad','Eat']},
-{name:'Fish tacos',cal:560,pro:42,pesc:true,steps:['Cook white fish or salmon','Warm 3 small tortillas','Add cabbage or lettuce','Add salsa + yogurt sauce','Eat']},
-{name:'Pesto shrimp pasta',cal:590,pro:43,pesc:true,steps:['Cook shrimp','Cook pasta','Add light pesto','Add spinach or broccoli','Mix and eat']},
-{name:'Teriyaki salmon rice bowl',cal:610,pro:44,pesc:true,steps:['Cook salmon','Make rice','Heat broccoli','Add a little teriyaki','Put in a bowl and eat']},
-{name:'Mediterranean tuna bowl',cal:540,pro:41,pesc:true,steps:['Add tuna to rice or couscous','Add cucumber + tomato','Add a little feta if wanted','Add lemon or light dressing','Eat']},
-{name:'Shrimp tacos',cal:540,pro:42,pesc:true,steps:['Cook shrimp','Warm tortillas','Add lettuce or cabbage','Add salsa + avocado or yogurt sauce','Eat']},
-{name:'Baked cod + potatoes',cal:530,pro:45,pesc:true,steps:['Bake cod with seasoning','Roast or microwave potatoes','Add green beans or broccoli','Eat']},
-{name:'Salmon pasta primavera',cal:620,pro:44,pesc:true,steps:['Cook salmon','Cook pasta','Add mixed vegetables','Add marinara or light cream sauce','Mix and eat']},
-{name:'Shrimp fried-rice bowl',cal:570,pro:40,pesc:true,steps:['Cook shrimp','Use cooked rice','Add egg + frozen peas/carrots','Add soy sauce','Stir together and eat']},
-{name:'Turkey burger bowl',cal:600,pro:45,pesc:false,steps:['Cook lean turkey patty','Cook potatoes','Add lettuce + tomato + pickles','Add ketchup/mustard','Eat']},
-{name:'Chicken fajita bowl',cal:580,pro:48,pesc:false,steps:['Cook chicken','Cook peppers + onions','Add rice','Add salsa','Eat']}
+{name:'Chicken rice bowl',baby:'Chicken & rice baby bowl',puppy:'Chicken puppy chow bowl',cal:600,pro:50,pesc:false,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Heat 1–2 cups vegetables','Add a little sauce','Eat']},
+{name:'Turkey tacos',baby:'Little turkey tacos',puppy:'Turkey taco puppy bites',cal:550,pro:48,pesc:false,steps:['Cook 6 oz lean turkey','Warm 3 small tortillas','Add lettuce + salsa','Add a little light cheese','Eat']},
+{name:'Salmon + potato + broccoli',baby:'Salmon & soft potato plate',puppy:'Salmon puppy supper',cal:600,pro:42,pesc:true,steps:['Cook 6 oz salmon','Bake or microwave 1 medium potato','Cook broccoli','Season simply','Eat']},
+{name:'Chicken pasta',baby:'Chicken noodle supper',puppy:'Chicken noodle puppy bowl',cal:600,pro:50,pesc:false,steps:['Cook 6 oz chicken','Cook 2 oz dry pasta','Add marinara','Add spinach or zucchini','Eat']},
+{name:'Shrimp stir-fry',baby:'Shrimp & rice little bowl',puppy:'Shrimp puppy power bowl',cal:550,pro:44,pesc:true,steps:['Cook 6 oz shrimp','Make 1 cup cooked rice','Heat stir-fry vegetables','Add light teriyaki or soy sauce','Eat']},
+{name:'Tuna melt wrap + salad',baby:'Tuna melt roll-up',puppy:'Tuna puppy melt',cal:520,pro:42,pesc:true,steps:['Mix tuna with a little Greek yogurt or light mayo','Add to tortilla with light cheese','Toast in pan','Add side salad','Eat']},
+{name:'Fish tacos',baby:'Little fish tacos',puppy:'Fish taco puppy bites',cal:560,pro:42,pesc:true,steps:['Cook white fish or salmon','Warm 3 small tortillas','Add cabbage or lettuce','Add salsa + yogurt sauce','Eat']},
+{name:'Pesto shrimp pasta',baby:'Creamy shrimp noodles',puppy:'Pesto shrimp puppy noodles',cal:590,pro:43,pesc:true,steps:['Cook shrimp','Cook pasta','Add light pesto','Add spinach or broccoli','Mix and eat']},
+{name:'Teriyaki salmon rice bowl',baby:'Sweet salmon rice bowl',puppy:'Teriyaki salmon puppy bowl',cal:610,pro:44,pesc:true,steps:['Cook salmon','Make rice','Heat broccoli','Add a little teriyaki','Put in a bowl and eat']},
+{name:'Mediterranean tuna bowl',baby:'Soft tuna couscous bowl',puppy:'Mediterranean tuna puppy bowl',cal:540,pro:41,pesc:true,steps:['Add tuna to rice or couscous','Add cucumber + tomato','Add a little feta if wanted','Add lemon or light dressing','Eat']},
+{name:'Shrimp tacos',baby:'Little shrimp tacos',puppy:'Shrimp taco puppy bites',cal:540,pro:42,pesc:true,steps:['Cook shrimp','Warm tortillas','Add lettuce or cabbage','Add salsa + avocado or yogurt sauce','Eat']},
+{name:'Baked cod + potatoes',baby:'Soft cod & potato plate',puppy:'Cod puppy supper plate',cal:530,pro:45,pesc:true,steps:['Bake cod with seasoning','Roast or microwave potatoes','Add green beans or broccoli','Eat']},
+{name:'Salmon pasta primavera',baby:'Salmon veggie noodles',puppy:'Salmon puppy noodle bowl',cal:620,pro:44,pesc:true,steps:['Cook salmon','Cook pasta','Add mixed vegetables','Add marinara or light cream sauce','Mix and eat']},
+{name:'Shrimp fried-rice bowl',baby:'Shrimp rice little bowl',puppy:'Shrimp puppy chow rice bowl',cal:570,pro:40,pesc:true,steps:['Cook shrimp','Use cooked rice','Add egg + frozen peas/carrots','Add soy sauce','Stir together and eat']},
+{name:'Turkey burger bowl',baby:'Turkey burger little bowl',puppy:'Turkey burger puppy bowl',cal:600,pro:45,pesc:false,steps:['Cook lean turkey patty','Cook potatoes','Add lettuce + tomato + pickles','Add ketchup/mustard','Eat']},
+{name:'Chicken fajita bowl',baby:'Chicken fajita little bowl',puppy:'Chicken fajita puppy bowl',cal:580,pro:48,pesc:false,steps:['Cook chicken','Cook peppers + onions','Add rice','Add salsa','Eat']}
 ];
 
 const dayMeal=(arr,offset=0)=>arr[(dayIndex+rotation*2+offset+7)%arr.length];
 const todayMeals=[['Breakfast',dayMeal(breakfasts)],['Lunch',dayMeal(lunches,1)],['Snack',dayMeal(snacks,2)]];
-
+function displayName(m){if(mode==='baby')return m.baby||m.name;if(mode==='puppy')return m.puppy||m.name;return `${m.baby||m.name} 🐾`}
+function labelFor(kind){if(mode==='baby')return kind==='Breakfast'?'🍼 Morning nom':kind==='Lunch'?'🥣 Little lunch':'🍓 Baby snack';if(mode==='puppy')return kind==='Breakfast'?'🐾 Morning chow':kind==='Lunch'?'🐶 Puppy lunch':'🦴 Training treat';return kind==='Breakfast'?'🍼🐾 Morning nom':kind==='Lunch'?'🥣🐶 Little puppy lunch':'🍓🦴 Baby-pup treat'}
 function addFood(name,cal,pro){let foods={};try{foods=JSON.parse(localStorage.getItem('pupfit_foods'))||{}}catch{};foods[date]=foods[date]||[];foods[date].push({id:Date.now()+Math.random(),name,cal:Number(cal),pro:Number(pro),note:'Meal plan'});localStorage.setItem('pupfit_foods',JSON.stringify(foods));toast.style.display='block';toast.textContent=`${name} logged ✓`;setTimeout(()=>toast.style.display='none',1800)}
-function mealCard(label,m){return `<div class="tile"><div class="label">${label}</div><h3>${m.name}</h3><div class="muted">${m.desc}</div><div class="pill">~${m.cal} kcal • ~${m.pro}g protein</div><br><button class="btn primary log" data-name="${m.name}" data-cal="${m.cal}" data-pro="${m.pro}">Log ${label.toLowerCase()}</button></div>`}
-dayMeals.innerHTML=todayMeals.map(([l,m])=>mealCard(l,m)).join('');
+function mealCard(label,m){const shown=displayName(m);return `<div class="tile"><div class="label">${labelFor(label)}</div><h3>${shown}</h3><div class="muted">${m.desc}</div><div class="pill">~${m.cal} kcal • ~${m.pro}g protein</div><br><button class="btn primary log" data-name="${shown}" data-cal="${m.cal}" data-pro="${m.pro}">Log ${mode==='puppy'?'chow':'meal'}</button></div>`}
+function renderDayMeals(){dayMeals.innerHTML=todayMeals.map(([l,m])=>mealCard(l,m)).join('');wireLogs()}
 
 function defaultDinner(){return dinners[(dayIndex+rotation*4+dinners.length)%dinners.length]}
 function savedDinner(){try{const x=JSON.parse(localStorage.getItem('pupfit_dinner_choices'))||{};return dinners.find(d=>d.name===x[date])||null}catch{return null}}
 let chosen=savedDinner()||defaultDinner();
-function renderTonight(){tonight.innerHTML=`<div class="day today"><div class="label">${day}</div><h3>${chosen.name}${chosen.pesc?'<span class="badge fish">🐟 pescatarian</span>':''}</h3><div class="steps">${chosen.steps.map((x,i)=>`${i+1}. ${x}`).join('<br>')}</div><div class="pill">~${chosen.cal} kcal • ~${chosen.pro}g protein</div><br><button class="btn primary log" data-name="${chosen.name}" data-cal="${chosen.cal}" data-pro="${chosen.pro}">Log tonight’s dinner</button></div>`;wireLogs()}
-function populatePicker(){const only=pescOnly.checked;const list=dinners.filter(d=>!only||d.pesc);dinnerPicker.innerHTML=list.map(d=>`<option value="${d.name}" ${d.name===chosen.name?'selected':''}>${d.pesc?'🐟 ':''}${d.name} — ~${d.cal} kcal / ${d.pro}g protein</option>`).join('')}
+function renderTonight(){const shown=displayName(chosen);tonight.innerHTML=`<div class="day today"><div class="label">${mode==='baby'?'🍼 Baby supper':mode==='puppy'?'🐾 Puppy supper':'🍼🐾 Baby puppy supper'} • ${day}</div><h3>${shown}${chosen.pesc?'<span class="badge fish">🐟 pescatarian</span>':''}</h3><div class="steps">${chosen.steps.map((x,i)=>`${i+1}. ${x}`).join('<br>')}</div><div class="pill">~${chosen.cal} kcal • ~${chosen.pro}g protein</div><br><button class="btn primary log" data-name="${shown}" data-cal="${chosen.cal}" data-pro="${chosen.pro}">Log supper</button></div>`;wireLogs()}
+function populatePicker(){const only=pescOnly.checked;const list=dinners.filter(d=>!only||d.pesc);dinnerPicker.innerHTML=list.map(d=>`<option value="${d.name}" ${d.name===chosen.name?'selected':''}>${d.pesc?'🐟 ':''}${displayName(d)} — ~${d.cal} kcal / ${d.pro}g protein</option>`).join('')}
 pescOnly.onchange=populatePicker;
-pickDinnerBtn.onclick=()=>{const next=dinners.find(d=>d.name===dinnerPicker.value);if(!next)return;chosen=next;let x={};try{x=JSON.parse(localStorage.getItem('pupfit_dinner_choices'))||{}}catch{};x[date]=chosen.name;localStorage.setItem('pupfit_dinner_choices',JSON.stringify(x));renderTonight();populatePicker();toast.style.display='block';toast.textContent=`Tonight changed to ${chosen.name} ✓`;setTimeout(()=>toast.style.display='none',1600)};
+pickDinnerBtn.onclick=()=>{const next=dinners.find(d=>d.name===dinnerPicker.value);if(!next)return;chosen=next;let x={};try{x=JSON.parse(localStorage.getItem('pupfit_dinner_choices'))||{}}catch{};x[date]=chosen.name;localStorage.setItem('pupfit_dinner_choices',JSON.stringify(x));renderTonight();populatePicker();renderExtras();toast.style.display='block';toast.textContent=`Tonight changed to ${displayName(chosen)} ✓`;setTimeout(()=>toast.style.display='none',1600)};
 
-pescIdeas.innerHTML=dinners.filter(d=>d.pesc).slice(0,10).map(d=>`<div class="tile"><h3>${d.name}<span class="badge fish">🐟 pescatarian</span></h3><div class="muted">${d.steps.slice(0,3).join(' • ')}</div><div class="pill">~${d.cal} kcal • ~${d.pro}g protein</div><br><button class="btn secondary choose" data-name="${d.name}">Pick for tonight</button></div>`).join('');
-document.querySelectorAll('.choose').forEach(b=>b.onclick=()=>{dinnerPicker.value=b.dataset.name;chosen=dinners.find(d=>d.name===b.dataset.name);let x={};try{x=JSON.parse(localStorage.getItem('pupfit_dinner_choices'))||{}}catch{};x[date]=chosen.name;localStorage.setItem('pupfit_dinner_choices',JSON.stringify(x));renderTonight();populatePicker();window.scrollTo({top:0,behavior:'smooth'})});
+function renderExtras(){
+ pescIdeas.innerHTML=dinners.filter(d=>d.pesc).slice(0,10).map(d=>`<div class="tile"><h3>${displayName(d)}<span class="badge fish">🐟 pescatarian</span></h3><div class="muted">${d.steps.slice(0,3).join(' • ')}</div><div class="pill">~${d.cal} kcal • ~${d.pro}g protein</div><br><button class="btn secondary choose" data-name="${d.name}">Pick for tonight</button></div>`).join('');
+ document.querySelectorAll('.choose').forEach(b=>b.onclick=()=>{chosen=dinners.find(d=>d.name===b.dataset.name);let x={};try{x=JSON.parse(localStorage.getItem('pupfit_dinner_choices'))||{}}catch{};x[date]=chosen.name;localStorage.setItem('pupfit_dinner_choices',JSON.stringify(x));renderTonight();populatePicker();renderExtras();window.scrollTo({top:0,behavior:'smooth'})});
+ const weekDays=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+ week.innerHTML=weekDays.map((wd,i)=>{const d=dinners[(i+rotation*4)%dinners.length];return `<div class="day ${wd===day?'today':''}"><b>${wd}${wd===day?' • TODAY':''}</b>${d.pesc?'<span class="badge fish">🐟 pescatarian</span>':''}<div class="muted">${displayName(d)} • ~${d.cal} kcal • ~${d.pro}g protein</div></div>`}).join('');
+}
 
-const weekDays=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-week.innerHTML=weekDays.map((wd,i)=>{const d=dinners[(i+rotation*4)%dinners.length];return `<div class="day ${wd===day?'today':''}"><b>${wd}${wd===day?' • TODAY':''}</b>${d.pesc?'<span class="badge fish">🐟 pescatarian</span>':''}<div class="muted">${d.name} • ~${d.cal} kcal • ~${d.pro}g protein</div></div>`}).join('');
-
-grocery.innerHTML=`<div class="tile"><b>🥩 / 🐟 Protein</b><div class="muted">Chicken breast • lean turkey • salmon • shrimp • tuna • cod/white fish • eggs • Greek yogurt • cottage cheese • protein powder</div></div><div class="tile"><b>🍚 Carbs</b><div class="muted">Rice • potatoes • pasta • tortillas • oats • granola • fruit</div></div><div class="tile"><b>🥦 Veggies</b><div class="muted">Broccoli • green beans • frozen mixed vegetables • lettuce/cabbage • spinach • peppers/onions • cucumber • tomato</div></div><div class="tile"><b>✨ Flavor</b><div class="muted">Salsa • marinara • soy/teriyaki • light pesto • light cheese • Greek yogurt • lemon • ketchup/mustard</div></div>`;
-rotationTag.textContent=`Rotation week ${rotation+1} of 4`;
+grocery.innerHTML=`<div class="tile"><b>🥩 / 🐟 Protein</b><div class="muted">Chicken breast • lean turkey • salmon • shrimp • tuna • cod/white fish • eggs • Greek yogurt • cottage cheese • protein powder</div></div><div class="tile"><b>🍚 Soft & easy carbs</b><div class="muted">Rice • potatoes • pasta • tortillas • oats • granola • fruit</div></div><div class="tile"><b>🥦 Veggies</b><div class="muted">Broccoli • green beans • frozen mixed vegetables • lettuce/cabbage • spinach • peppers/onions • cucumber • tomato</div></div><div class="tile"><b>✨ Yummy flavor</b><div class="muted">Salsa • marinara • soy/teriyaki • light pesto • light cheese • Greek yogurt • lemon • ketchup/mustard</div></div>`;
+rotationTag.textContent=`Rotation week ${rotation+1} of 4 • ${mode==='baby'?'Baby mode 🍼':mode==='puppy'?'Puppy mode 🐾':'Baby Puppy mode 🍼🐾'}`;
 function wireLogs(){document.querySelectorAll('.log').forEach(b=>b.onclick=()=>addFood(b.dataset.name,b.dataset.cal,b.dataset.pro))}
-renderTonight();populatePicker();wireLogs();
+function renderMode(){document.querySelectorAll('.modebtn').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));rotationTag.textContent=`Rotation week ${rotation+1} of 4 • ${mode==='baby'?'Baby mode 🍼':mode==='puppy'?'Puppy mode 🐾':'Baby Puppy mode 🍼🐾'}`;dayTitle.textContent=mode==='baby'?'☀️ Baby’s little meals':mode==='puppy'?'☀️ Puppy’s chow for today':'☀️ Baby puppy meals';tonightTitle.textContent=mode==='baby'?'🍽️ Baby supper':mode==='puppy'?'🐾 Puppy supper bowl':'🍼🐾 Baby puppy supper';renderDayMeals();renderTonight();populatePicker();renderExtras()}
+document.querySelectorAll('.modebtn').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;localStorage.setItem('pupfit_meal_mode',mode);renderMode()});
+renderMode();
 </script></body></html>
