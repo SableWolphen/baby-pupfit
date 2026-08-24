@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1730">
+<title>Baby PupFit Meals</title>
+<style>
+:root{--bg:#0b1224;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--green:#9af0b5}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#10162a 58%,#15132b);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:16px 16px 70px}.hero{padding:10px 0 6px}.hero h1{font-size:clamp(2rem,8vw,3rem);margin:0}.hero p{color:var(--muted);margin:.35rem 0}.card{background:rgba(23,34,58,.96);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:680px){.grid{grid-template-columns:1fr}}.tile{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.muted{color:var(--muted)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.8rem;margin-top:8px}.btn{border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;margin-top:10px}.primary{background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.secondary{background:#23304c;color:var(--txt);border:1px solid var(--line)}.good{color:var(--green)}.day{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:13px;margin:8px 0}.today{border-color:var(--blue);box-shadow:0 0 0 2px rgba(139,213,255,.10)}.steps{line-height:1.65;margin-top:8px}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.note{padding:11px;border-radius:14px;background:rgba(139,213,255,.08);border:1px solid rgba(139,213,255,.22);line-height:1.5}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#13213b;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:none;z-index:10}a{color:inherit;text-decoration:none}
+</style>
+</head>
+<body><div class="wrap">
+<div class="topbar"><div class="hero"><h1>🍼 Baby-simple meals</h1><p>Read it. Make it. Eat it. Tap log. No food-brain required.</p></div><a class="btn secondary" href="./">← Tracker</a></div>
+<div class="card soft"><div class="note">Daily target: about <b>1,900–2,100 calories</b> and <b>150g+ protein</b>. These are practical estimates, not exact lab measurements.</div></div>
+
+<div class="card"><h2>☀️ Same easy daytime meals</h2><div class="grid">
+<div class="tile"><div class="label">Breakfast</div><h3>Greek yogurt bowl</h3><div class="muted">1.5 cups nonfat Greek yogurt + berries + a little granola.</div><div class="pill">~380 kcal • ~38g protein</div><br><button class="btn primary log" data-name="Greek yogurt bowl" data-cal="380" data-pro="38">Log breakfast</button></div>
+<div class="tile"><div class="label">Lunch</div><h3>Chicken wrap</h3><div class="muted">Large tortilla + 5–6 oz chicken + lettuce + light cheese + salsa or light dressing.</div><div class="pill">~500 kcal • ~48g protein</div><br><button class="btn primary log" data-name="Chicken wrap" data-cal="500" data-pro="48">Log lunch</button></div>
+<div class="tile"><div class="label">Snack</div><h3>Protein shake + fruit</h3><div class="muted">One protein shake plus a banana, apple, or berries.</div><div class="pill">~275 kcal • ~28g protein</div><br><button class="btn primary log" data-name="Protein shake + fruit" data-cal="275" data-pro="28">Log snack</button></div>
+<div class="tile"><div class="label">If still hungry</div><h3>Simple extra</h3><div class="muted">Cottage cheese, Greek yogurt, fruit, or popcorn. Choose one and keep it easy.</div><div class="pill">~150–250 kcal</div></div>
+</div></div>
+
+<div class="card"><h2>🍽️ Tonight</h2><div id="tonight"></div></div>
+<div class="card"><h2>📅 Dinner week</h2><div id="week"></div></div>
+
+<div class="card"><h2>🛒 Grocery list</h2><div class="grid">
+<div class="tile"><b>🥩 Protein</b><div class="muted">Chicken breast • lean ground turkey • salmon • shrimp • Greek yogurt • protein shakes/powder • cottage cheese • eggs</div></div>
+<div class="tile"><b>🍚 Carbs</b><div class="muted">Rice • potatoes • pasta • tortillas • granola • bananas/apples/berries</div></div>
+<div class="tile"><b>🥦 Veggies</b><div class="muted">Frozen mixed vegetables • broccoli • green beans • lettuce • spinach • zucchini</div></div>
+<div class="tile"><b>✨ Flavor</b><div class="muted">Salsa • marinara • light cheese • light dressing • soy/teriyaki • ketchup/mustard</div></div>
+</div></div>
+</div><div id="toast" class="toast">Logged ✓</div>
+<script>
+const day=new Date().toLocaleDateString(undefined,{weekday:'long'}),date=new Date().toISOString().slice(0,10);
+const dinners={
+Monday:{name:'Chicken rice bowl',cal:600,pro:50,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Microwave 1–2 cups frozen vegetables','Put it all in a bowl','Add a little sauce','Eat']},
+Tuesday:{name:'Turkey tacos',cal:550,pro:48,steps:['Cook 6 oz lean ground turkey','Warm 3 small tortillas','Add lettuce + salsa','Add a little light cheese','Optional Greek yogurt instead of sour cream','Eat']},
+Wednesday:{name:'Salmon + potato + broccoli',cal:600,pro:42,steps:['Cook 6 oz salmon','Bake or microwave 1 medium potato','Cook broccoli or green beans','Season simply','Eat']},
+Thursday:{name:'Chicken pasta',cal:600,pro:50,steps:['Cook 6 oz chicken','Cook 2 oz dry pasta','Add marinara','Add spinach or zucchini','Mix and eat']},
+Friday:{name:'Burger bowl',cal:600,pro:45,steps:['Cook 6 oz lean beef or turkey','Cook potatoes','Add lettuce + tomato + pickles','Add ketchup/mustard','Eat']},
+Saturday:{name:'Chicken or shrimp stir-fry',cal:550,pro:48,steps:['Cook 6 oz chicken or shrimp','Make 1 cup cooked rice','Heat frozen stir-fry vegetables','Add a little soy/teriyaki sauce','Mix and eat']},
+Sunday:{name:'Comfort plate',cal:600,pro:48,steps:['Cook 6 oz chicken, turkey, or lean beef','Make roasted or mashed potatoes','Add a vegetable','Add a little light gravy/sauce if wanted','Eat']}
+};
+function addFood(name,cal,pro){let foods={};try{foods=JSON.parse(localStorage.getItem('pupfit_foods'))||{}}catch{};foods[date]=foods[date]||[];foods[date].push({id:Date.now()+Math.random(),name,cal:Number(cal),pro:Number(pro),note:'Meal plan'});localStorage.setItem('pupfit_foods',JSON.stringify(foods));toast.style.display='block';toast.textContent=`${name} logged ✓`;setTimeout(()=>toast.style.display='none',1800)}
+const d=dinners[day]||dinners.Monday;
+tonight.innerHTML=`<div class="day today"><div class="label">${day}</div><h3>${d.name}</h3><div class="steps">${d.steps.map((x,i)=>`${i+1}. ${x}`).join('<br>')}</div><div class="pill">~${d.cal} kcal • ~${d.pro}g protein</div><br><button class="btn primary log" data-name="${d.name}" data-cal="${d.cal}" data-pro="${d.pro}">Log tonight's dinner</button></div>`;
+week.innerHTML=Object.entries(dinners).map(([k,v])=>`<div class="day ${k===day?'today':''}"><b>${k}${k===day?' • TODAY':''}</b><div class="muted">${v.name} • ~${v.cal} kcal • ~${v.pro}g protein</div></div>`).join('');
+document.querySelectorAll('.log').forEach(b=>b.onclick=()=>addFood(b.dataset.name,b.dataset.cal,b.dataset.pro));
+</script></body></html>
