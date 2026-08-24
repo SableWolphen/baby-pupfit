@@ -20,6 +20,7 @@ linear-gradient(160deg,var(--bg),#10162a 58%,var(--bg2));
 color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
 button,input{font:inherit}
 button{cursor:pointer}
+a{color:inherit;text-decoration:none}
 .wrap{max-width:1050px;margin:auto;padding:14px 14px 100px}
 .hero{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 2px 8px}
 .brand h1{font-size:clamp(1.9rem,7vw,3rem);margin:0;letter-spacing:-.04em}
@@ -89,6 +90,13 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
       <div class="daystrip" id="dayStrip"></div>
     </div>
 
+    <div class="card soft">
+      <div class="label">Meals</div>
+      <div class="nexttitle">🍽️ What should I eat?</div>
+      <div class="muted">Open your rotating meal plan, swap dinner if ingredients are missing, or choose a pescatarian dinner.</div>
+      <a class="btn primary" href="meals.html" style="display:inline-flex;align-items:center;justify-content:center;margin-top:10px">Open meal planner →</a>
+    </div>
+
     <div class="card">
       <h2>🐾 What do I do now?</h2>
       <div class="grid">
@@ -104,6 +112,11 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
   </section>
 
   <section id="food" class="section">
+    <div class="card soft">
+      <h2>🍼 Meal planner</h2>
+      <div class="muted">Rotating meals, ingredient-friendly dinner swaps, pescatarian choices, grocery lists, and one-tap logging.</div>
+      <a class="btn primary" href="meals.html" style="display:inline-flex;align-items:center;justify-content:center;margin-top:10px">Choose today’s meals →</a>
+    </div>
     <div class="card">
       <h2>🍽️ Food</h2>
       <div class="grid2">
@@ -150,7 +163,7 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
 const D=new Date(),TODAY=D.toISOString().slice(0,10),DAY=D.toLocaleDateString(undefined,{weekday:'long'});
 dateLine.textContent=D.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})+' • body-goal + cozy little-space coach';
 const get=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-const esc=s=>String(s??'').replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+const esc=s=>String(s??'').replace(/[<>&\"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','\"':'&quot;'}[c]));
 let foods=get('pupfit_foods',{}),stepsData=get('pupfit_steps',{}),weightsData=get('pupfit_bodyweights',[]),lifts=get('pupfit_lifts',[]),measureData=get('pupfit_measures',[]),babyLogs=get('pupfit_baby_logs',{});
 if(!foods[TODAY])foods[TODAY]=[];
 
