@@ -72,6 +72,11 @@ input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(139,213,255,.10)}
 .chart{width:100%;height:220px;background:#0e172a;border:1px solid var(--line);border-radius:16px}
 .babyhero{background:linear-gradient(135deg,rgba(255,183,219,.10),rgba(139,213,255,.10),rgba(201,183,255,.10))}
 footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
+.schedule-now{background:linear-gradient(135deg,rgba(139,213,255,.12),rgba(201,183,255,.10));border:1px solid rgba(139,213,255,.28);border-radius:20px;padding:14px}
+.schedule-now .nexttitle{margin:4px 0 7px}.schedule-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.schedule-meta .pill{background:#0e172a;color:#d8e2f7}
+.schedule-details{margin-top:12px}.schedule-details summary{list-style:none;cursor:pointer;font-weight:900;color:var(--blue);padding:8px 2px}.schedule-details summary::-webkit-details-marker{display:none}.schedule-details summary:after{content:' ▾';color:var(--muted)}.schedule-details[open] summary:after{content:' ▴'}
+.schedule-days{display:grid;gap:7px;margin-top:5px}.schedule-day{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start;background:#0f192c;border:1px solid var(--line);border-radius:14px;padding:10px}.schedule-day.today{border-color:var(--blue);background:rgba(139,213,255,.07)}.schedule-day b{font-size:.9rem}.schedule-day small{display:block;line-height:1.4}.schedule-day .dayname{font-weight:900}
+@media(max-width:520px){.schedule-day{grid-template-columns:80px 1fr}.schedule-now{padding:12px}}
 </style>
 </head>
 <body>
@@ -98,17 +103,16 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:18px 0}
     </div>
 
     <div class="card soft">
-      <h2>🗓️ My weekly schedule</h2>
-      <div class="note"><b>Monday–Tuesday:</b> Wake around 6:30 AM • office by 8:00 AM • gym after work.<br><br><b>Wednesday–Friday:</b> Wake 4:30 AM • leave around 5:00 AM • husband at work around 5:45 AM • gym around 6:30 AM • finish around 7:20–7:30 AM • quick change/clean up • clock in by 8:00 AM.<br><br><b>Saturday–Sunday:</b> Off work.</div>
-      <div class="list">
-        <div class="item"><div><b>Monday 🍑 Lower Body A</b><small>Gym after work</small></div></div>
-        <div class="item"><div><b>Tuesday 🐾 Upper Body + Abs</b><small>Gym after work</small></div></div>
-        <div class="item"><div><b>Wednesday 🚶 Recovery gym</b><small>6:30 AM • easy cardio + optional light accessories</small></div></div>
-        <div class="item"><div><b>Thursday 🍑 Lower Body B</b><small>6:30 AM • main glute day</small></div></div>
-        <div class="item"><div><b>Friday 🐾 Light Glutes + Legs + Abs</b><small>6:30 AM • keep it efficient</small></div></div>
-        <div class="item"><div><b>Saturday 🧸 Rest / easy walk</b><small>No required gym</small></div></div>
-        <div class="item"><div><b>Sunday 🌙 Rest / meal prep</b><small>Set up Monday to be easy</small></div></div>
+      <div class="label">Today’s schedule</div>
+      <div class="schedule-now">
+        <div class="nexttitle" id="todayScheduleTitle">Loading today…</div>
+        <div class="muted" id="todayScheduleText"></div>
+        <div class="schedule-meta" id="todayScheduleMeta"></div>
       </div>
+      <details class="schedule-details">
+        <summary>View full week</summary>
+        <div class="schedule-days" id="scheduleDays"></div>
+      </details>
     </div>
 
     <div class="card">
@@ -187,6 +191,15 @@ Tuesday:[['Lat Pulldown','3 × 10–12',5],['Seated Row','3 × 10–12',5],['Che
 Thursday:[['Glute Drive / Hip Thrust','3 × 10–12',5],['Leg Press','3 × 10–12',5],['Seated Leg Curl','3 × 10–15',5],['Hip Abduction','4 × 15–20',5],['Glute Kickback','3 × 12–15 / leg',5]],
 Friday:[['Leg Press','2 × 12–15',5],['Hip Abduction','3 × 20',5],['Glute Kickback','3 × 15 / leg',5],['Seated Leg Curl','2 × 12–15',5],['Ab Crunch','3 × 15',5]]
 };
+const schedule={
+Monday:{title:'🍑 Lower Body A',text:'Workday + gym after work.',meta:['⏰ Wake ~6:30 AM','🏢 Office by 8:00 AM','🏋️ Gym after work']},
+Tuesday:{title:'🐾 Upper Body + Abs',text:'Workday + gym after work.',meta:['⏰ Wake ~6:30 AM','🏢 Office by 8:00 AM','🏋️ Gym after work']},
+Wednesday:{title:'🚶 Recovery gym',text:'Easy gym morning after your husband’s drop-off. Keep this one comfortable.',meta:['⏰ Wake 4:30 AM','🚗 Husband at work ~5:45 AM','🏋️ Gym ~6:30 AM','🏢 Clock in by 8:00 AM']},
+Thursday:{title:'🍑 Lower Body B',text:'Main glute day before work.',meta:['⏰ Wake 4:30 AM','🚗 Husband at work ~5:45 AM','🏋️ Gym ~6:30 AM','🏢 Clock in by 8:00 AM']},
+Friday:{title:'🐾 Light Glutes + Legs + Abs',text:'Short, efficient morning workout before work.',meta:['⏰ Wake 4:30 AM','🚗 Husband at work ~5:45 AM','🏋️ Gym ~6:30 AM','🏢 Clock in by 8:00 AM']},
+Saturday:{title:'🧸 Rest / easy walk',text:'No required gym. Recover and get normal movement.',meta:['💤 Off work','🚶 Easy steps if you want']},
+Sunday:{title:'🌙 Rest / meal prep',text:'Recovery day and make Monday easier.',meta:['💤 Off work','🍽️ Meal prep / reset']}
+};
 const babyItems=[['brush','🪥 Brush teeth'],['wash','🧼 Wash up / skincare'],['pjs','🩵 Cozy pajamas'],['drink','🍼 Bottle / warm drink / water'],['plush','🧸 Pick a plushie'],['calm','🌙 10-minute quiet wind-down'],['sleep','😴 Settle in for sleep']];
 const comfortList=['🧸 Plushie cuddle','🍼 Bottle / warm drink','💙 Pacifier time','📺 Comfort show','🧺 Cozy pajamas / blanket','🌙 Quiet cuddle time'];
 
@@ -213,7 +226,7 @@ function weightTrend(){const s=weightsData.slice().sort((a,b)=>a.date.localeComp
 
 function renderChart(){const c=weightChart,ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);const arr=weightsData.slice().sort((a,b)=>a.date.localeCompare(b.date)).slice(-14);if(arr.length<2){ctx.fillStyle='#aeb9d4';ctx.font='24px system-ui';ctx.fillText('Add a few weigh-ins to see your trend.',34,130);return}const vals=arr.map(x=>Number(x.w)),min=Math.min(...vals)-1,max=Math.max(...vals)+1,p=44,w=c.width-p*2,h=c.height-p*2;ctx.strokeStyle='#2a3858';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(p,p);ctx.lineTo(p,p+h);ctx.lineTo(p+w,p+h);ctx.stroke();ctx.strokeStyle='#8bd5ff';ctx.lineWidth=5;ctx.beginPath();arr.forEach((x,i)=>{const xx=p+i/(arr.length-1)*w,yy=p+h-(Number(x.w)-min)/(max-min)*h;i?ctx.lineTo(xx,yy):ctx.moveTo(xx,yy)});ctx.stroke();ctx.fillStyle='#aeb9d4';ctx.font='18px system-ui';ctx.fillText(max.toFixed(1),4,p+8);ctx.fillText(min.toFixed(1),4,p+h)}
 function render(){
- const s=totals(),p=plans[DAY]||[],done=workoutDone(),a=action(s),score=dayScore();
+ const s=totals(),p=plans[DAY]||[],done=workoutDone(),a=action(s),score=dayScore(),sd=schedule[DAY];
  cal.textContent=s.cal;pro.textContent=s.pro;steps.textContent=s.st.toLocaleString();
  calleft.textContent=s.cal<1900?`${1900-s.cal} to minimum`:s.cal<=2100?'Inside target ✅':`${s.cal-2100} above target`;
  proleft.textContent=s.pro<150?`${Math.ceil(150-s.pro)}g left`:'Target reached ✅';
@@ -225,6 +238,8 @@ function render(){
  const seven=[...Array(7)].map((_,i)=>{let d=new Date();d.setDate(d.getDate()-(6-i));return d});
  dayStrip.innerHTML=seven.map(d=>{let k=d.toISOString().slice(0,10),sc=dayScore(k),is=k===TODAY;return `<div class="daydot ${is?'today':''} ${sc>=60?'done':''}">${d.toLocaleDateString(undefined,{weekday:'short'}).slice(0,1)}<strong>${d.getDate()}</strong><small>${sc}%</small></div>`}).join('');
  weekly.innerHTML=weeklyCards().map(([l,v])=>`<div class="tile"><div class="label">${l}</div><div class="big">${v}</div></div>`).join('');
+ todayScheduleTitle.textContent=sd.title;todayScheduleText.textContent=sd.text;todayScheduleMeta.innerHTML=sd.meta.map(x=>`<span class="pill">${x}</span>`).join('');
+ scheduleDays.innerHTML=Object.entries(schedule).map(([day,x])=>`<div class="schedule-day ${day===DAY?'today':''}"><div class="dayname">${day.slice(0,3)}</div><div><b>${x.title}</b><small>${x.meta.join(' • ')}</small></div></div>`).join('');
 
  foodCalTotal.textContent=s.cal;foodProTotal.textContent=s.pro;
  foodList.innerHTML=(foods[TODAY]||[]).map(x=>`<div class="item"><div><b>${esc(x.name)}</b><small>${x.cal} kcal • ${x.pro}g protein</small></div><button class="btn bad rm" data-id="${x.id}">Remove</button></div>`).join('')||'<small>Nothing logged yet.</small>';
