@@ -6,45 +6,218 @@
 <meta name="theme-color" content="#0f1730">
 <title>Baby PupFit Meals</title>
 <style>
-:root{--bg:#0b1224;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--green:#9af0b5}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#10162a 58%,#15132b);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:16px 16px 70px}.hero{padding:10px 0 6px}.hero h1{font-size:clamp(2rem,8vw,3rem);margin:0}.hero p{color:var(--muted);margin:.35rem 0}.card{background:rgba(23,34,58,.96);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:680px){.grid{grid-template-columns:1fr}}.tile{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.muted{color:var(--muted)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.8rem;margin-top:8px}.btn{border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;margin-top:10px}.primary{background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.secondary{background:#23304c;color:var(--txt);border:1px solid var(--line)}.good{color:var(--green)}.day{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:13px;margin:8px 0}.today{border-color:var(--blue);box-shadow:0 0 0 2px rgba(139,213,255,.10)}.steps{line-height:1.65;margin-top:8px}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.note{padding:11px;border-radius:14px;background:rgba(139,213,255,.08);border:1px solid rgba(139,213,255,.22);line-height:1.5}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#13213b;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:none;z-index:10}a{color:inherit;text-decoration:none}
+:root{--bg:#0b1224;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--green:#9af0b5;--pink:#ffb7db}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1224,#10162a 58%,#15132b);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:920px;margin:auto;padding:16px 16px 80px}.hero{padding:10px 0 6px}.hero h1{font-size:clamp(2rem,8vw,3rem);margin:0}.hero p{color:var(--muted);margin:.35rem 0}.card{background:rgba(23,34,58,.96);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:680px){.grid{grid-template-columns:1fr}}.tile{background:var(--panel2);border:1px solid var(--line);border-radius:17px;padding:13px}.label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.muted{color:var(--muted)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.8rem;margin-top:8px}.btn{border:0;border-radius:14px;padding:11px 14px;font-weight:900;cursor:pointer;margin-top:10px}.primary{background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.secondary{background:#23304c;color:var(--txt);border:1px solid var(--line)}.good{color:var(--green)}.day{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:13px;margin:8px 0}.today{border-color:var(--blue);box-shadow:0 0 0 2px rgba(139,213,255,.10)}.steps{line-height:1.65;margin-top:8px}.topbar{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.note{padding:11px;border-radius:14px;background:rgba(139,213,255,.08);border:1px solid rgba(139,213,255,.22);line-height:1.5}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#13213b;border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:none;z-index:10}a{color:inherit;text-decoration:none}.weektag{display:inline-block;background:rgba(255,183,219,.08);border:1px solid rgba(255,183,219,.25);padding:6px 10px;border-radius:999px;font-size:.82rem;color:#ffd9ec}
 </style>
 </head>
 <body><div class="wrap">
-<div class="topbar"><div class="hero"><h1>🍼 Baby-simple meals</h1><p>Read it. Make it. Eat it. Tap log. No food-brain required.</p></div><a class="btn secondary" href="./">← Tracker</a></div>
-<div class="card soft"><div class="note">Daily target: about <b>1,900–2,100 calories</b> and <b>150g+ protein</b>. These are practical estimates, not exact lab measurements.</div></div>
+<div class="topbar"><div class="hero"><h1>🍼 Baby-simple meals</h1><p>Meals rotate automatically so baby does not eat the same thing forever.</p></div><a class="btn secondary" href="./">← Tracker</a></div>
 
-<div class="card"><h2>☀️ Same easy daytime meals</h2><div class="grid">
-<div class="tile"><div class="label">Breakfast</div><h3>Greek yogurt bowl</h3><div class="muted">1.5 cups nonfat Greek yogurt + berries + a little granola.</div><div class="pill">~380 kcal • ~38g protein</div><br><button class="btn primary log" data-name="Greek yogurt bowl" data-cal="380" data-pro="38">Log breakfast</button></div>
-<div class="tile"><div class="label">Lunch</div><h3>Chicken wrap</h3><div class="muted">Large tortilla + 5–6 oz chicken + lettuce + light cheese + salsa or light dressing.</div><div class="pill">~500 kcal • ~48g protein</div><br><button class="btn primary log" data-name="Chicken wrap" data-cal="500" data-pro="48">Log lunch</button></div>
-<div class="tile"><div class="label">Snack</div><h3>Protein shake + fruit</h3><div class="muted">One protein shake plus a banana, apple, or berries.</div><div class="pill">~275 kcal • ~28g protein</div><br><button class="btn primary log" data-name="Protein shake + fruit" data-cal="275" data-pro="28">Log snack</button></div>
-<div class="tile"><div class="label">If still hungry</div><h3>Simple extra</h3><div class="muted">Cottage cheese, Greek yogurt, fruit, or popcorn. Choose one and keep it easy.</div><div class="pill">~150–250 kcal</div></div>
-</div></div>
+<div class="card soft">
+  <div class="note">Daily target: about <b>1,900–2,100 calories</b> and <b>150g+ protein</b>. The menu rotates on a 4-week cycle, then repeats.</div>
+  <div class="weektag" id="rotationTag" style="margin-top:10px"></div>
+</div>
+
+<div class="card"><h2>☀️ Today’s daytime meals</h2><div class="grid" id="dayMeals"></div></div>
 
 <div class="card"><h2>🍽️ Tonight</h2><div id="tonight"></div></div>
-<div class="card"><h2>📅 Dinner week</h2><div id="week"></div></div>
+<div class="card"><h2>📅 This week’s dinners</h2><div id="week"></div></div>
 
-<div class="card"><h2>🛒 Grocery list</h2><div class="grid">
-<div class="tile"><b>🥩 Protein</b><div class="muted">Chicken breast • lean ground turkey • salmon • shrimp • Greek yogurt • protein shakes/powder • cottage cheese • eggs</div></div>
-<div class="tile"><b>🍚 Carbs</b><div class="muted">Rice • potatoes • pasta • tortillas • granola • bananas/apples/berries</div></div>
-<div class="tile"><b>🥦 Veggies</b><div class="muted">Frozen mixed vegetables • broccoli • green beans • lettuce • spinach • zucchini</div></div>
-<div class="tile"><b>✨ Flavor</b><div class="muted">Salsa • marinara • light cheese • light dressing • soy/teriyaki • ketchup/mustard</div></div>
-</div></div>
+<div class="card"><h2>🛒 Grocery list for this rotation</h2><div class="grid" id="grocery"></div></div>
 </div><div id="toast" class="toast">Logged ✓</div>
+
 <script>
-const day=new Date().toLocaleDateString(undefined,{weekday:'long'}),date=new Date().toISOString().slice(0,10);
-const dinners={
-Monday:{name:'Chicken rice bowl',cal:600,pro:50,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Microwave 1–2 cups frozen vegetables','Put it all in a bowl','Add a little sauce','Eat']},
-Tuesday:{name:'Turkey tacos',cal:550,pro:48,steps:['Cook 6 oz lean ground turkey','Warm 3 small tortillas','Add lettuce + salsa','Add a little light cheese','Optional Greek yogurt instead of sour cream','Eat']},
-Wednesday:{name:'Salmon + potato + broccoli',cal:600,pro:42,steps:['Cook 6 oz salmon','Bake or microwave 1 medium potato','Cook broccoli or green beans','Season simply','Eat']},
+const now=new Date(), day=now.toLocaleDateString(undefined,{weekday:'long'}), date=now.toISOString().slice(0,10);
+function weekNumber(d){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const n=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-n);const y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return Math.ceil((((x-y)/86400000)+1)/7)}
+const rotation=(weekNumber(now)-1)%4;
+
+const breakfastSets=[
+[
+{name:'Greek yogurt crunch bowl',cal:380,pro:38,desc:'1.5 cups nonfat Greek yogurt + berries + a little granola.'},
+{name:'Egg + turkey breakfast wrap',cal:420,pro:36,desc:'2 eggs + egg whites + turkey in a tortilla with salsa.'},
+{name:'Protein oatmeal',cal:400,pro:34,desc:'Oats + protein powder + berries + a little peanut butter.'},
+{name:'Cottage cheese fruit bowl',cal:360,pro:36,desc:'Cottage cheese + pineapple or berries + a little granola.'},
+{name:'Breakfast sandwich',cal:430,pro:35,desc:'Egg + turkey sausage + light cheese on an English muffin.'},
+{name:'Protein pancakes',cal:410,pro:36,desc:'Protein pancake mix + Greek yogurt + berries.'},
+{name:'Smoothie breakfast',cal:390,pro:38,desc:'Protein shake blended with banana, berries, and Greek yogurt.'}
+],
+[
+{name:'Greek yogurt banana bowl',cal:390,pro:38,desc:'Greek yogurt + banana + cinnamon + a little granola.'},
+{name:'Egg-white breakfast tacos',cal:410,pro:37,desc:'Egg whites + 1 egg + turkey + 3 small tortillas + salsa.'},
+{name:'Overnight protein oats',cal:395,pro:35,desc:'Oats + protein powder + milk + berries, chilled overnight.'},
+{name:'Cottage cheese toast',cal:380,pro:34,desc:'Cottage cheese on toast with fruit on the side.'},
+{name:'Turkey egg scramble',cal:420,pro:39,desc:'Eggs + turkey + potatoes + peppers/onions.'},
+{name:'Yogurt waffle plate',cal:400,pro:35,desc:'Protein waffles + Greek yogurt + berries.'},
+{name:'Chocolate banana shake',cal:390,pro:38,desc:'Chocolate protein + banana + milk + ice.'}
+],
+[
+{name:'Berry protein parfait',cal:380,pro:37,desc:'Greek yogurt + berries + cereal or granola.'},
+{name:'Ham egg English muffin',cal:420,pro:36,desc:'Egg + lean ham + light cheese on an English muffin.'},
+{name:'Apple cinnamon protein oats',cal:400,pro:34,desc:'Oats + protein + apple + cinnamon.'},
+{name:'Cottage cheese berry bowl',cal:360,pro:35,desc:'Cottage cheese + berries + a drizzle of honey.'},
+{name:'Breakfast burrito',cal:440,pro:38,desc:'Eggs + turkey sausage + potato + salsa in a tortilla.'},
+{name:'Protein French toast',cal:420,pro:36,desc:'High-protein bread dipped in egg mix + Greek yogurt.'},
+{name:'Strawberry smoothie bowl',cal:390,pro:37,desc:'Protein smoothie topped with fruit and a little granola.'}
+],
+[
+{name:'Peach yogurt bowl',cal:380,pro:38,desc:'Greek yogurt + peaches + granola.'},
+{name:'Egg turkey bagel thin',cal:430,pro:37,desc:'Egg + turkey + light cheese on a bagel thin.'},
+{name:'PB banana protein oats',cal:420,pro:35,desc:'Oats + protein + banana + powdered peanut butter.'},
+{name:'Cottage cheese + toast',cal:370,pro:35,desc:'Cottage cheese + toast + berries.'},
+{name:'Breakfast quesadilla',cal:430,pro:38,desc:'Egg + turkey + light cheese folded in a tortilla.'},
+{name:'Protein waffle sandwich',cal:420,pro:36,desc:'Protein waffles + Greek yogurt + fruit.'},
+{name:'Vanilla berry shake',cal:390,pro:38,desc:'Vanilla protein + berries + milk + Greek yogurt.'}
+]
+];
+
+const lunchSets=[
+[
+{name:'Chicken wrap',cal:500,pro:48,desc:'5–6 oz chicken + tortilla + lettuce + light cheese + salsa.'},
+{name:'Turkey rice bowl',cal:520,pro:47,desc:'Lean turkey + rice + vegetables + salsa.'},
+{name:'Chicken Caesar wrap',cal:510,pro:46,desc:'Chicken + romaine + light Caesar + tortilla.'},
+{name:'Tuna potato bowl',cal:490,pro:45,desc:'Tuna + potato + light mayo or Greek yogurt + veggies.'},
+{name:'Turkey sandwich plate',cal:500,pro:44,desc:'Turkey sandwich + fruit + Greek yogurt.'},
+{name:'Chicken burrito bowl',cal:530,pro:49,desc:'Chicken + rice + beans + salsa + lettuce.'},
+{name:'Protein snack plate',cal:500,pro:45,desc:'Turkey, cottage cheese, fruit, crackers, and veggies.'}
+],
+[
+{name:'Turkey taco bowl',cal:510,pro:47,desc:'Lean turkey + rice + lettuce + salsa + light cheese.'},
+{name:'Chicken pesto wrap',cal:520,pro:46,desc:'Chicken + tortilla + spinach + light pesto.'},
+{name:'Tuna wrap',cal:490,pro:44,desc:'Tuna + tortilla + lettuce + Greek-yogurt dressing.'},
+{name:'Chicken rice bowl',cal:520,pro:48,desc:'Chicken + rice + mixed vegetables + light sauce.'},
+{name:'Turkey burger wrap',cal:510,pro:45,desc:'Turkey patty + tortilla + lettuce + tomato + pickles.'},
+{name:'Chicken pasta salad',cal:530,pro:47,desc:'Chicken + pasta + veggies + light dressing.'},
+{name:'Deli turkey box',cal:500,pro:44,desc:'Turkey + cheese + fruit + yogurt + crackers.'}
+],
+[
+{name:'Buffalo chicken wrap',cal:510,pro:47,desc:'Chicken + buffalo sauce + lettuce + light ranch in a tortilla.'},
+{name:'Turkey pasta bowl',cal:530,pro:46,desc:'Lean turkey + pasta + marinara + spinach.'},
+{name:'Tuna rice bowl',cal:500,pro:45,desc:'Tuna + rice + cucumber + light soy sauce.'},
+{name:'Chicken fajita bowl',cal:520,pro:48,desc:'Chicken + peppers/onions + rice + salsa.'},
+{name:'Turkey club wrap',cal:510,pro:45,desc:'Turkey + bacon-style turkey + lettuce + tomato in a tortilla.'},
+{name:'Chicken Greek bowl',cal:520,pro:47,desc:'Chicken + rice + cucumber + tomato + Greek-yogurt sauce.'},
+{name:'Protein lunch plate',cal:500,pro:45,desc:'Chicken or turkey + cottage cheese + fruit + crackers.'}
+],
+[
+{name:'BBQ chicken wrap',cal:510,pro:47,desc:'Chicken + light BBQ + slaw/lettuce + tortilla.'},
+{name:'Turkey burrito bowl',cal:520,pro:47,desc:'Turkey + rice + beans + lettuce + salsa.'},
+{name:'Tuna melt wrap',cal:500,pro:44,desc:'Tuna + light cheese + tortilla + veggies.'},
+{name:'Chicken teriyaki bowl',cal:530,pro:48,desc:'Chicken + rice + broccoli + light teriyaki.'},
+{name:'Turkey pita',cal:500,pro:45,desc:'Turkey + pita + lettuce + tomato + yogurt sauce.'},
+{name:'Chicken taco salad',cal:510,pro:47,desc:'Chicken + lettuce + beans + salsa + a little cheese.'},
+{name:'Protein picnic plate',cal:500,pro:45,desc:'Turkey + yogurt + fruit + veggies + crackers.'}
+]
+];
+
+const snackSets=[
+[
+{name:'Protein shake + fruit',cal:275,pro:28,desc:'Protein shake + banana, apple, or berries.'},
+{name:'Greek yogurt + fruit',cal:250,pro:25,desc:'Greek yogurt + fruit.'},
+{name:'Cottage cheese + pineapple',cal:260,pro:27,desc:'Cottage cheese + pineapple.'},
+{name:'Protein bar + fruit',cal:280,pro:22,desc:'One protein bar + fruit.'},
+{name:'Shake + rice cakes',cal:280,pro:27,desc:'Protein shake + 2 rice cakes.'},
+{name:'Turkey roll-ups + fruit',cal:260,pro:26,desc:'Turkey slices rolled with light cheese + fruit.'},
+{name:'Greek yogurt + cereal',cal:270,pro:25,desc:'Greek yogurt + a small handful of cereal.'}
+],
+[
+{name:'Chocolate protein shake',cal:250,pro:28,desc:'Chocolate protein + milk + ice.'},
+{name:'Cottage cheese + berries',cal:250,pro:27,desc:'Cottage cheese + berries.'},
+{name:'Greek yogurt + banana',cal:270,pro:25,desc:'Greek yogurt + banana.'},
+{name:'Turkey + cheese snack box',cal:270,pro:26,desc:'Turkey + light cheese + fruit.'},
+{name:'Protein pudding',cal:260,pro:27,desc:'Greek yogurt mixed with protein powder.'},
+{name:'Shake + apple',cal:270,pro:28,desc:'Protein shake + apple.'},
+{name:'Yogurt + granola mini bowl',cal:280,pro:24,desc:'Greek yogurt + a little granola.'}
+],
+[
+{name:'Vanilla berry shake',cal:260,pro:28,desc:'Vanilla protein + berries + milk.'},
+{name:'Greek yogurt + peaches',cal:250,pro:25,desc:'Greek yogurt + peaches.'},
+{name:'Cottage cheese + fruit',cal:255,pro:27,desc:'Cottage cheese + any fruit.'},
+{name:'Protein bar',cal:250,pro:22,desc:'Protein bar + water or zero-cal drink.'},
+{name:'Turkey roll-ups',cal:250,pro:27,desc:'Turkey + light cheese roll-ups.'},
+{name:'Shake + banana',cal:280,pro:28,desc:'Protein shake + banana.'},
+{name:'Yogurt protein mousse',cal:260,pro:28,desc:'Greek yogurt + protein powder.'}
+],
+[
+{name:'Strawberry protein shake',cal:260,pro:28,desc:'Protein + strawberries + milk.'},
+{name:'Greek yogurt + apple',cal:255,pro:25,desc:'Greek yogurt + chopped apple + cinnamon.'},
+{name:'Cottage cheese + peaches',cal:255,pro:27,desc:'Cottage cheese + peaches.'},
+{name:'Protein bar + berries',cal:270,pro:22,desc:'Protein bar + berries.'},
+{name:'Turkey snack plate',cal:260,pro:26,desc:'Turkey + light cheese + cucumber.'},
+{name:'Shake + orange',cal:270,pro:28,desc:'Protein shake + orange.'},
+{name:'Yogurt crunch cup',cal:275,pro:25,desc:'Greek yogurt + cereal/granola.'}
+]
+];
+
+const dinnerSets=[
+{
+Monday:{name:'Chicken rice bowl',cal:600,pro:50,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Microwave 1–2 cups vegetables','Add a little sauce','Put it in a bowl and eat']},
+Tuesday:{name:'Turkey tacos',cal:550,pro:48,steps:['Cook 6 oz lean ground turkey','Warm 3 small tortillas','Add lettuce + salsa','Add a little light cheese','Eat']},
+Wednesday:{name:'Salmon + potato + broccoli',cal:600,pro:42,steps:['Cook 6 oz salmon','Microwave or bake 1 medium potato','Cook broccoli','Season simply','Eat']},
 Thursday:{name:'Chicken pasta',cal:600,pro:50,steps:['Cook 6 oz chicken','Cook 2 oz dry pasta','Add marinara','Add spinach or zucchini','Mix and eat']},
 Friday:{name:'Burger bowl',cal:600,pro:45,steps:['Cook 6 oz lean beef or turkey','Cook potatoes','Add lettuce + tomato + pickles','Add ketchup/mustard','Eat']},
-Saturday:{name:'Chicken or shrimp stir-fry',cal:550,pro:48,steps:['Cook 6 oz chicken or shrimp','Make 1 cup cooked rice','Heat frozen stir-fry vegetables','Add a little soy/teriyaki sauce','Mix and eat']},
-Sunday:{name:'Comfort plate',cal:600,pro:48,steps:['Cook 6 oz chicken, turkey, or lean beef','Make roasted or mashed potatoes','Add a vegetable','Add a little light gravy/sauce if wanted','Eat']}
-};
-function addFood(name,cal,pro){let foods={};try{foods=JSON.parse(localStorage.getItem('pupfit_foods'))||{}}catch{};foods[date]=foods[date]||[];foods[date].push({id:Date.now()+Math.random(),name,cal:Number(cal),pro:Number(pro),note:'Meal plan'});localStorage.setItem('pupfit_foods',JSON.stringify(foods));toast.style.display='block';toast.textContent=`${name} logged ✓`;setTimeout(()=>toast.style.display='none',1800)}
-const d=dinners[day]||dinners.Monday;
-tonight.innerHTML=`<div class="day today"><div class="label">${day}</div><h3>${d.name}</h3><div class="steps">${d.steps.map((x,i)=>`${i+1}. ${x}`).join('<br>')}</div><div class="pill">~${d.cal} kcal • ~${d.pro}g protein</div><br><button class="btn primary log" data-name="${d.name}" data-cal="${d.cal}" data-pro="${d.pro}">Log tonight's dinner</button></div>`;
+Saturday:{name:'Chicken stir-fry',cal:550,pro:48,steps:['Cook 6 oz chicken','Make 1 cup cooked rice','Heat stir-fry vegetables','Add light teriyaki or soy sauce','Mix and eat']},
+Sunday:{name:'Comfort plate',cal:600,pro:48,steps:['Cook 6 oz chicken or turkey','Make potatoes','Add a vegetable','Add a little gravy/sauce if wanted','Eat']}
+},
+{
+Monday:{name:'Turkey meatballs + pasta',cal:590,pro:48,steps:['Cook turkey meatballs','Cook 2 oz dry pasta','Warm marinara','Add spinach or broccoli','Combine and eat']},
+Tuesday:{name:'Chicken fajita bowl',cal:570,pro:50,steps:['Cook 6 oz chicken with fajita seasoning','Cook peppers/onions','Make 1 cup rice','Add salsa','Eat']},
+Wednesday:{name:'Shrimp fried-rice-ish bowl',cal:560,pro:46,steps:['Cook 6 oz shrimp','Heat rice + mixed vegetables','Scramble in 1 egg if wanted','Add soy sauce','Eat']},
+Thursday:{name:'Turkey chili bowl',cal:590,pro:49,steps:['Brown lean turkey','Add canned beans + tomatoes + chili seasoning','Simmer 10–15 minutes','Add a little light cheese','Eat']},
+Friday:{name:'BBQ chicken potato plate',cal:590,pro:49,steps:['Cook 6 oz chicken','Bake or microwave potato','Add broccoli or green beans','Add a little BBQ sauce','Eat']},
+Saturday:{name:'Lean beef taco bowl',cal:610,pro:46,steps:['Cook lean beef','Make rice','Add lettuce + salsa + beans','Add a little cheese','Eat']},
+Sunday:{name:'Chicken noodle comfort bowl',cal:580,pro:47,steps:['Cook 6 oz chicken','Cook noodles','Add broth + frozen vegetables','Season','Eat']}
+},
+{
+Monday:{name:'Teriyaki chicken bowl',cal:580,pro:50,steps:['Cook 6 oz chicken','Make rice','Steam broccoli','Add light teriyaki','Eat']},
+Tuesday:{name:'Turkey burger + potato wedges',cal:600,pro:46,steps:['Cook turkey burger patty','Roast or air-fry potato wedges','Add lettuce/tomato/pickles','Add ketchup/mustard','Eat']},
+Wednesday:{name:'Salmon rice bowl',cal:610,pro:43,steps:['Cook 6 oz salmon','Make rice','Add cucumber or broccoli','Add a little soy sauce','Eat']},
+Thursday:{name:'Chicken quesadilla plate',cal:580,pro:48,steps:['Cook chicken','Put chicken + light cheese in tortillas','Toast in pan','Add salsa + lettuce','Eat']},
+Friday:{name:'Turkey pasta bake bowl',cal:600,pro:48,steps:['Brown lean turkey','Cook pasta','Mix with marinara','Top with a little light cheese','Heat and eat']},
+Saturday:{name:'Shrimp taco night',cal:560,pro:45,steps:['Cook 6 oz shrimp','Warm 3 tortillas','Add slaw/lettuce + salsa','Add yogurt sauce if wanted','Eat']},
+Sunday:{name:'Roast chicken comfort plate',cal:600,pro:50,steps:['Cook chicken','Make mashed or roasted potatoes','Add green beans','Add light gravy if wanted','Eat']}
+},
+{
+Monday:{name:'Buffalo chicken bowl',cal:570,pro:50,steps:['Cook 6 oz chicken','Make rice or potatoes','Add lettuce or broccoli','Add buffalo sauce + a little light ranch','Eat']},
+Tuesday:{name:'Turkey enchilada bowl',cal:590,pro:48,steps:['Cook lean turkey','Add rice + beans','Add enchilada sauce or salsa','Top with a little light cheese','Eat']},
+Wednesday:{name:'Garlic shrimp pasta',cal:580,pro:46,steps:['Cook 6 oz shrimp','Cook 2 oz pasta','Add garlic seasoning + vegetables','Add a little light sauce','Eat']},
+Thursday:{name:'Chicken pesto pasta',cal:600,pro:49,steps:['Cook 6 oz chicken','Cook pasta','Add spinach','Add a small amount of pesto','Mix and eat']},
+Friday:{name:'Lean beef rice bowl',cal:610,pro:46,steps:['Cook lean beef','Make rice','Add mixed vegetables','Add soy or light sauce','Eat']},
+Saturday:{name:'Chicken taco night',cal:570,pro:49,steps:['Cook chicken','Warm 3 tortillas','Add lettuce + salsa','Add a little cheese','Eat']},
+Sunday:{name:'Turkey shepherd-ish bowl',cal:590,pro:47,steps:['Cook lean turkey','Heat mixed vegetables','Make mashed potatoes','Layer together','Eat']}
+}
+];
+
+const grocerySets=[
+['Chicken breast','lean ground turkey','salmon','Greek yogurt','cottage cheese','eggs','protein powder','rice','potatoes','pasta','tortillas','berries/bananas/apples','mixed vegetables','broccoli','lettuce','salsa','marinara','light cheese','light sauces'],
+['Chicken breast','lean ground turkey','shrimp','turkey meatballs','Greek yogurt','cottage cheese','protein powder','rice','pasta','potatoes','beans','tortillas','fruit','peppers/onions','mixed vegetables','broccoli','tomatoes','BBQ sauce','soy sauce'],
+['Chicken breast','lean turkey burgers','salmon','shrimp','Greek yogurt','cottage cheese','protein powder','rice','potatoes','pasta','tortillas','fruit','cucumber','broccoli','green beans','lettuce','salsa','marinara','light cheese'],
+['Chicken breast','lean ground turkey','lean beef','shrimp','Greek yogurt','cottage cheese','protein powder','rice','potatoes','pasta','tortillas','beans','fruit','mixed vegetables','spinach','lettuce','buffalo sauce','pesto','salsa','light ranch']
+];
+
+const weekdayIndex=(now.getDay()+6)%7;
+const breakfast=breakfastSets[rotation][weekdayIndex], lunch=lunchSets[rotation][weekdayIndex], snack=snackSets[rotation][weekdayIndex];
+const dinners=dinnerSets[rotation], dinner=dinners[day]||dinners.Monday;
+rotationTag.textContent=`Rotation week ${rotation+1} of 4 • changes automatically next week`;
+
+function mealCard(label,m){
+ return `<div class="tile"><div class="label">${label}</div><h3>${m.name}</h3><div class="muted">${m.desc}</div><div class="pill">~${m.cal} kcal • ~${m.pro}g protein</div><br><button class="btn primary log" data-name="${m.name}" data-cal="${m.cal}" data-pro="${m.pro}">Log ${label.toLowerCase()}</button></div>`;
+}
+dayMeals.innerHTML=mealCard('Breakfast',breakfast)+mealCard('Lunch',lunch)+mealCard('Snack',snack)+`<div class="tile"><div class="label">If still hungry</div><h3>Simple extra</h3><div class="muted">Greek yogurt, cottage cheese, fruit, popcorn, or another small protein snack.</div><div class="pill">~150–250 kcal</div></div>`;
+
+tonight.innerHTML=`<div class="day today"><div class="label">${day}</div><h3>${dinner.name}</h3><div class="steps">${dinner.steps.map((x,i)=>`${i+1}. ${x}`).join('<br>')}</div><div class="pill">~${dinner.cal} kcal • ~${dinner.pro}g protein</div><br><button class="btn primary log" data-name="${dinner.name}" data-cal="${dinner.cal}" data-pro="${dinner.pro}">Log tonight's dinner</button></div>`;
 week.innerHTML=Object.entries(dinners).map(([k,v])=>`<div class="day ${k===day?'today':''}"><b>${k}${k===day?' • TODAY':''}</b><div class="muted">${v.name} • ~${v.cal} kcal • ~${v.pro}g protein</div></div>`).join('');
+
+const groups=[['🥩 Protein',grocerySets[rotation].slice(0,7)],['🍚 Carbs + fruit',grocerySets[rotation].slice(7,13)],['🥦 Veg + flavor',grocerySets[rotation].slice(13)]];
+grocery.innerHTML=groups.map(([title,items])=>`<div class="tile"><b>${title}</b><div class="muted">${items.join(' • ')}</div></div>`).join('');
+
+function addFood(name,cal,pro){
+ let foods={};try{foods=JSON.parse(localStorage.getItem('pupfit_foods'))||{}}catch{}
+ foods[date]=foods[date]||[];
+ foods[date].push({id:Date.now()+Math.random(),name,cal:Number(cal),pro:Number(pro),note:'Rotating meal plan'});
+ localStorage.setItem('pupfit_foods',JSON.stringify(foods));
+ toast.style.display='block';toast.textContent=`${name} logged ✓`;setTimeout(()=>toast.style.display='none',1800)
+}
 document.querySelectorAll('.log').forEach(b=>b.onclick=()=>addFood(b.dataset.name,b.dataset.cal,b.dataset.pro));
-</script></body></html>
+</script>
+</body>
+</html>
