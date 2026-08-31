@@ -1,0 +1,34 @@
+name: Patch Friday workout
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-friday.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Friday plan
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          old="const pump=[ex('Lateral Raise Machine',2,15,20,2.5,60,'upper'),ex('Ab Crunch Machine',3,15,20,5,60,'abs')];"
+          new="const pump=[ex('Lat Pulldown',2,10,12,5,90,'upper'),ex('Lateral Raise Machine',3,12,20,2.5,60,'upper'),ex('Reverse Pec Deck',2,12,15,5,75,'upper'),ex('Ab Crunch Machine',3,15,20,5,60,'abs')];"
+          if old not in s:
+              raise SystemExit('Expected Friday plan not found')
+          s=s.replace(old,new)
+          s=s.replace("pump:{name:'✨ Abs + Upper / Run Prep',plan:pump}","pump:{name:'✨ Abs + Shape / Run Prep',plan:pump}")
+          s=s.replace("lower=['heavy','volume','pump','kickoff'].includes(key)","lower=['heavy','volume','kickoff'].includes(key)")
+          s=s.replace("tomorrowLower=['heavy','volume','pump','kickoff'].includes(recommendedForDate(tomorrow))","tomorrowLower=['heavy','volume','kickoff'].includes(recommendedForDate(tomorrow))")
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Build out Friday goal-focused workout"
+          git push
