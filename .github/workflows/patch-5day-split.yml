@@ -1,0 +1,40 @@
+name: Patch five day split
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-5day-split.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update weekly training split
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          old="const pump=[ex('Lat Pulldown',2,10,12,5,90,'upper'),ex('Lateral Raise Machine',3,12,20,2.5,60,'upper'),ex('Reverse Pec Deck',2,12,15,5,75,'upper'),ex('Ab Crunch Machine',3,15,20,5,60,'abs')];\nconst kickoff=[...heavy.slice(0,5),ex('Adductor Machine',2,12,20,5,75,'thighs'),ex('Ab Crunch Machine',3,12,15,5,75,'abs')];\nconst library={kickoff:{name:'🍑 Glutes + Thick Thighs',plan:kickoff},heavy:{name:'🍑 Heavy Glutes + Thighs',plan:heavy},upper:{name:'🐾 Upper + Abs',plan:upper},volume:{name:'🍑 Higher-Rep Glutes',plan:volume},pump:{name:'✨ Abs + Shape / Run Prep',plan:pump},rest:{name:'🧸 Recovery',plan:[]}};"
+          new="const pump=[ex('Lat Pulldown',2,10,12,5,90,'upper'),ex('Lateral Raise Machine',3,12,20,2.5,60,'upper'),ex('Reverse Pec Deck',2,12,15,5,75,'upper'),ex('Ab Crunch Machine',3,15,20,5,60,'abs')];\nconst midweek=[ex('Hip Abduction Machine',3,15,25,5,75,'glutes'),ex('Glute Kickback Machine',2,12,15,5,75,'glutes'),ex('Adductor Machine',2,12,20,5,75,'thighs'),ex('Ab Crunch Machine',3,12,15,5,75,'abs')];\nconst kickoff=[...heavy.slice(0,5),ex('Adductor Machine',2,12,20,5,75,'thighs'),ex('Ab Crunch Machine',3,12,15,5,75,'abs')];\nconst library={kickoff:{name:'🍑 Glutes + Thick Thighs',plan:kickoff},heavy:{name:'🍑 Heavy Glutes + Thighs',plan:heavy},upper:{name:'🐾 Upper + Abs',plan:upper},midweek:{name:'🍑 Glute Shape + Abs',plan:midweek},volume:{name:'🍑 Higher-Rep Glutes',plan:volume},pump:{name:'✨ Abs + Shape / Run Prep',plan:pump},rest:{name:'🧸 Full Recovery',plan:[]},runrest:{name:'🏃 Easy Run / Active Recovery',plan:[]}};"
+          if old not in s:
+              raise SystemExit('Workout library block not found')
+          s=s.replace(old,new)
+          s=s.replace("const allEx=()=>[...upper,...heavy,...volume,...pump,...kickoff];","const allEx=()=>[...upper,...heavy,...midweek,...volume,...pump,...kickoff];")
+          oldmap="return({Monday:'heavy',Tuesday:'upper',Wednesday:'rest',Thursday:'volume',Friday:'pump',Saturday:'rest',Sunday:'rest'})[dn]||'rest'"
+          newmap="return({Monday:'heavy',Tuesday:'upper',Wednesday:'midweek',Thursday:'volume',Friday:'pump',Saturday:'rest',Sunday:'runrest'})[dn]||'rest'"
+          if oldmap not in s:
+              raise SystemExit('Weekly mapping not found')
+          s=s.replace(oldmap,newmap)
+          s=s.replace("lower=['heavy','volume','kickoff'].includes(key)","lower=['heavy','midweek','volume','kickoff'].includes(key)")
+          s=s.replace("tomorrowLower=['heavy','volume','kickoff'].includes(recommendedForDate(tomorrow))","tomorrowLower=['heavy','midweek','volume','kickoff'].includes(recommendedForDate(tomorrow))")
+          s=s.replace("if(rec==='fresh'&&!lower&&!tomorrowLower)opts.push({id:'glutes'","if(rec==='fresh'&&!lower&&!tomorrowLower&&key!=='pump')opts.push({id:'glutes'")
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Optimize five day workout split for glutes and abs"
+          git push
