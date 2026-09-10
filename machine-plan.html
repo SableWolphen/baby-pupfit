@@ -1,84 +1,53 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f1730">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f1730">
 <title>Baby PupFit • EOS Machine Plan</title>
 <style>
-:root{--bg:#0b1224;--bg2:#15132b;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--pink:#ffb7db;--green:#9af0b5;--gold:#ffd98b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(139,213,255,.10),transparent 32%),radial-gradient(circle at 90% 4%,rgba(201,183,255,.13),transparent 34%),linear-gradient(160deg,var(--bg),#10162a 58%,var(--bg2));color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}.wrap{max-width:960px;margin:auto;padding:16px 16px 78px}.hero{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0}.hero h1{margin:0;font-size:clamp(2rem,7vw,3rem)}h2{margin:.2rem 0 .7rem}.muted,small{color:var(--muted)}.card{background:rgba(23,34,58,.95);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.day{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:14px;margin:10px 0}.exercise{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px 0;border-bottom:1px solid rgba(42,56,88,.75)}.exercise:last-child{border-bottom:0}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:.78rem;margin:4px 4px 0 0;color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:14px;padding:11px 14px;font-weight:900;background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.why{font-size:.9rem;color:var(--muted);margin-top:4px;max-width:650px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.rule{border-left:4px solid var(--blue);padding-left:12px}.gold{border-left-color:var(--gold)}.pink{border-left-color:var(--pink)}.green{border-left-color:var(--green)}.mini{font-size:.86rem}.pill{font-weight:800;color:var(--blue)}@media(max-width:650px){.grid{grid-template-columns:1fr}.exercise{grid-template-columns:1fr}.exercise>b{color:var(--blue)}}
-</style>
-</head>
+:root{--bg:#0b1224;--panel:#17223a;--panel2:#101a2d;--line:#2a3858;--txt:#f8f9ff;--muted:#aeb9d4;--blue:#8bd5ff;--lav:#c9b7ff;--pink:#ffb7db;--green:#9af0b5;--gold:#ffd98b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,rgba(139,213,255,.10),transparent 32%),radial-gradient(circle at 90% 4%,rgba(201,183,255,.13),transparent 34%),linear-gradient(160deg,var(--bg),#10162a 58%,#15132b);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}.wrap{max-width:940px;margin:auto;padding:16px 16px 70px}.hero{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0}.hero h1{margin:0;font-size:clamp(2rem,7vw,3rem)}.muted,small{color:var(--muted)}.card{background:rgba(23,34,58,.95);border:1px solid var(--line);border-radius:22px;padding:16px;margin:12px 0;box-shadow:0 18px 55px rgba(0,0,0,.28)}.soft{background:linear-gradient(135deg,rgba(139,213,255,.10),rgba(201,183,255,.10))}.day{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:14px;margin:10px 0}.exercise{display:grid;grid-template-columns:1fr auto;gap:8px;padding:11px 0;border-bottom:1px solid rgba(42,56,88,.75)}.exercise:last-child{border-bottom:0}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:.78rem;margin:4px 4px 0 0;color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:14px;padding:11px 14px;font-weight:900;background:linear-gradient(90deg,var(--blue),var(--lav));color:#07111e}.why{font-size:.9rem;color:var(--muted);margin-top:4px}.priority{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.rule{border-left:4px solid var(--gold);padding-left:12px}.green{color:var(--green)}@media(max-width:650px){.priority{grid-template-columns:1fr}.exercise{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}}
+</style></head>
 <body><div class="wrap">
-<div class="hero"><div><h1>🐾 Baby PupFit • EOS</h1><div class="muted">Machine-first plan for a lean waist, visible abs, thicker thighs, and high round glutes.</div></div><a class="btn" href="./">← Tracker</a></div>
-
-<div class="card soft"><h2>🎯 Fastest sustainable route</h2><p>The goal is not to do the most exercises. It is to recover from the <b>highest-return hard sets</b>, add reps or weight over time, and keep nutrition consistent. Glutes get the most weekly work, thighs support the silhouette, abs are trained directly, and upper-body volume stays moderate.</p><span class="tag">🍑 Glute priority</span><span class="tag">🦵 Thick thighs</span><span class="tag">✨ Abs 2–3×/wk</span><span class="tag">⚙️ EOS machines</span><span class="tag">📈 Double progression</span></div>
-
-<div class="card"><h2>⚡ Non-negotiables</h2><div class="grid">
-<div class="day rule"><b>Train hard, not sloppy</b><div class="why">Most working sets finish with about <b>1–2 reps in reserve (RIR)</b>. Isolation work can occasionally reach 0–1 RIR with clean form.</div></div>
-<div class="day rule gold"><b>Beat the logbook</b><div class="why">Add a rep, improve control, or add the smallest weight jump whenever the rep target is achieved.</div></div>
-<div class="day rule pink"><b>Full useful range</b><div class="why">Use controlled depth that you can own without pain or your pelvis/back taking over.</div></div>
-<div class="day rule green"><b>Recover to grow</b><div class="why">Keep at least ~48 hours between the two hardest lower-body sessions and sleep enough to perform.</div></div>
+<div class="hero"><div><h1>🐾 Baby PupFit • EOS</h1><div class="muted">Glutes first • visible abs • thick thighs • shaped arms • machine-focused.</div></div><a class="btn" href="./">← Smart Tracker</a></div>
+<div class="card soft"><h2>🎯 Fastest sustainable route</h2><p>The goal is maximum visual return without burying recovery: <b>3 lower-body exposures, 3 direct-ab exposures, and 2 short arm exposures each week.</b> Glutes get the most high-quality work; abs and arms get enough hard sets to visibly develop without stealing recovery.</p><span class="tag">🍑 Glute projection</span><span class="tag">✨ Abs 3×/week</span><span class="tag">🦵 Thick thighs</span><span class="tag">💪 Arms 2×/week</span><span class="tag">🏋️ EOS machines</span></div>
+<div class="card"><h2>⭐ Highest-return machines</h2><div class="priority"><div class="day"><b>1. Glute Drive / Hip Thrust</b><div class="why">Highest-priority glute strength and projection lift.</div></div><div class="day"><b>2. Leg Press / Hack Squat</b><div class="why">Loads glutes and thighs hard with stable setup.</div></div><div class="day"><b>3. Hip Abduction</b><div class="why">Upper/side-glute fullness.</div></div><div class="day"><b>4. Seated Leg Curl</b><div class="why">Hamstrings and under-glute shape.</div></div><div class="day"><b>5. Ab Crunch + Knee Raise</b><div class="why">Build actual abdominal thickness so definition shows when lean enough.</div></div><div class="day"><b>6. Cable Curl + Triceps Pressdown</b><div class="why">Efficient arm growth without turning this into an upper-body program.</div></div></div></div>
+<div class="card"><h2>Monday • 🍑 Glute Strength + Abs</h2><div class="day">
+<div class="exercise"><div><b>Glute Drive / Hip Thrust</b><div class="why">2 warm-up sets, then hard work. 2–3 min rest.</div></div><b>4 × 6–10</b></div>
+<div class="exercise"><div><b>Leg Press</b><div class="why">Controlled deep range you can own. 2–3 min rest.</div></div><b>3 × 8–12</b></div>
+<div class="exercise"><div><b>Seated Leg Curl</b></div><b>3 × 8–12</b></div>
+<div class="exercise"><div><b>Hip Abduction</b><div class="why">No bouncing; pause briefly open.</div></div><b>3 × 15–25</b></div>
+<div class="exercise"><div><b>Ab Crunch Machine</b><div class="why">Round the ribs toward the pelvis; don't just hinge at the hips.</div></div><b>3 × 8–15</b></div>
+<div class="exercise"><div><b>Captain's Chair / Knee Raise</b></div><b>2 × 8–15</b></div>
 </div></div>
-
-<div class="card"><h2>🔥 5-minute lower-body warm-up</h2><div class="day"><div class="exercise"><div><b>Bike or incline walk</b><div class="why">Easy pace — just get warm.</div></div><b>3 min</b></div><div class="exercise"><div><b>Hip Abduction</b><div class="why">Light, controlled, no grinding.</div></div><b>1 × 20</b></div><div class="exercise"><div><b>First main lift</b><div class="why">Do 2–3 progressively heavier warm-up sets before your working weight.</div></div><b>2–3 ramps</b></div></div></div>
-
-<div class="card"><h2>Monday • 🍑 Heavy Glutes + Hamstrings</h2><div class="day">
-<div class="exercise"><div><b>Glute Drive / Hip Thrust Machine</b><div class="why">Main projection builder. Chin tucked, ribs down, pause briefly at lockout.</div></div><b>4 × 6–10</b></div>
-<div class="exercise"><div><b>45° Leg Press — glute bias</b><div class="why">Feet slightly higher, comfortable stance, controlled deep reps.</div></div><b>3 × 8–12</b></div>
-<div class="exercise"><div><b>Seated Leg Curl</b><div class="why">Hamstrings add lower-body thickness and support glute training.</div></div><b>3 × 8–12</b></div>
-<div class="exercise"><div><b>Glute Kickback Machine</b><div class="why">Keep torso/pelvis stable; move through the hip.</div></div><b>3 × 10–15 / leg</b></div>
-<div class="exercise"><div><b>Hip Abduction</b><div class="why">Controlled stretch and hard squeeze; no bouncing.</div></div><b>3 × 15–25</b></div>
-<div class="exercise"><div><b>Ab Crunch Machine</b></div><b>3 × 10–15</b></div>
-</div><small>Target: ~55–70 min. Rest 2–3 min on the first 3 movements; 60–90 sec on isolation work.</small></div>
-
-<div class="card"><h2>Tuesday • ✨ Upper + Waist/Abs</h2><div class="day">
-<div class="exercise"><div><b>Lat Pulldown</b><div class="why">A little lat width can make the waist look smaller without huge upper-body volume.</div></div><b>3 × 8–12</b></div>
+<div class="card"><h2>Tuesday • 💪 Upper + Arms</h2><div class="day">
+<div class="exercise"><div><b>Lat Pulldown</b></div><b>3 × 8–12</b></div>
 <div class="exercise"><div><b>Seated Row</b></div><b>3 × 8–12</b></div>
-<div class="exercise"><div><b>Chest Press</b></div><b>2 × 8–12</b></div>
+<div class="exercise"><div><b>Machine Chest Press</b></div><b>2 × 8–12</b></div>
 <div class="exercise"><div><b>Lateral Raise Machine</b></div><b>2 × 12–20</b></div>
-<div class="exercise"><div><b>Reverse Pec Deck</b></div><b>2 × 12–20</b></div>
-<div class="exercise"><div><b>Ab Crunch Machine</b></div><b>3 × 10–15</b></div>
-<div class="exercise"><div><b>Captain's Chair Knee Raise</b></div><b>2 × 8–15</b></div>
+<div class="exercise"><div><b>Cable / Machine Biceps Curl</b></div><b>3 × 10–15</b></div>
+<div class="exercise"><div><b>Rope Triceps Pressdown</b></div><b>3 × 10–15</b></div>
 </div></div>
-
-<div class="card"><h2>Wednesday • 🚶 Recovery</h2><div class="day"><div class="exercise"><div><b>Incline Treadmill, Bike, or easy walk</b><div class="why">Easy conversational pace. This day should make Thursday better, not steal from it.</div></div><b>20–30 min</b></div></div><p class="mini muted">Optional: mobility that feels good. No hard leg work.</p></div>
-
-<div class="card"><h2>Thursday • 🍑 Glutes + Quads + Thighs</h2><div class="day">
-<div class="exercise"><div><b>Hack Squat or Pendulum Squat</b><div class="why">Use the machine that feels best on your knees/hips. Controlled depth.</div></div><b>3 × 6–10</b></div>
-<div class="exercise"><div><b>Glute Drive / Hip Thrust Machine</b><div class="why">Moderate-rep second exposure for glute growth.</div></div><b>3 × 8–12</b></div>
-<div class="exercise"><div><b>Leg Press</b></div><b>2 × 10–15</b></div>
+<div class="card"><h2>Wednesday • 🚶 Recovery</h2><div class="day"><div class="exercise"><div><b>Easy incline treadmill, bike, or walking</b><div class="why">Keep it conversational. This is recovery, not secret leg day.</div></div><b>20–30 min</b></div></div></div>
+<div class="card"><h2>Thursday • 🍑 Glute + Thigh Hypertrophy + Abs</h2><div class="day">
+<div class="exercise"><div><b>Hack Squat or Leg Press</b></div><b>3 × 8–12</b></div>
+<div class="exercise"><div><b>Glute Drive / Hip Thrust</b></div><b>3 × 8–12</b></div>
+<div class="exercise"><div><b>Seated Leg Curl</b></div><b>3 × 10–15</b></div>
 <div class="exercise"><div><b>Leg Extension</b></div><b>2 × 10–15</b></div>
-<div class="exercise"><div><b>Adductor Machine</b><div class="why">Inner-thigh fullness; slow stretch, controlled squeeze.</div></div><b>3 × 12–20</b></div>
+<div class="exercise"><div><b>Adductor Machine</b></div><b>2 × 12–20</b></div>
 <div class="exercise"><div><b>Hip Abduction</b></div><b>3 × 15–25</b></div>
-</div><small>Target: ~55–70 min. If recovery is poor, remove the 2 leg-press sets before cutting the main lifts.</small></div>
-
-<div class="card"><h2>Saturday • 🍑 Optional Glute Pump + Abs</h2><div class="day">
-<div class="exercise"><div><b>Glute Kickback Machine</b></div><b>3 × 12–20 / leg</b></div>
-<div class="exercise"><div><b>Hip Abduction</b></div><b>3 × 20–30</b></div>
-<div class="exercise"><div><b>Seated Leg Curl</b></div><b>2 × 12–15</b></div>
-<div class="exercise"><div><b>Ab Crunch Machine</b></div><b>3 × 12–20</b></div>
-</div><p class="mini"><b>Only do this session if you feel recovered.</b> If Monday/Thursday performance is dropping, skip Saturday. More work is not faster when it prevents progression.</p></div>
-
-<div class="card soft"><h2>📈 Exact progression system</h2><p><b>Double progression:</b> keep the same weight until you reach the top of the rep range on every working set with clean form and roughly 1–2 RIR. Then increase by the smallest available increment and build the reps back up.</p><div class="day"><b>Example — Hip Thrust 4 × 6–10</b><div class="why">Week 1: 8/8/7/7 → Week 2: 9/8/8/7 → eventually 10/10/10/10 → add weight next workout.</div></div><p>If you miss your previous performance for <b>2 sessions in a row</b>, do not automatically add more volume. Check sleep, food, soreness, technique, and recovery first.</p></div>
-
-<div class="card"><h2>🧠 Technique cues that matter most</h2><div class="grid">
-<div class="day"><b>Hip thrust</b><div class="why">Ribs down, pelvis controlled, pause at the top, don't hyperextend your lower back.</div></div>
-<div class="day"><b>Leg press / hack squat</b><div class="why">Use the deepest pain-free range you can control. Knees track naturally with your feet.</div></div>
-<div class="day"><b>Kickback</b><div class="why">Don't turn it into a whole-body swing. Stable torso, hip does the work.</div></div>
-<div class="day"><b>Abduction</b><div class="why">Slow enough that the stack never slams; own both directions.</div></div>
+<div class="exercise"><div><b>Ab Crunch Machine</b></div><b>3 × 10–15</b></div>
 </div></div>
-
-<div class="card"><h2>🔁 EOS machine swaps</h2><p><span class="pill">Glute Drive missing:</span> Smith-machine hip thrust. <span class="pill">Hack squat missing:</span> pendulum squat or leg press. <span class="pill">Kickback missing:</span> cable kickback. <span class="pill">Seated curl missing:</span> lying leg curl. <span class="pill">Ab crunch missing:</span> cable crunch or captain's chair.</p></div>
-
-<div class="card"><h2>🍼 Tiny Mode • 25–35 minutes</h2><p>When time is awful, keep the movements that drive the goal instead of skipping:</p><div class="day"><div class="exercise"><div><b>Glute Drive / Hip Thrust</b></div><b>3 hard sets</b></div><div class="exercise"><div><b>Leg Press or Hack Squat</b></div><b>3 hard sets</b></div><div class="exercise"><div><b>Hip Abduction or Kickback</b></div><b>3 hard sets</b></div></div></div>
-
-<div class="card soft"><h2>🥩 Body-composition basics</h2><p>Keep your main Baby PupFit nutrition targets consistent, prioritize protein, and use a moderate calorie deficit only if fat loss is part of the goal. The waist becomes leaner mainly through overall fat loss; the glutes and thighs change through months of progressive resistance training. Crash dieting can make scale weight fall faster while making muscle growth and training performance worse.</p><p>Keep daily movement consistent; the existing tracker step target is a good baseline. Adjust food or activity based on multi-week trends rather than a single weigh-in.</p></div>
-
-<div class="card"><h2>🛠️ Every 5–8 weeks</h2><p>If joints feel beat up, motivation tanks, or performance is sliding despite good recovery, take a <b>deload week</b>: keep the same exercises, use roughly half the usual hard sets, and stay several reps away from failure. Then resume progression.</p></div>
-
-<div class="card soft"><h2>⏱️ What “fast” actually means</h2><p>Visible changes can happen within weeks, but large glute/thigh growth and a dramatically different waist-to-hip ratio usually take months. Photos, posing, lighting, editing, and anatomy can exaggerate reference physiques. The fastest productive strategy is the one you can recover from and progressively overload.</p></div>
-
-<div class="card soft"><small>Personal fitness tracker only. Stop an exercise that causes sharp or unusual pain. Exact results and proportions vary with anatomy, training history, nutrition, and recovery.</small></div>
+<div class="card"><h2>Saturday • ✨ Glute Shape + Abs + Arms</h2><div class="day">
+<div class="exercise"><div><b>Glute Kickback Machine / Cable</b></div><b>3 × 10–15 / leg</b></div>
+<div class="exercise"><div><b>Hip Abduction</b></div><b>3 × 15–30</b></div>
+<div class="exercise"><div><b>Single-Leg Press</b></div><b>2 × 10–15 / leg</b></div>
+<div class="exercise"><div><b>Seated Leg Curl</b></div><b>2 × 12–15</b></div>
+<div class="exercise"><div><b>Captain's Chair / Knee Raise</b></div><b>3 × 8–15</b></div>
+<div class="exercise"><div><b>Cable Curl + Rope Pressdown</b><div class="why">Superset to save time.</div></div><b>2 × 12–15 each</b></div>
+</div></div>
+<div class="card soft"><h2>📈 Smart progression</h2><div class="rule"><p><b>Work mostly at 1–2 RIR.</b> When every work set reaches the top of the rep range with clean form, raise the weight next time. Big lower-body machines: usually +5–10 lb. Smaller machines/cables: use the smallest available jump.</p><p>If reps fall below the range, keep the weight. If performance drops for two sessions while sleep/recovery is poor, <b>do not add weight</b>. If joints hurt, stop that movement and swap it.</p></div></div>
+<div class="card"><h2>🔥 Abs are a main lift now</h2><p>Abs are not a throwaway finisher. Treat the crunch machine like any other hypertrophy exercise: add reps, then load. Knee raises cover the hip-flexion/pelvic-control side. You do <b>not</b> need hundreds of reps or daily ab work.</p></div>
+<div class="card"><h2>⏱️ Tiny Mode • 25–35 min</h2><p><b>Lower day:</b> Glute Drive → Leg Press/Hack → Abduction → Ab Crunch. <b>Upper day:</b> Pulldown → Row → Curl → Pressdown. If you're rushed, preserve the highest-return lifts instead of rushing seven mediocre exercises.</p></div>
+<div class="card"><h2>🧠 Recovery rules</h2><p>Hard sets only count when they're productive. Keep at least one full day between the two hardest lower sessions. Take an easier week if performance, motivation, soreness, and sleep all deteriorate together. More punishment is not faster growth.</p></div>
+<div class="card soft"><small>Exact proportions and speed vary with anatomy, training history, nutrition, recovery, and body-fat level. Use pain-free ranges and adjust machines to fit you.</small></div>
 </div></body></html>
