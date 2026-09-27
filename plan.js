@@ -4,14 +4,14 @@ window.PUPFIT_PLANS = {
     "note": "Upper body after Sunday’s run. Leave 2–3 reps in reserve.",
     "ex": [
       [
-        "Lat Pulldown",
+        "ISO-Lateral Lat Pulldown",
         3,
         8,
         12,
         "big"
       ],
       [
-        "Lateral Raise Machine",
+        "Cable Lateral Raise",
         3,
         12,
         20,
@@ -32,14 +32,14 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "EGYM Biceps Curl",
+        "Biceps Curl Machine",
         2,
         10,
         15,
         "small"
       ],
       [
-        "EGYM Triceps Press",
+        "Triceps Extension Machine",
         2,
         10,
         15,
@@ -59,7 +59,7 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Hip Thrust / Glute Machine",
+        "Booty Builder Hip Thrust",
         3,
         8,
         12,
@@ -73,14 +73,14 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Leg Extension",
+        "EGYM Leg Extension",
         2,
         10,
         15,
         "small"
       ],
       [
-        "Hip Abduction",
+        "Booty Builder Hip Abduction",
         2,
         12,
         20,
@@ -100,14 +100,14 @@ window.PUPFIT_PLANS = {
     "note": "Low-fatigue day: 3 reps in reserve, no grinders. Skip this session if recovery is poor.",
     "ex": [
       [
-        "Lateral Raise Machine",
+        "Cable Lateral Raise",
         2,
         12,
         20,
         "small"
       ],
       [
-        "Rear-Delt Fly",
+        "Pec Fly / Rear-Delt Machine",
         2,
         12,
         20,
@@ -121,7 +121,7 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Calf Machine",
+        "Standing Calf Raise",
         2,
         10,
         15,
@@ -134,14 +134,14 @@ window.PUPFIT_PLANS = {
     "note": "Build the X-frame with lats and side delts first. Rest 90–120 seconds on isolations.",
     "ex": [
       [
-        "Lat Pulldown",
+        "ISO-Lateral Lat Pulldown",
         3,
         8,
         12,
         "big"
       ],
       [
-        "Lateral Raise Machine",
+        "Cable Lateral Raise",
         3,
         12,
         20,
@@ -162,14 +162,14 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "EGYM Biceps Curl",
+        "Biceps Curl Machine",
         2,
         10,
         15,
         "small"
       ],
       [
-        "EGYM Triceps Press",
+        "Triceps Extension Machine",
         2,
         10,
         15,
@@ -189,7 +189,7 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Hip Thrust / Glute Machine",
+        "Booty Builder Hip Thrust",
         3,
         10,
         15,
@@ -203,14 +203,14 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Leg Extension",
+        "EGYM Leg Extension",
         2,
         10,
         15,
         "small"
       ],
       [
-        "Hip Abduction",
+        "Booty Builder Hip Abduction",
         2,
         12,
         20,
