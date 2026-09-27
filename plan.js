@@ -73,7 +73,7 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "EGYM Leg Extension",
+        "Leg Extension",
         2,
         10,
         15,
@@ -203,7 +203,7 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "EGYM Leg Extension",
+        "Leg Extension",
         2,
         10,
         15,
