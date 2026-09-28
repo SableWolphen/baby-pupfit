@@ -209,6 +209,9 @@ for (const date of week) {
   const html = fs.readFileSync('index.html', 'utf8');
   assert.ok(html.includes('rel="manifest"'), 'manifest linked');
   assert.ok(html.includes("serviceWorker.register('sw.js')"), 'SW registered');
+  const sw = fs.readFileSync('sw.js', 'utf8');
+  assert.ok(/pupfit-v\d+/.test(sw), 'SW cache is versioned');
+  assert.ok(sw.includes("mode === 'navigate'"), 'SW uses network-first for navigations');
 }
 
 // 10. Daily checklist: 3 items, manual toggles, workout auto-checks, feeds fastest-path card.
