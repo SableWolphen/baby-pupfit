@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,today,plans,get sessions(){return sessions}};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps}};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -153,4 +153,62 @@ for (const date of week) {
   assert.match(r.el('growthList').innerHTML, /Fastest path/);
 }
 
-console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card.');
+// 8. Rest timer durations, swaps, PRs, run log, e1RM charts, PWA files.
+{
+  const r = run('2026-09-28');
+  assert.equal(r.t.restSeconds('big'), 150);
+  assert.equal(r.t.restSeconds('small'), 90);
+
+  // Every plan exercise has swap options; cycling works and returns to base.
+  const names = new Set();
+  for (const k of Object.keys(r.t.plans)) for (const e of r.t.plans[k].ex) names.add(e[0]);
+  for (const n of names) assert.ok((r.t.swaps[n] || []).length > 0, 'swap for ' + n);
+  const s = r.t.session(), e = s.exercises[0], n0 = e.name;
+  r.t.cycleSwap(e);
+  assert.equal(e.name, r.t.swaps[n0][0]);
+  r.t.cycleSwap(e);
+  assert.equal(e.name, r.t.swaps[n0][1]);
+  r.t.cycleSwap(e);
+  assert.equal(e.name, n0);
+
+  // e1RM + spark chart.
+  assert.equal(r.t.e1rm(100, 10), 133.3);
+  const svg = r.t.sparkSVG([{ bestW: 100, bestReps: 10 }, { bestW: 110, bestReps: 8 }]);
+  assert.match(svg, /<svg/);
+  assert.match(svg, /est\. 1RM/);
+  assert.equal(r.t.sparkSVG([{ bestW: 100, bestReps: 10 }]), '');
+
+  // Run log: pace math, JSON + legacy 'done' values.
+  const r2 = run('2026-09-28', {
+    'pupfit_run_2026-09-27': JSON.stringify({ miles: 4, mins: 36, done: true }),
+    'pupfit_run_2026-09-26': 'done'
+  });
+  assert.equal(r2.t.pace(4, 36), '9:00');
+  const rl = r2.t.runLog();
+  assert.equal(rl[0].date, '2026-09-27');
+  assert.equal(rl[0].miles, 4);
+  assert.equal(r2.t.getRun('2026-09-26').done, true);
+  r2.t.renderGrowth();
+  assert.match(r2.el('growthList').innerHTML, /Recent runs/);
+  assert.match(r2.el('growthList').innerHTML, /9:00 \/mi/);
+
+  // PR detection: beats history, ignores EGYM (no weight) and first-timers.
+  const r3 = run('2026-09-29', { pupfit_workout_sessions_v2: { 'h|1': { id: 'h|1', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [{ name: 'Lat Pulldown', skipped: false, setData: [{ weight: 50, reps: 12, done: true }] }, { name: 'EGYM Leg Press', skipped: false, setData: [{ weight: '', reps: 12, done: true }] }] } } });
+  const prs = r3.t.detectPRs({ id: 'now', exercises: [
+    { name: 'Lat Pulldown', skipped: false, setData: [{ weight: 55, reps: 12, done: true }] },
+    { name: 'EGYM Leg Press', skipped: false, setData: [{ weight: '', reps: 12, done: true }] },
+    { name: 'Cable Lateral Raise', skipped: false, setData: [{ weight: 20, reps: 12, done: true }] }
+  ]});
+  assert.equal(JSON.stringify(prs), JSON.stringify([{ name: 'Lat Pulldown', prev: 50, now: 55 }]));
+}
+
+// 9. PWA packaging files.
+{
+  for (const f of ['manifest.json', 'sw.js', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png'])
+    assert.ok(fs.existsSync(f), f + ' exists');
+  const html = fs.readFileSync('index.html', 'utf8');
+  assert.ok(html.includes('rel="manifest"'), 'manifest linked');
+  assert.ok(html.includes("serviceWorker.register('sw.js')"), 'SW registered');
+}
+
+console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
