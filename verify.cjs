@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll,praise,toast,babyRank,rankCard,stickerChart,renderStickers,dailyNote,renderDailyNote,getBottles,setBottles,renderBottles,getBedtime,setBedtime,renderBedtime,tuckIn,stuffieStage,stuffieName,renderStuffie};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll,praise,toast,babyRank,rankCard,stickerChart,renderStickers,dailyNote,renderDailyNote,getBottles,setBottles,renderBottles,getBedtime,setBedtime,renderBedtime,tuckIn,stuffieStage,stuffieName,renderStuffie,gradeLetter,weekDates,reportCard};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -374,6 +374,38 @@ for (const date of week) {
   const r2 = run('2026-09-28', { pupfit_workout_sessions_v2: sess });
   assert.equal(r2.t.stuffieStage().cur[1], '🧸💕');
   assert.match(r2.t.stuffieStage().cur[1] && 'x', /x/);
+}
+
+// 16. Report card.
+{
+  const r = run('2026-09-28');
+  const gl = r.t.gradeLetter;
+  assert.equal(gl(1), 'A'); assert.equal(gl(.9), 'A'); assert.equal(gl(.899), 'B');
+  assert.equal(gl(.8), 'B'); assert.equal(gl(.799), 'C'); assert.equal(gl(.7), 'C');
+  assert.equal(gl(.699), 'D'); assert.equal(gl(.6), 'D'); assert.equal(gl(.599), 'F');
+  assert.equal(gl(0), 'F');
+  assert.equal(r.t.weekDates().join(','), '2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-03,2026-10-04');
+  // perfect week -> straight A's
+  const sess = {}, chk = {}, bot = {};
+  ['2026-09-28','2026-09-29','2026-09-30','2026-10-01','2026-10-02'].forEach((d, i) => sess['k' + i] = { id: 'k' + i, date: d, dow: 1, name: 'x', status: 'complete', exercises: [] });
+  ['2026-09-28','2026-09-29','2026-09-30','2026-10-01','2026-10-02','2026-10-03','2026-10-04'].forEach(d => { chk[d] = { protein: 1, sleep: 1 }; bot[d] = 6; });
+  const r2 = run('2026-10-04', {
+    pupfit_workout_sessions_v2: sess,
+    pupfit_checklist_v1: chk,
+    pupfit_bottles_v1: bot,
+    'pupfit_run_2026-10-04': { miles: 3, mins: 25, done: true, at: 1 },
+  });
+  const html = r2.t.reportCard();
+  assert.match(html, /6\/6/);
+  assert.match(html, /7\/7/);
+  assert.match(html, /Overall: A/);
+  assert.match(html, /gold star/);
+  // rough week -> F verdict
+  const r3 = run('2026-10-04', { pupfit_workout_sessions_v2: { k0: { id: 'k0', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
+  const h3 = r3.t.reportCard();
+  assert.match(h3, /1\/6/);
+  assert.match(h3, /Overall: F/);
+  assert.match(h3, /Rough week/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
