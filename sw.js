@@ -1,4 +1,4 @@
-const C = 'pupfit-v1';
+const C = 'pupfit-v2';
 const A = ['./', './index.html', './machine-plan.html', './meals.html', './progress.html',
   './plan.js', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 self.addEventListener('install', e => {
@@ -12,6 +12,17 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   if (new URL(e.request.url).origin !== location.origin) return;
+  // Navigations: network first so updates show up; cache fallback keeps offline working.
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const cp = res.clone();
+        caches.open(C).then(c => c.put('./index.html', cp));
+        return res;
+      }).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
       const cp = res.clone();
