@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps}};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -209,6 +209,34 @@ for (const date of week) {
   const html = fs.readFileSync('index.html', 'utf8');
   assert.ok(html.includes('rel="manifest"'), 'manifest linked');
   assert.ok(html.includes("serviceWorker.register('sw.js')"), 'SW registered');
+}
+
+// 10. Daily checklist: 3 items, manual toggles, workout auto-checks, feeds fastest-path card.
+{
+  const r = run('2026-09-28'); // Monday, session in_progress -> workout not auto-done
+  r.t.renderChecklist();
+  let html = r.el('checklist').innerHTML;
+  assert.match(html, /checklist/);
+  assert.equal((html.match(/data-check/g) || []).length, 3);
+  assert.ok(!r.t.getChecklist('2026-09-28').protein, 'protein starts unchecked');
+  r.t.setChecklist('2026-09-28', { protein: true });
+  assert.equal(r.t.getChecklist('2026-09-28').protein, true);
+  r.t.renderChecklist();
+  assert.match(r.el('checklist').innerHTML, /homeEx done/);
+
+  // Workout auto-checks from a completed session, but manual override wins.
+  const r2 = run('2026-09-28', { pupfit_workout_sessions_v2: { 'w|1': { id: 'w|1', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
+  r2.t.renderChecklist();
+  assert.match(r2.el('checklist').innerHTML, /Train today/);
+  r2.t.setChecklist('2026-09-28', { workout: false });
+  r2.t.renderChecklist();
+  html = r2.el('checklist').innerHTML;
+  assert.equal((html.match(/homeEx done/g) || []).length, 0); // manual override wins over auto-check
+
+  // Protein check feeds the fastest-path card.
+  r2.t.setChecklist('2026-09-28', { protein: true });
+  r2.t.renderGrowth();
+  assert.match(r2.el('growthList').innerHTML, /✅ done/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
