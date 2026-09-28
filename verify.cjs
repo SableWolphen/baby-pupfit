@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,today,plans,get sessions(){return sessions}};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,today,plans,get sessions(){return sessions}};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -117,4 +117,40 @@ for (const date of week) {
   assert.deepEqual(JSON.parse(r2.storage.getItem('pupfit_progress_v1')), { '2026-09-28': { sleep: 5 } });
 }
 
-console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip.');
+// 6. Missed detection + self-heal carry-forward.
+{
+  // Mon 2026-09-28 logged complete; Tue 2026-09-29 skipped; run Wed 2026-09-30.
+  let r = run('2026-09-30', { pupfit_workout_sessions_v2: { 'm|1': { id: 'm|1', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
+  const missed = r.t.recentMissed();
+  assert.ok(missed.length && missed[0].iso === '2026-09-29' && /Lower A/.test(missed[0].plan.name), 'most recent miss = Tue Lower A, got ' + JSON.stringify(missed[0]));
+  assert.ok(r.t.isMissedDay('2026-09-29', 2) && !r.t.isMissedDay('2026-09-28', 1), 'isMissedDay');
+
+  // Friday 2026-10-02 with Monday missed -> carries Upper A key lifts at 2 sets.
+  r = run('2026-10-02');
+  const s = r.t.session();
+  assert.ok(/Upper A/.test(s.carriedFrom), 'carriedFrom, got ' + s.carriedFrom);
+  const carried = s.exercises.filter(e => e.carried);
+  assert.ok(carried.length >= 1 && carried.every(e => e.setsTarget === 2), 'carried lifts at 2 sets');
+  assert.ok(carried.some(e => e.name === 'EGYM Chest Press'), 'carries EGYM Chest Press, got ' + carried.map(e => e.name));
+  assert.match(r.el('todayExercises').innerHTML, /Self-heal/);
+
+  // No double-carry: next Monday the same iso is excluded.
+  const persisted = { pupfit_workout_sessions_v2: JSON.parse(r.storage.getItem('pupfit_workout_sessions_v2')) };
+  const r2 = run('2026-10-05', persisted);
+  assert.equal(r2.t.session().carriedFrom, undefined, 'no double carry');
+
+  // Calendar marks missed days.
+  const r3 = run('2026-10-03');
+  r3.t.renderCalendar();
+  assert.match(r3.el('calendar').innerHTML, /missed/);
+}
+
+// 7. Adherence learning + fastest-path coach card.
+{
+  const r = run('2026-10-05'); // Monday; last 4 Mondays all missed
+  assert.match(r.t.adherenceNote(), /Monday/);
+  r.t.renderGrowth();
+  assert.match(r.el('growthList').innerHTML, /Fastest path/);
+}
+
+console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card.');
