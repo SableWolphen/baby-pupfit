@@ -176,7 +176,8 @@ window.PUPFIT_PLANS = {
         "small"
       ]
     ]
-  }  "5": {
+  },
+  "5": {
     "name": "🪽 Upper B • Width + Balanced chest/arms",
     "note": "Upper body on Friday keeps leg fatigue away from Sunday’s run. Build the X-frame with lats and side delts first.",
     "ex": [
