@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll,praise,toast,babyRank,rankCard,stickerChart,renderStickers};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll,praise,toast,babyRank,rankCard,stickerChart,renderStickers,dailyNote,renderDailyNote,getBottles,setBottles,renderBottles,getBedtime,setBedtime,renderBedtime,tuckIn,stuffieStage,stuffieName,renderStuffie};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -335,6 +335,45 @@ for (const date of week) {
   r4.t.renderStickers();
   assert.match(r4.el('stickers').innerHTML, /Sticker chart/);
   assert.match(r4.el('todayCard').innerHTML, /Tiny Newborn/);
+}
+
+// 15. Bottles, bedtime, stuffie, daily note.
+{
+  const r = run('2026-09-28');
+  // daily note: stable per date, renders
+  assert.ok(r.t.dailyNote().length > 20);
+  assert.equal(r.t.dailyNote(), r.t.dailyNote());
+  r.t.renderDailyNote();
+  assert.match(r.el('dailyNote').innerHTML, /MOMMY/);
+  // bottles: count, cap, render
+  assert.equal(r.t.getBottles(), 0);
+  r.t.setBottles('2026-09-28', 3);
+  assert.equal(r.t.getBottles(), 3);
+  r.t.setBottles('2026-09-28', 99);
+  assert.equal(r.t.getBottles(), 12);
+  r.t.setBottles('2026-09-28', 6);
+  r.t.renderBottles();
+  assert.match(r.el('bottles').innerHTML, /6\/6/);
+  assert.match(r.el('bottles').innerHTML, /hydrated baby/);
+  // bedtime: steps then tuck-in button
+  assert.equal(Object.keys(r.t.getBedtime()).length, 0);
+  r.t.setBedtime('2026-09-28', { jammies: 1 });
+  r.t.renderBedtime();
+  assert.match(r.el('bedtime').innerHTML, /1\/4/);
+  r.t.setBedtime('2026-09-28', { jammies: 1, teeth: 1, story: 1, lights: 1 });
+  r.t.renderBedtime();
+  assert.match(r.el('bedtime').innerHTML, /tuckIn/);
+  r.t.tuckIn(); // must not throw in mock
+  // stuffie: default name/stage, glow-up with workouts
+  assert.equal(r.t.stuffieName(), 'Cuddles');
+  assert.equal(r.t.stuffieStage().cur[1], '🧸');
+  r.t.renderStuffie();
+  assert.match(r.el('stuffie').innerHTML, /Cuddles/);
+  const sess = {};
+  for (let i = 0; i < 6; i++) sess['s' + i] = { id: 's' + i, date: '2026-09-' + (20 + i), dow: 1, name: 'x', status: 'complete', exercises: [] };
+  const r2 = run('2026-09-28', { pupfit_workout_sessions_v2: sess });
+  assert.equal(r2.t.stuffieStage().cur[1], '🧸💕');
+  assert.match(r2.t.stuffieStage().cur[1] && 'x', /x/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
