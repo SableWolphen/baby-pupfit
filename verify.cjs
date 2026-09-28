@@ -272,4 +272,21 @@ for (const date of week) {
   assert.match(r4.t.goalCheck(), /grade your trajectory/);
 }
 
+// 12. Today progress header + per-machine checklist label.
+{
+  const r = run('2026-09-28');
+  let html = r.el('todayExercises').innerHTML;
+  assert.match(html, /TODAY’S PROGRESS/);
+  assert.match(html, /machines done/);
+  r.t.renderChecklist();
+  assert.match(r.el('checklist').innerHTML, /Train today \(\d+\//);
+  // all machines done -> celebration state
+  const s = r.t.session();
+  s.exercises.forEach(e => { e.skipped = false; (e.setData || []).forEach(x => { x.done = true; if (!Number(x.reps)) x.reps = '8' }) });
+  r.t.renderToday();
+  html = r.el('todayExercises').innerHTML;
+  assert.match(html, /🎉/);
+  assert.ok(html.includes(s.exercises.length + ' / ' + s.exercises.length + ' machines done'), 'N/N progress');
+}
+
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
