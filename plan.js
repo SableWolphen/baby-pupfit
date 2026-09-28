@@ -227,3 +227,21 @@ window.PUPFIT_PLANS = {
   },
 
 };
+
+window.PUPFIT_SWAPS = {
+  'ISO-Lateral Lat Pulldown': ['Lat Pulldown Machine', 'Assisted Pull-Up'],
+  'Cable Lateral Raise': ['Dumbbell Lateral Raise', 'Machine Lateral Raise'],
+  'EGYM Chest Press': ['Incline Chest Press', 'Dumbbell Bench Press'],
+  'EGYM Row': ['Seated Cable Row', 'Chest-Supported Dumbbell Row'],
+  'Biceps Curl Machine': ['Dumbbell Biceps Curl', 'Cable Curl'],
+  'Triceps Extension Machine': ['Cable Triceps Pushdown', 'Overhead Dumbbell Extension'],
+  'EGYM Leg Press': ['Hack Squat Machine', 'Goblet Squat'],
+  'Booty Builder Hip Thrust': ['Barbell Glute Bridge', 'Cable Pull-Through'],
+  'EGYM Leg Curl': ['Lying Leg Curl', 'Romanian Deadlift'],
+  'EGYM Leg Extension': ['Bulgarian Split Squat', 'Step-Up'],
+  'Booty Builder Hip Abduction': ['Cable Hip Abduction', 'Banded Lateral Walk'],
+  'Ab Crunch Machine': ['Cable Crunch', 'Hanging Knee Raise'],
+  'Pec Fly / Rear-Delt Machine': ['Cable Fly', 'Face Pull'],
+  'Standing Calf Raise': ['Seated Calf Raise', 'Leg Press Calf Press'],
+  'Incline Chest Press': ['Incline Dumbbell Press', 'EGYM Chest Press']
+};
