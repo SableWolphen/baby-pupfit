@@ -41,14 +41,14 @@ function run(date, seed = {}) {
   }
   const ctx = {
     window: {}, document: { getElementById: el, querySelectorAll: () => [], addEventListener() {}, createElement: () => mkEl('x'), body: mkEl('body') },
-    localStorage: storage, Date: FakeDate, alert() {}, prompt() { return ''; },
+    localStorage: storage, Date: FakeDate, alert() {}, prompt() { return ''; }, setTimeout() { return 0; }, clearTimeout() {},
   };
   vm.createContext(ctx);
   vm.runInContext(fs.readFileSync('plan.js', 'utf8'), ctx);
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll,praise,toast,babyRank,rankCard,stickerChart,renderStickers};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -304,6 +304,37 @@ for (const date of week) {
   // checklist auto-checks from the completed session
   r.t.renderChecklist();
   assert.match(r.el('checklist').innerHTML, /DONE/);
+}
+
+// 14. Stickers, praise, ranks.
+{
+  const r = run('2026-09-28');
+  for (const k of ['finish','partial','pr','bogus']) assert.ok(r.t.praise(k).length > 10, 'praise '+k);
+  assert.equal(r.t.babyRank().cur[1], '🍼 Tiny Newborn');
+  assert.match(r.t.rankCard(), /Tiny Newborn/);
+  r.t.toast('hello baby'); // must not throw in mock
+  // 6 finished workouts -> Wobbly Baby, rank pill in hero
+  const sess = {};
+  for (let i = 0; i < 6; i++) sess['s' + i] = { id: 's' + i, date: '2026-09-' + (20 + i), dow: 1, name: 'x', status: 'complete', exercises: [] };
+  const r2 = run('2026-09-28', { pupfit_workout_sessions_v2: sess });
+  const rk = r2.t.babyRank();
+  assert.equal(rk.n, 6);
+  assert.equal(rk.cur[1], '🐣 Wobbly Baby');
+  assert.equal(rk.next[1], '🧸 Bouncy Baby');
+  assert.match(r2.t.rankCard(), /6 more to reach/);
+  assert.match(r2.el('todayCard').innerHTML, /Wobbly Baby/);
+  // full training week of stickers -> STAR BABY
+  const wk = {};
+  ['2026-09-28','2026-09-29','2026-09-30','2026-10-01','2026-10-02','2026-10-04']
+    .forEach((d, i) => wk['k' + i] = { id: 'k' + i, date: d, dow: 1, name: 'x', status: 'complete', exercises: [] });
+  const r3 = run('2026-10-04', { pupfit_workout_sessions_v2: wk });
+  assert.match(r3.t.stickerChart(), /STAR BABY/);
+  // partial week -> countdown
+  const r4 = run('2026-10-04', { pupfit_workout_sessions_v2: { k0: { id: 'k0', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
+  assert.match(r4.t.stickerChart(), /5 more stickers/);
+  r4.t.renderStickers();
+  assert.match(r4.el('stickers').innerHTML, /Sticker chart/);
+  assert.match(r4.el('todayCard').innerHTML, /Tiny Newborn/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
