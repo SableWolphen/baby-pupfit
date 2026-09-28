@@ -130,8 +130,55 @@ window.PUPFIT_PLANS = {
     ]
   },
   "4": {
+    "name": "🦵 Lower B • Thighs + Glutes",
+    "note": "Lower body moved to Thursday to give you Friday + Saturday before Sunday’s run. Leave 2–3 reps in reserve and reduce sets if legs remain sore.",
+    "ex": [
+      [
+        "EGYM Leg Press",
+        3,
+        10,
+        15,
+        "big"
+      ],
+      [
+        "Booty Builder Hip Thrust",
+        3,
+        10,
+        15,
+        "big"
+      ],
+      [
+        "EGYM Leg Curl",
+        3,
+        10,
+        15,
+        "small"
+      ],
+      [
+        "EGYM Leg Extension",
+        2,
+        10,
+        15,
+        "small"
+      ],
+      [
+        "Booty Builder Hip Abduction",
+        2,
+        12,
+        20,
+        "small"
+      ],
+      [
+        "Ab Crunch Machine",
+        3,
+        10,
+        15,
+        "small"
+      ]
+    ]
+  }  "5": {
     "name": "🪽 Upper B • Width + Balanced chest/arms",
-    "note": "Build the X-frame with lats and side delts first. Rest 90–120 seconds on isolations.",
+    "note": "Upper body on Friday keeps leg fatigue away from Sunday’s run. Build the X-frame with lats and side delts first.",
     "ex": [
       [
         "ISO-Lateral Lat Pulldown",
@@ -177,52 +224,5 @@ window.PUPFIT_PLANS = {
       ]
     ]
   },
-  "5": {
-    "name": "🦵 Lower B • Thighs + Glutes",
-    "note": "Leave 2–3 reps in reserve to protect Sunday’s run. Reduce sets if legs remain sore.",
-    "ex": [
-      [
-        "EGYM Leg Press",
-        3,
-        10,
-        15,
-        "big"
-      ],
-      [
-        "Booty Builder Hip Thrust",
-        3,
-        10,
-        15,
-        "big"
-      ],
-      [
-        "EGYM Leg Curl",
-        3,
-        10,
-        15,
-        "small"
-      ],
-      [
-        "EGYM Leg Extension",
-        2,
-        10,
-        15,
-        "small"
-      ],
-      [
-        "Booty Builder Hip Abduction",
-        2,
-        12,
-        20,
-        "small"
-      ],
-      [
-        "Ab Crunch Machine",
-        3,
-        10,
-        15,
-        "small"
-      ]
-    ]
-  }
+
 };
