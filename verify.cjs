@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -237,6 +237,36 @@ for (const date of week) {
   r2.t.setChecklist('2026-09-28', { protein: true });
   r2.t.renderGrowth();
   assert.match(r2.el('growthList').innerHTML, /✅ done/);
+}
+
+// 11. Today quick weight log + goal check engine.
+{
+  // quicklog inputs render on the today tab
+  const r = run('2026-09-28');
+  assert.match(r.el('todayExercises').innerHTML, /data-qw/);
+  assert.match(r.el('todayExercises').innerHTML, /data-qr/);
+
+  // climbing weights -> up trend + On track verdict (4 sessions this week)
+  const sess = {};
+  const mk = (id, date, w) => sess[id] = { id, date, dow: 1, name: 'Upper A', status: 'complete', exercises: [{ name: 'ISO-Lateral Lat Pulldown', skipped: false, setData: [{ weight: w, reps: 10, done: true }, { weight: w, reps: 8, done: true }] }] };
+  mk('a', '2026-09-22', 40); mk('b', '2026-09-23', 42); mk('c', '2026-09-24', 44); mk('d', '2026-09-25', 46);
+  const r2 = run('2026-09-28', { pupfit_workout_sessions_v2: sess });
+  const t = r2.t.liftTrend('ISO-Lateral Lat Pulldown');
+  assert.ok(t && t.dir === 'up', 'trend up, got ' + JSON.stringify(t));
+  assert.match(r2.t.goalCheck(), /On track/);
+  assert.match(r2.t.goalCheck(), /4\/4 sessions/);
+
+  // sliding weights -> down trend
+  const sess2 = {};
+  const mk2 = (id, date, w) => sess2[id] = { id, date, dow: 1, name: 'Upper A', status: 'complete', exercises: [{ name: 'ISO-Lateral Lat Pulldown', skipped: false, setData: [{ weight: w, reps: 10, done: true }] }] };
+  mk2('a', '2026-09-14', 46); mk2('b', '2026-09-15', 40);
+  const r3 = run('2026-09-28', { pupfit_workout_sessions_v2: sess2 });
+  assert.equal(r3.t.liftTrend('ISO-Lateral Lat Pulldown').dir, 'down');
+  assert.match(r3.t.goalCheck(), /Off track/); // history exists, but <2 sessions this week
+
+  // no history -> onboarding card, not a verdict
+  const r4 = run('2026-09-28');
+  assert.match(r4.t.goalCheck(), /grade your trajectory/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
