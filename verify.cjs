@@ -48,7 +48,7 @@ function run(date, seed = {}) {
   let js = [...fs.readFileSync('index.html', 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
   const anchor = 'renderToday();renderCalendar();renderGrowth();renderPlan();';
   assert.ok(js.includes(anchor), 'expected init anchor in index.html');
-  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck};' + anchor);
+  js = js.replace(anchor, 'window.__test={renderToday,renderWorkout,renderCalendar,renderGrowth,renderPlan,prescription,advice,backupData,session,recentMissed,isMissedDay,adherenceNote,restSeconds,getRun,pace,runLog,detectPRs,cycleSwap,e1rm,sparkSVG,today,plans,get sessions(){return sessions},get swaps(){return swaps},getChecklist,setChecklist,renderChecklist,liftTrend,goalCheck,completeAll};' + anchor);
   vm.runInContext(js, ctx);
   return { ctx, el, storage, t: ctx.window.__test };
 }
@@ -287,6 +287,23 @@ for (const date of week) {
   html = r.el('todayExercises').innerHTML;
   assert.match(html, /🎉/);
   assert.ok(html.includes(s.exercises.length + ' / ' + s.exercises.length + ' machines done'), 'N/N progress');
+}
+
+// 13. Whole-workout check-off.
+{
+  const r = run('2026-09-28');
+  assert.match(r.el('todayExercises').innerHTML, /allDone/);
+  assert.match(r.el('todayExercises').innerHTML, /I did this workout/);
+  const s = r.t.session();
+  assert.ok(s.status !== 'complete', 'starts incomplete');
+  r.t.completeAll(s);
+  assert.equal(s.status, 'complete');
+  assert.ok(s.exercises.every(e => (e.setData || []).every(x => x.done)), 'every set done');
+  r.t.renderToday();
+  assert.match(r.el('todayExercises').innerHTML, /🎉/);
+  // checklist auto-checks from the completed session
+  r.t.renderChecklist();
+  assert.match(r.el('checklist').innerHTML, /DONE/);
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
