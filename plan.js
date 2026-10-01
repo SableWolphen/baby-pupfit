@@ -97,7 +97,7 @@ window.PUPFIT_PLANS = {
   },
   "3": {
     "name": "✨ Short accessories • Delts + Abs",
-    "note": "Low-fatigue day: 3 reps in reserve, no grinders. Skip this session if recovery is poor.",
+    "note": "Low-fatigue accessories + short quality treadmill run. Keep lifting at 3 RIR; skip the run if your legs are not recovered.",
     "ex": [
       [
         "Cable Lateral Raise",
@@ -126,6 +126,13 @@ window.PUPFIT_PLANS = {
         10,
         15,
         "small"
+      ],
+      [
+        "Treadmill Intervals",
+        1,
+        1,
+        1,
+        "run"
       ]
     ]
   },
