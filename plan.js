@@ -32,7 +32,7 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Biceps Curl Machine",
+        "EGYM Biceps Curl",
         2,
         10,
         15,
@@ -217,7 +217,7 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Biceps Curl Machine",
+        "EGYM Biceps Curl",
         2,
         10,
         15,
