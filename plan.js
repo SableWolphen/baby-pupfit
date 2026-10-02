@@ -39,7 +39,7 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "EGYM Triceps Pushdown",
+        "EGYM Triceps Press",
         2,
         10,
         15,
@@ -224,7 +224,7 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "EGYM Triceps Pushdown",
+        "EGYM Triceps Press",
         2,
         10,
         15,
