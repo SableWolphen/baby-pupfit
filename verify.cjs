@@ -139,7 +139,7 @@ for (const date of week) {
  const r2=run('2026-10-02'),ss=r2.t.session();
  assert.equal(ss.carriedFrom,undefined);
  assert.equal(ss.exercises.length,r2.t.plans[5].ex.length);
- assert.match(r2.el('todayExercises').innerHTML,/Open workout logger/);
+ assert.match(r2.el('todayExercises').innerHTML,/Start today.s workout/);
  const r3=run('2026-10-03');r3.t.renderCalendar();
  assert.match(r3.el('calendar').innerHTML,/missed/);
 }
@@ -298,7 +298,7 @@ for (const date of week) {
 // 13. Whole-workout check-off.
 {
   const r = run('2026-09-28');
-  assert.match(r.el('todayExercises').innerHTML, /Open workout logger/);
+  assert.match(r.el('todayExercises').innerHTML, /Start today.s workout/);
   assert.match(r.el('todayExercises').innerHTML, /TAP TO LOG SETS/);
   const s = r.t.session();
   assert.ok(s.status !== 'complete', 'starts incomplete');
