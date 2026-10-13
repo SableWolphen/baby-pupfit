@@ -97,6 +97,19 @@ for (const date of week) {
   assert.equal(Object.keys(r.t.plans).length, 5);
 }
 
+// 4b. Introductory training, machine swaps, and protection for logged history.
+{
+  const r=run('2026-09-28');
+  assert.ok(r.t.session().exercises.every(e=>e.setsTarget<=2),'intro uses no more than two sets');
+  for(const k of Object.keys(r.t.plans))for(const e of r.t.plans[k].ex){
+    assert.equal(r.t.swaps[e[0]].length,2,'two swaps for '+e[0]);
+    assert.ok(r.t.swaps[e[0]].every(n=>!/dumbbell|barbell/i.test(n)),'machines/cables only');
+  }
+  const ex=r.t.session().exercises[0],original=ex.name;
+  ex.setData[0].weight=40;ex.setData[0].reps=10;ex.setData[0].done=true;
+  r.t.cycleSwap(ex);assert.equal(ex.name,original,'do not swap and mix logged loads');
+}
+
 // 5. Backup collects every pupfit_* key and round-trips.
 {
   const seed = {
@@ -117,32 +130,18 @@ for (const date of week) {
   assert.deepEqual(JSON.parse(r2.storage.getItem('pupfit_progress_v1')), { '2026-09-28': { sleep: 5 } });
 }
 
-// 6. Missed detection + self-heal carry-forward.
+// 6. Missed days remain visible, but Wednesday is optional and no sets are carried.
 {
-  // Mon 2026-09-28 logged complete; Tue 2026-09-29 skipped; run Wed 2026-09-30.
-  let r = run('2026-09-30', { pupfit_workout_sessions_v2: { 'm|1': { id: 'm|1', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
-  const missed = r.t.recentMissed();
-  assert.ok(missed.length && missed[0].iso === '2026-09-29' && /Lower A/.test(missed[0].plan.name), 'most recent miss = Tue Lower A, got ' + JSON.stringify(missed[0]));
-  assert.ok(r.t.isMissedDay('2026-09-29', 2) && !r.t.isMissedDay('2026-09-28', 1), 'isMissedDay');
-
-  // Friday 2026-10-02 with Monday missed -> carries Upper A key lifts at 2 sets.
-  r = run('2026-10-02');
-  const s = r.t.session();
-  assert.ok(/Upper A/.test(s.carriedFrom), 'carriedFrom, got ' + s.carriedFrom);
-  const carried = s.exercises.filter(e => e.carried);
-  assert.ok(carried.length >= 1 && carried.every(e => e.setsTarget === 2), 'carried lifts at 2 sets');
-  assert.ok(carried.some(e => e.name === 'EGYM Chest Press'), 'carries EGYM Chest Press, got ' + carried.map(e => e.name));
-  assert.match(r.el('todayExercises').innerHTML, /Self-heal/);
-
-  // No double-carry: next Monday the same iso is excluded.
-  const persisted = { pupfit_workout_sessions_v2: JSON.parse(r.storage.getItem('pupfit_workout_sessions_v2')) };
-  const r2 = run('2026-10-05', persisted);
-  assert.equal(r2.t.session().carriedFrom, undefined, 'no double carry');
-
-  // Calendar marks missed days.
-  const r3 = run('2026-10-03');
-  r3.t.renderCalendar();
-  assert.match(r3.el('calendar').innerHTML, /missed/);
+ const r=run('2026-09-30',{pupfit_workout_sessions_v2:{'m|1':{id:'m|1',date:'2026-09-28',dow:1,name:'x',status:'complete',exercises:[]}}});
+ assert.ok(r.t.recentMissed().some(x=>x.iso==='2026-09-29'));
+ assert.equal(r.t.isMissedDay('2026-09-30',3),false);
+ assert.equal(r.t.isMissedDay('2026-09-29',2),true);
+ const r2=run('2026-10-02'),ss=r2.t.session();
+ assert.equal(ss.carriedFrom,undefined);
+ assert.equal(ss.exercises.length,r2.t.plans[5].ex.length);
+ assert.match(r2.el('todayExercises').innerHTML,/Open workout logger/);
+ const r3=run('2026-10-03');r3.t.renderCalendar();
+ assert.match(r3.el('calendar').innerHTML,/missed/);
 }
 
 // 7. Adherence learning + fastest-path coach card.
@@ -292,15 +291,17 @@ for (const date of week) {
 // 13. Whole-workout check-off.
 {
   const r = run('2026-09-28');
-  assert.match(r.el('todayExercises').innerHTML, /allDone/);
-  assert.match(r.el('todayExercises').innerHTML, /I did this workout/);
+  assert.match(r.el('todayExercises').innerHTML, /Open workout logger/);
+  assert.match(r.el('todayExercises').innerHTML, /TAP TO LOG SETS/);
   const s = r.t.session();
   assert.ok(s.status !== 'complete', 'starts incomplete');
-  r.t.completeAll(s);
-  assert.equal(s.status, 'complete');
-  assert.ok(s.exercises.every(e => (e.setData || []).every(x => x.done)), 'every set done');
+  assert.equal(r.t.completeAll(s),false,'cannot fill in fake sets');
+  assert.notEqual(s.status,'complete');
+  for(const e of s.exercises)for(const set of e.setData||[]){set.reps=e.min;set.done=true}
+  assert.equal(r.t.completeAll(s),true);
+  assert.equal(s.status,'complete');
   r.t.renderToday();
-  assert.match(r.el('todayExercises').innerHTML, /🎉/);
+  assert.match(r.el('todayExercises').innerHTML,/🎉/);
   // checklist auto-checks from the completed session
   r.t.renderChecklist();
   assert.match(r.el('checklist').innerHTML, /DONE/);
@@ -331,7 +332,7 @@ for (const date of week) {
   assert.match(r3.t.stickerChart(), /STAR BABY/);
   // partial week -> countdown
   const r4 = run('2026-10-04', { pupfit_workout_sessions_v2: { k0: { id: 'k0', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
-  assert.match(r4.t.stickerChart(), /5 more stickers/);
+  assert.match(r4.t.stickerChart(), /4 more stickers/);
   r4.t.renderStickers();
   assert.match(r4.el('stickers').innerHTML, /Sticker chart/);
   assert.match(r4.el('todayCard').innerHTML, /Tiny Newborn/);
@@ -396,16 +397,16 @@ for (const date of week) {
     'pupfit_run_2026-10-04': { miles: 3, mins: 25, done: true, at: 1 },
   });
   const html = r2.t.reportCard();
-  assert.match(html, /6\/6/);
+  assert.match(html, /5\/5/);
   assert.match(html, /7\/7/);
   assert.match(html, /Overall: A/);
   assert.match(html, /gold star/);
   // rough week -> F verdict
   const r3 = run('2026-10-04', { pupfit_workout_sessions_v2: { k0: { id: 'k0', date: '2026-09-28', dow: 1, name: 'x', status: 'complete', exercises: [] } } });
   const h3 = r3.t.reportCard();
-  assert.match(h3, /1\/6/);
+  assert.match(h3, /1\/5/);
   assert.match(h3, /Overall: F/);
   assert.match(h3, /Rough week/);
 }
 
-console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detect + self-heal carry (no double-carry); adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
+console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detection without carry-forward; adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
