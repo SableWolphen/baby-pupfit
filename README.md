@@ -1,31 +1,30 @@
-# 🍼 Baby PupFit
-
-A cute, dark-themed personal fitness tracker — workout plans, meal rotation, and progress tracking in one static site. No build step, no backend, no account. Your data stays in your browser.
+# 🍼 Baby PupFit — X-Frame & Glute Growth
 
 **Live:** https://sablewolphen.github.io/baby-pupfit/
 
-## What's inside
+Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
-- **Today** — actionable daily dashboard: today's workout, tap-to-check-off machines, what's next
-- **Workout** — set-by-set logging with a smart weight prescription (remembers your last session and tells you to increase, repeat, or reduce; EGYM machines use calibrated resistance)
-- **Calendar** — month view of planned vs. actually completed workouts
-- **Growth** — per-exercise strength history and consistency stats
-- **Plan** — the full 5-day machine split (Mon–Fri), Saturday rest, Sunday 3–5 mile run
-- **Meals** — rotating meal ideas with a grocery list and pescatarian dinners
-- **Data backup** — export all history to a JSON file, import it back later (Plan tab)
+## Weekly plan
+- **Monday Upper A:** lats, side delts, chest, row, biceps, triceps.
+- **Tuesday Lower A:** leg press, hip thrust, leg curl, leg extension, abduction, abs.
+- **Wednesday OPTIONAL:** side/rear delts, abs, calves — or rest. No hard intervals before Thursday.
+- **Thursday Lower B:** hip thrust, leg press, curls/extensions, hip abduction, abs.
+- **Friday Upper B:** lats, side delts, incline chest, row, biceps, triceps.
+- **Saturday REST. Sunday:** 3–5 miles at a conversational effort, adjusted to recovery.
 
-## Run the tests
+## Progress as fast as you can recover
+- The first **8 logged lifting sessions** start at **2 sets per exercise**. Later sessions advance toward the full planned 2–3 sets if recovery allows. Past sessions are preserved.
+- For conventional machines, log actual weights, reps, and reps-in-reserve (RIR). Suggestions only **increase** after you hit the top of the rep range on **every set at the same weight** with an explicit **2+ reps left** rating. Round to your machine's available stack increment.
+- For **EGYM Smart Strength**, follow its programmed/calibrated resistance rather than manually overriding it.
+- Wednesday is optional, and missed lifting sessions do **not** create make-up sets.
+- Warm up 5–10 min, add a few practice sets before heavy compounds, rest about 2–3 min after heavy lifts and around 90–120 sec for isolation exercises. If pain persists or performance falls, reduce load/volume or rest.
+- Training shapes the muscles; leanness depends on overall body composition. Avoid crash dieting to force ab definition.
 
-```bash
-node verify.cjs
-```
+Based on resistance-training principles from the [2026 ACSM position stand](https://acsm.org/resistance-training-guidelines-update-2026/).
 
-`verify.cjs` parses every inline script, then boots the app in a mocked DOM across seven simulated days and asserts: Saturday rest / Sunday run / weekday plans render, the Increase/Repeat/Reduce prescription logic, EGYM handling, plan data shape, and a backup export → restore round-trip.
+## Tracker
+Today opens each exercise's actual set logger rather than auto-filling unperformed sets. Workout includes RIR buttons and smart recommendations. Calendar, Growth, Plan, Meals and Progress remain available.
 
-## Tech
+Data is browser-local under `pupfit_*` keys. Export a backup before changing devices.
 
-Vanilla HTML/CSS/JS + `localStorage`. One shared `plan.js` holds the weekly split. Deployed with GitHub Pages from `main`.
-
-## Data
-
-Everything is stored under `pupfit_*` keys in `localStorage` — nothing leaves your device. Export a backup from the Plan tab before switching browsers.
+Test: `node verify.cjs`.
