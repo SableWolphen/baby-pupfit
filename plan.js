@@ -1,7 +1,8 @@
+// Baby PupFit: machine-focused upper/lower hypertrophy split. Wed optional; Sat rest; Sun easy running.
 window.PUPFIT_PLANS = {
   "1": {
-    "name": "🪽 Upper A • Lats + Side delts",
-    "note": "Upper body after Sunday’s run. Leave 2–3 reps in reserve.",
+    "name": "🪽 Upper A • Lats + Delts",
+    "note": "Build shoulder caps and back width. Warm up 5–10 minutes; train with 2–3 clean reps in reserve.",
     "ex": [
       [
         "ISO-Lateral Lat Pulldown",
@@ -48,8 +49,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "2": {
-    "name": "🍑 Lower A • Glutes + Thighs",
-    "note": "Warm up, then controlled pain-free range. Rest 2–3 minutes on compound machines.",
+    "name": "🍑 Lower A • Glutes + Quads",
+    "note": "Prioritize glute and thigh growth; control the range, leaving 2–3 clean reps in reserve.",
     "ex": [
       [
         "EGYM Leg Press",
@@ -96,8 +97,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "✨ Short accessories • Delts + Abs",
-    "note": "Low-fatigue accessories + short quality treadmill run. Keep lifting at 3 RIR; skip the run if your legs are not recovered.",
+    "name": "✨ OPTIONAL • Delts + Core",
+    "note": "Optional low-fatigue day, only when recovered. Easy walking or complete rest is fine. No hard intervals before Thursday legs.",
     "ex": [
       [
         "Cable Lateral Raise",
@@ -117,7 +118,7 @@ window.PUPFIT_PLANS = {
         "Ab Crunch Machine",
         2,
         10,
-        15,
+        20,
         "small"
       ],
       [
@@ -126,29 +127,22 @@ window.PUPFIT_PLANS = {
         10,
         15,
         "small"
-      ],
-      [
-        "Treadmill Intervals",
-        1,
-        1,
-        1,
-        "run"
       ]
     ]
   },
   "4": {
-    "name": "🦵 Lower B • Thighs + Glutes",
-    "note": "Lower body moved to Thursday to give you Friday + Saturday before Sunday’s run. Leave 2–3 reps in reserve and reduce sets if legs remain sore.",
+    "name": "🍑 Lower B • Glutes + Thighs",
+    "note": "Glute-focused second lower day. Friday and Saturday are leg recovery before Sunday's run.",
     "ex": [
       [
-        "EGYM Leg Press",
+        "Booty Builder Hip Thrust",
         3,
         10,
         15,
         "big"
       ],
       [
-        "Booty Builder Hip Thrust",
+        "EGYM Leg Press",
         3,
         10,
         15,
@@ -170,14 +164,14 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Booty Builder Hip Abduction",
-        2,
+        3,
         12,
         20,
         "small"
       ],
       [
         "Ab Crunch Machine",
-        3,
+        2,
         10,
         15,
         "small"
@@ -185,8 +179,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "5": {
-    "name": "🪽 Upper B • Width + Balanced chest/arms",
-    "note": "Upper body on Friday keeps leg fatigue away from Sunday’s run. Build the X-frame with lats and side delts first.",
+    "name": "🪽 Upper B • Delts + Upper Chest",
+    "note": "Second upper day: shoulders, lats, upper chest and arms without tiring legs.",
     "ex": [
       [
         "ISO-Lateral Lat Pulldown",
@@ -231,24 +225,68 @@ window.PUPFIT_PLANS = {
         "small"
       ]
     ]
-  },
-
+  }
 };
 
 window.PUPFIT_SWAPS = {
-  'ISO-Lateral Lat Pulldown': ['Lat Pulldown Machine', 'Assisted Pull-Up'],
-  'Cable Lateral Raise': ['Dumbbell Lateral Raise', 'Machine Lateral Raise'],
-  'EGYM Chest Press': ['Incline Chest Press', 'Dumbbell Bench Press'],
-  'EGYM Row': ['Seated Cable Row', 'Chest-Supported Dumbbell Row'],
-  'Biceps Curl Machine': ['Dumbbell Biceps Curl', 'Cable Curl'],
-  'Triceps Extension Machine': ['Cable Triceps Pushdown', 'Overhead Dumbbell Extension'],
-  'EGYM Leg Press': ['Hack Squat Machine', 'Goblet Squat'],
-  'Booty Builder Hip Thrust': ['Barbell Glute Bridge', 'Cable Pull-Through'],
-  'EGYM Leg Curl': ['Lying Leg Curl', 'Romanian Deadlift'],
-  'EGYM Leg Extension': ['Bulgarian Split Squat', 'Step-Up'],
-  'Booty Builder Hip Abduction': ['Cable Hip Abduction', 'Banded Lateral Walk'],
-  'Ab Crunch Machine': ['Cable Crunch', 'Hanging Knee Raise'],
-  'Pec Fly / Rear-Delt Machine': ['Cable Fly', 'Face Pull'],
-  'Standing Calf Raise': ['Seated Calf Raise', 'Leg Press Calf Press'],
-  'Incline Chest Press': ['Incline Dumbbell Press', 'EGYM Chest Press']
+  "ISO-Lateral Lat Pulldown": [
+    "Lat Pulldown Machine",
+    "Assisted Pull-Up Machine"
+  ],
+  "Cable Lateral Raise": [
+    "Single-Arm Cable Lateral Raise",
+    "Machine Lateral Raise (if available)"
+  ],
+  "EGYM Chest Press": [
+    "Incline Chest Press",
+    "Chest Press Machine"
+  ],
+  "EGYM Row": [
+    "Low Seated Row Machine",
+    "Chest-Supported Row Machine"
+  ],
+  "EGYM Biceps Curl": [
+    "Biceps Curl Machine",
+    "Cable Biceps Curl"
+  ],
+  "EGYM Triceps Press": [
+    "Triceps Extension Machine",
+    "Cable Triceps Pushdown"
+  ],
+  "EGYM Leg Press": [
+    "45-Degree Leg Press",
+    "Horizontal Hack Squat"
+  ],
+  "Booty Builder Hip Thrust": [
+    "Glute Kickback Machine",
+    "Smith Machine Hip Thrust"
+  ],
+  "EGYM Leg Curl": [
+    "Lying Leg Curl Machine",
+    "Seated Leg Curl Machine"
+  ],
+  "EGYM Leg Extension": [
+    "Leg Extension Machine",
+    "Pendulum Squat Machine"
+  ],
+  "Booty Builder Hip Abduction": [
+    "Hip Abduction Machine",
+    "Standing Glute Kickback Machine"
+  ],
+  "Ab Crunch Machine": [
+    "Weighted Ab Crunch Machine",
+    "Cable Crunch"
+  ],
+  "Pec Fly / Rear-Delt Machine": [
+    "Rear-Delt Machine",
+    "Cable Face Pull"
+  ],
+  "Standing Calf Raise": [
+    "Seated Calf Raise",
+    "Leg Press Calf Press"
+  ],
+  "Incline Chest Press": [
+    "EGYM Chest Press",
+    "Chest Press Machine"
+  ]
 };
