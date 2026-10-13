@@ -1,0 +1,210 @@
+/* Baby PupFit • Cozy Strength 2026
+   Shared dark visual system. No layout libraries or images needed. */
+:root{
+  --bg0:#0a0c19;--bg1:#101426;--card:#171b30;--card2:#1e2440;
+  --line:rgba(190,185,245,.13);--line2:rgba(205,196,249,.23);
+  --txt:#faf8ff;--mut:#c2beda;--dim:#9a96b6;
+  --pink:#ffb1d0;--violet:#bba7ff;--blue:#a5e4f4;
+  --grad:linear-gradient(125deg,#ffb2d3 0%,#d3b5ff 55%,#a5e4f4 100%);
+  --green:#9ef0c4;--shadow:0 14px 34px rgba(2,3,12,.22);
+  --r:22px;
+}
+html { scroll-padding-top:92px; }
+body.pupfit-app, body.pupfit-subpage {
+  color:var(--txt);
+  background:radial-gradient(780px 440px at 0% -6%,rgba(135,110,255,.15),transparent 64%),
+    radial-gradient(660px 370px at 100% 2%,rgba(255,126,190,.12),transparent 70%),
+    linear-gradient(180deg,#0a0c19 0%,#101427 52%,#0c1020 100%);
+  background-attachment:fixed;overflow-x:hidden;
+  font-family:"Nunito",ui-rounded,system-ui,-apple-system,sans-serif;
+}
+.pupfit-app .wrap {max-width:800px;padding:0 18px calc(126px + env(safe-area-inset-bottom));}
+.pupfit-app header {
+  margin:0 -18px 14px; padding:calc(12px + env(safe-area-inset-top)) 20px 13px;
+  background:rgba(10,12,25,.91);border-bottom:1px solid rgba(202,191,252,.13);
+  box-shadow:0 9px 24px rgba(0,0,0,.11);
+}
+.pupfit-app .brand-line {display:flex;align-items:center;gap:11px;}
+.pupfit-app .brand-mark{
+  width:44px;height:44px;display:grid;place-items:center;flex:none;
+  border:1px solid rgba(255,201,229,.24);border-radius:16px;
+  background:linear-gradient(145deg,#403056,#282b51);
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 6px 18px rgba(0,0,0,.22);
+  font-size:1.32rem;
+}
+.pupfit-app .brand-copy {min-width:0;flex:1;}
+.pupfit-app h1 {font-size:1.3rem;line-height:1.12;letter-spacing:-.045em;display:block;}
+.pupfit-app header #date{font-size:.74rem;margin-top:4px;cursor:pointer;letter-spacing:.01em;}
+.pupfit-app .header-tag{font-size:.68rem;font-weight:900;color:#edd6ef;
+  border:1px solid rgba(222,177,242,.24);background:#29213f;
+  border-radius:999px;padding:8px 11px;white-space:nowrap;}
+.pupfit-app .section.active{animation:softShow .18s ease-out;}
+@keyframes softShow{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+.pupfit-app .card, .pupfit-subpage .card {
+  background:linear-gradient(150deg,rgba(30,35,61,.96),rgba(20,25,44,.98));
+  border:1px solid rgba(196,185,242,.14);border-radius:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,.19);
+}
+.pupfit-app .card{padding:17px;margin:11px 0;}
+.pupfit-app .card::before{box-shadow:inset 0 1px rgba(255,255,255,.045);}
+.pupfit-app .title{font-size:1.11rem;letter-spacing:-.025em;font-weight:1000;overflow-wrap:anywhere;}
+.pupfit-app .sub,.pupfit-subpage .muted{color:var(--mut);}
+.pupfit-app .label {letter-spacing:.095em;font-size:.68rem;color:#d5bfff;}
+.pupfit-app .pill{
+  color:#f5e3fc;border-color:rgba(224,179,244,.22);
+  background:rgba(207,156,244,.10);padding:6px 10px;font-size:.73rem;
+}
+.pupfit-app .btn, .pupfit-subpage .btn{
+  min-height:48px;border-radius:15px;box-shadow:none;
+  transition:background .15s ease,transform .15s ease,border-color .15s ease;
+}
+.pupfit-app .primary,.pupfit-subpage .primary {
+  background:var(--grad);color:#21162d;box-shadow:0 9px 24px rgba(206,150,232,.14);
+}
+.pupfit-app .secondary,.pupfit-subpage .secondary{
+  background:#2a304c;color:var(--txt);border:1px solid rgba(199,193,249,.2);
+}
+.pupfit-app .ghost{background:#262a43;color:#efebff;border-color:rgba(185,180,225,.17);}
+.pupfit-app .btn:focus-visible, .pupfit-app summary:focus-visible,
+.pupfit-app .nav button:focus-visible, .pupfit-subpage :focus-visible{
+  outline:3px solid #b8eafa;outline-offset:3px;
+}
+.pupfit-app #todayCard {
+  position:relative;overflow:hidden;isolation:isolate;padding:24px 21px 20px;
+  min-height:185px;
+  background:radial-gradient(300px 270px at 100% 0%,rgba(251,157,200,.20),transparent 74%),
+  linear-gradient(130deg,#352545 0%,#302b59 47%,#1e3053 100%);
+  border-color:rgba(242,177,222,.34);
+}
+.pupfit-app #todayCard:after {
+  content:"✦";position:absolute;top:8px;right:20px;font-size:5.3rem;line-height:1;
+  color:rgba(244,213,255,.12);background:none;pointer-events:none;
+}
+.pupfit-app #todayCard .label{color:#ffe0f1;font-size:.69rem;}
+.pupfit-app #todayCard .homeWorkout{font-size:clamp(1.6rem,5.5vw,2.05rem);
+  max-width:88%;letter-spacing:-.038em;margin:8px 0 9px;line-height:1.12;}
+.pupfit-app #todayCard .sub{color:#e6dff7;line-height:1.48;max-width:95%;font-size:.85rem;}
+.pupfit-app #todayCard .homeMeta{margin-top:15px;gap:4px;}
+.pupfit-app #todayCard .pill{background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.17);color:#fff;}
+.pupfit-app #todayExercises .progressCard{padding:18px 17px 17px;}
+.pupfit-app #todayExercises .progressTop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.pupfit-app #todayExercises .progressTop .title{font-size:1.17rem;}
+.pupfit-app #todayExercises .progressCount{font-size:.84rem;color:var(--pink);font-weight:1000;white-space:nowrap;}
+.pupfit-app #todayExercises .progressRail{height:10px;border-radius:100px;
+  background:#101428;margin:14px 0 10px;overflow:hidden;}
+.pupfit-app #todayExercises .progressFill{height:100%;border-radius:inherit;background:var(--grad);}
+.pupfit-app #todayExercises .progressCard .btn{margin-top:15px;}
+.pupfit-app #todayExercises .homeExWrap {margin:7px 0;}
+.pupfit-app #todayExercises .homeEx{box-shadow:none;border-radius:16px;padding:12px;
+  background:#171b30;border-color:rgba(207,195,251,.13);gap:9px;}
+.pupfit-app #todayExercises .homeEx.done{background:#172f2c;border-color:rgba(123,227,182,.24);}
+.pupfit-app #todayExercises .homeNum{width:38px;height:38px;border-radius:13px;}
+.pupfit-app #todayExercises .homeEx b{line-height:1.23;font-size:.87rem;overflow-wrap:anywhere;}
+.pupfit-app #todayExercises .homeRx{font-size:.6rem;max-width:100px;}
+.pupfit-app #todayExercises .homeRx strong{font-size:.79rem;overflow-wrap:anywhere;}
+.pupfit-app #todayExercises .homeCheck{font-size:.6rem;letter-spacing:.03em;}
+.pupfit-app #todayExercises .quicklog{display:none;}
+.pupfit-app .foldCard{margin:10px 0;overflow:hidden;padding:0;}
+.pupfit-app .foldCard > summary {list-style:none;display:flex;align-items:center;
+  gap:11px;cursor:pointer;padding:16px 17px;min-height:66px;font-weight:900;}
+.pupfit-app .foldCard > summary::-webkit-details-marker{display:none;}
+.pupfit-app .foldCard > summary .foldIcon{width:39px;height:39px;border-radius:13px;
+  display:grid;place-items:center;background:#303254;flex:none;font-size:1.08rem;}
+.pupfit-app .foldCard > summary .foldCopy{min-width:0;flex:1;}
+.pupfit-app .foldCard > summary .foldCopy small{display:block;color:var(--mut);
+  font-size:.73rem;font-weight:700;margin-top:2px;}
+.pupfit-app .foldCard > summary .foldChevron{font-size:1.2rem;color:var(--violet);transform:rotate(90deg);transition:transform .15s;}
+.pupfit-app .foldCard[open] > summary .foldChevron{transform:rotate(-90deg);}
+.pupfit-app .foldBody{padding:0 15px 16px;border-top:1px solid rgba(190,185,245,.10);}
+.pupfit-app .foldBody .homeExWrap:first-child{margin-top:13px;}
+.pupfit-app .foldBody .sub{margin-top:12px;}
+.pupfit-app #todayExercises .startFloat{position:static;bottom:auto;z-index:auto;}
+.pupfit-app #homeNext .nextCard{border-style:solid;background:rgba(25,29,52,.78);}
+.pupfit-app .nextCard .nextLine{margin-top:5px;}
+.pupfit-app .nextArrow{color:var(--violet);}
+.pupfit-app .nav {
+  width:min(calc(100% - 24px),720px);bottom:max(10px,env(safe-area-inset-bottom));
+  padding:7px 6px;background:rgba(21,24,43,.96);
+  border-radius:23px;border:1px solid rgba(203,189,251,.21);
+  box-shadow:0 14px 34px rgba(0,0,0,.39);
+}
+.pupfit-app .nav button{font-size:.67rem;line-height:1.1;padding:8px 3px;
+  display:flex;flex-direction:column;align-items:center;gap:5px;min-height:54px;
+  justify-content:center;border-radius:17px;color:#b6b0d1;}
+.pupfit-app .nav button .navGlyph{font-size:1.22rem;line-height:1.1;}
+.pupfit-app .nav button.active{color:#25172f;background:var(--grad);box-shadow:none;}
+.pupfit-app .nav button:not(.active):hover{color:#fff;background:rgba(255,255,255,.065);}
+.pupfit-app .weekstrip{gap:5px;}
+.pupfit-app .daychip{border-radius:13px;min-height:71px;padding:8px 1px;}
+.pupfit-app .calday{border-radius:13px;min-height:59px;padding:7px;}
+.pupfit-app .calendar{gap:5px;}
+.pupfit-app .calday .mark{margin-top:4px;}
+.pupfit-app #workout .hero{padding:19px 20px;}
+.pupfit-app #wTitle{font-size:1.42rem;margin:6px 0;}
+.pupfit-app #workout #exerciseCard{padding:15px;}
+.pupfit-app #exerciseCard .pager{grid-template-columns:45px minmax(0,1fr) 45px;}
+.pupfit-app #exerciseCard .pager .title{font-size:1.19rem;}
+.pupfit-app #exerciseCard .pager .btn{min-height:44px;border-radius:13px;padding:5px;}
+.pupfit-app #exerciseCard .smart{margin:16px 0;border-radius:19px;
+  background:linear-gradient(145deg,#302745,#212c4b);border-color:rgba(203,175,245,.32);}
+.pupfit-app #exerciseCard .smartWeight{font-size:clamp(1.55rem,7vw,2.35rem);overflow-wrap:anywhere;}
+.pupfit-app #exerciseCard .sethead{color:#c8c1e7;}
+.pupfit-app #exerciseCard .set{gap:6px;}
+.pupfit-app #exerciseCard .set input{height:48px;background:#111629;border-radius:12px;
+  border-color:rgba(205,189,250,.21);}
+.pupfit-app #exerciseCard .set button{border-radius:12px;}
+.pupfit-app #exerciseCard .coach{border:1px solid rgba(217,174,240,.20);background:#242139;}
+.pupfit-app .planDay{padding:0!important;overflow:hidden;}
+.pupfit-app .planDay > summary{padding:16px 18px;list-style:none;cursor:pointer;
+  display:flex;align-items:center;gap:13px;min-height:80px;}
+.pupfit-app .planDay > summary::-webkit-details-marker{display:none;}
+.pupfit-app .planDay .planMark{width:41px;height:41px;border-radius:14px;
+  display:grid;place-items:center;background:#302e51;font-size:1.25rem;flex:none;}
+.pupfit-app .planDay .planSummary{min-width:0;flex:1;}
+.pupfit-app .planDay .planSummary .title{font-size:1rem;}
+.pupfit-app .planDay .planSummary .sub{font-size:.75rem;}
+.pupfit-app .planDay .planChev{font-size:1.18rem;color:var(--violet);}
+.pupfit-app .planDay[open] .planChev{transform:rotate(90deg);}
+.pupfit-app .planDay .planBody{padding:0 17px 14px;}
+.pupfit-app .planDay .exercise{padding:10px 0;}
+.pupfit-app .stat{border-radius:14px;background:#171b30;}
+.pupfit-app #growthList .card{overflow:hidden;}
+.pupfit-subpage .wrap{max-width:850px;padding:17px 17px 80px;}
+.pupfit-subpage .hero,.pupfit-subpage .topbar{gap:12px;}
+.pupfit-subpage .hero h1{font-size:clamp(1.55rem,5.8vw,2.25rem);line-height:1.13;letter-spacing:-.035em;}
+.pupfit-subpage .card{padding:17px;margin:11px 0;}
+.pupfit-subpage .tile,.pupfit-subpage .day,.pupfit-subpage .box{
+  background:#141b31;border:1px solid rgba(205,190,249,.15);border-radius:17px;}
+.pupfit-subpage .label{color:#d5c0f1;}
+.pupfit-subpage input,.pupfit-subpage select{border-color:rgba(200,193,244,.2)!important;background:#101426!important;color:#fff;}
+.pupfit-subpage .soft{background:linear-gradient(135deg,#2c2541,#1b2a3e);}
+.pupfit-subpage .btn{font-family:inherit;min-height:46px;}
+.pupfit-subpage .tag,.pupfit-subpage .pill{border-color:rgba(222,183,247,.2);}
+@media(min-width:700px){
+ .pupfit-app #today .todayLayout{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+ .pupfit-app #today .todayLayout > *{margin:0;}
+}
+@media(max-width:450px){
+ .pupfit-app .wrap{padding-left:13px;padding-right:13px;}
+ .pupfit-app header{margin-left:-13px;margin-right:-13px;padding-left:15px;padding-right:15px;}
+ .pupfit-app h1{font-size:1.19rem;}
+ .pupfit-app .brand-mark{width:39px;height:39px;border-radius:14px;}
+ .pupfit-app .header-tag{padding:7px 8px;font-size:.62rem;}
+ .pupfit-app #todayCard{padding:20px 17px;min-height:165px;}
+ .pupfit-app #todayCard .homeWorkout{max-width:95%;}
+ .pupfit-app .card{padding:14px;}
+ .pupfit-app .weekstrip,.pupfit-app .calendar{gap:4px;}
+ .pupfit-app .calday{padding:5px;min-height:53px;}
+ .pupfit-app .daychip .i{font-size:1.04rem;}
+ .pupfit-app .nav button{font-size:.59rem;gap:4px;}
+ .pupfit-app #todayExercises .homeRx{max-width:80px;}
+ .pupfit-app #todayExercises .homeRx strong{font-size:.74rem;}
+ .pupfit-app #exerciseCard .set{gap:4px;}
+ .pupfit-app #exerciseCard .set input{font-size:.84rem;padding:0 2px;}
+ .pupfit-app #exerciseCard .sethead{gap:4px;font-size:.59rem;}
+}
+@media(prefers-reduced-motion:reduce){
+ .pupfit-app .section.active{animation:none;}
+ .pupfit-app .btn,.pupfit-app .foldChevron{transition:none;}
+}
