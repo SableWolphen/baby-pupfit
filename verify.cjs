@@ -248,12 +248,14 @@ for (const date of week) {
   assert.match(r2.el('growthList').innerHTML, /✅ done/);
 }
 
-// 11. Today quick weight log + goal check engine.
+// 11. Clean home overview + goal check engine.
 {
-  // quicklog inputs render on the today tab
+  // Detailed weight and rep inputs belong on Workout, not the home screen.
   const r = run('2026-09-28');
-  assert.match(r.el('todayExercises').innerHTML, /data-qw/);
-  assert.match(r.el('todayExercises').innerHTML, /data-qr/);
+  assert.doesNotMatch(r.el('todayExercises').innerHTML, /data-qw/);
+  assert.doesNotMatch(r.el('todayExercises').innerHTML, /data-qr/);
+  assert.match(r.el('todayExercises').innerHTML, /data-homecheck/);
+  assert.match(r.el('todayExercises').innerHTML, /class="card foldCard"/);
 
   // climbing weights -> up trend + On track verdict (4 sessions this week)
   const sess = {};
