@@ -207,6 +207,13 @@ for (const date of week) {
     assert.ok(fs.existsSync(f), f + ' exists');
   const html = fs.readFileSync('index.html', 'utf8');
   assert.ok(html.includes('rel="manifest"'), 'manifest linked');
+  assert.ok(fs.existsSync('polish.css'),'shared app stylesheet exists');
+  assert.ok(html.includes('href="polish.css"'),'shared stylesheet linked');
+  assert.ok(html.includes('class="brand-line"'),'refreshed header present');
+  assert.ok(html.includes('class="progressRail"'),'home workout progress present');
+  assert.ok(html.includes('class="card planDay"'),'collapsible plan present');
+  for (const page of ['progress.html','meals.html','machine-plan.html'])
+    assert.ok(fs.readFileSync(page,'utf8').includes('href="polish.css"'),page+' has shared styles');
   assert.ok(html.includes("serviceWorker.register('sw.js')"), 'SW registered');
   const sw = fs.readFileSync('sw.js', 'utf8');
   assert.ok(/pupfit-v\d+/.test(sw), 'SW cache is versioned');
