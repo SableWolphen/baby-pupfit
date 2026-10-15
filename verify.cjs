@@ -426,6 +426,18 @@ console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescript
  assert.match(home,/href="physique-goal.html"/);
  assert.match(goal,/pupfit_physique_checkins_v1/);
  assert.match(sw,/physique-goal.html/);
+ assert.match(sw,/weekly-coach.js/);
  const ctx={window:{}};vm.runInNewContext(fs.readFileSync('plan.js','utf8'),ctx);
  for(const day of [1,2,4])assert.equal(ctx.window.PUPFIT_PLANS[day].ex.find(x=>x[0]==='Ab Crunch Machine')[1],3);
+}
+
+// Weekly coach requires adequate data, resists overreacting to small samples.
+{
+ const context={};vm.runInNewContext(fs.readFileSync('weekly-coach.js','utf8'),context);
+ const fn=context.PUPFIT_WEEKLY_COACH.evaluate;
+ const empty=fn({},'2026-10-15');assert.equal(empty.qualified,false);
+ const data={};for(let i=0;i<14;i++){let d=new Date('2026-10-02T12:00:00');d.setDate(d.getDate()+i);let date=d.toISOString().slice(0,10);data[date]={weight:i<7?175:174.3,calories:2100,steps:6100}}
+ const good=fn(data,'2026-10-15');assert.equal(good.qualified,true);assert.match(good.status,/Keep your current approach/);
+ const tooFast={};for(const [day,row] of Object.entries(data))tooFast[day]={...row,weight:row.weight<175?172:175};
+ assert.match(fn(tooFast,'2026-10-15').message,/Avoid cutting calories further/);
 }
