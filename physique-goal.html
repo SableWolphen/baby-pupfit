@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a0c19"><title>12-Week Goal • Baby PupFit</title>
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="polish.css">
+<style>
+*{box-sizing:border-box}body{margin:0;color:#faf8ff;background:#0c1020;font-family:Nunito,system-ui,sans-serif}.wrap{max-width:760px;margin:auto;padding:18px 16px 85px}
+a{color:#f5caea;text-decoration:none}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0 16px}.top b{font-size:1.15rem}.back{border:1px solid #47405e;border-radius:14px;padding:10px 13px;font-size:.82rem}
+h1{font-size:clamp(1.7rem,6vw,2.3rem);line-height:1.1;margin:8px 0 10px}h2{font-size:1.12rem;margin:0 0 12px}.muted{color:#c2beda;font-size:.86rem;line-height:1.55}.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:#ebc7ff;font-weight:900}
+.card{background:linear-gradient(150deg,#20243e,#151b2f);border:1px solid #36344f;border-radius:22px;padding:18px;margin:12px 0;box-shadow:0 12px 24px #0002}
+.hero{background:linear-gradient(130deg,#3d294a,#312b57 55%,#213754);border-color:#865b91}
+.hero strong{font-size:1.23rem}.targets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{border-radius:16px;padding:14px;background:#11182c;border:1px solid #383650}.tile strong{display:block;font-size:1.33rem;margin:2px 0}.small{font-size:.74rem;color:#bbb5d6}
+label{display:block;color:#ddd5ee;font-size:.8rem;font-weight:800;margin-bottom:5px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+input{width:100%;min-height:46px;border:1px solid #554e6c;background:#101427;color:#fff;border-radius:12px;font:inherit;font-weight:800;padding:10px}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #a5e4f4;outline-offset:2px}
+button{font:inherit;cursor:pointer}.btn{width:100%;min-height:48px;border:none;border-radius:14px;font-weight:900;background:linear-gradient(125deg,#ffb2d3,#d3b5ff,#a5e4f4);color:#21162d;margin-top:13px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{text-align:center;background:#13182e;border:1px solid #36344f;padding:12px 5px;border-radius:14px}.metric strong{display:block;font-size:1.14rem}.metric span{display:block;color:#bfb8d9;font-size:.68rem;margin-top:3px}
+.progress{height:12px;border-radius:99px;background:#111528;overflow:hidden;margin:13px 0}.fill{height:100%;background:linear-gradient(90deg,#ffb2d3,#d3b5ff);width:0%;border-radius:inherit;transition:width .2s}
+.line{border-top:1px solid #3a3650;padding:10px 0;display:flex;justify-content:space-between;gap:12px;font-size:.82rem}.line:last-child{padding-bottom:0}
+.note{border-left:3px solid #c9b1ff;padding:10px 12px;background:#29213e;border-radius:9px;margin-top:12px;color:#eee6fb;font-size:.81rem;line-height:1.5}
+.list{padding-left:20px;line-height:1.7;color:#e5dff5;font-size:.88rem}.list li{margin-bottom:6px}#history{max-height:360px;overflow:auto}
+@media(max-width:390px){.targets{gap:6px}.tile{padding:11px}.tile strong{font-size:1.08rem}.grid3{gap:5px}.metric strong{font-size:1rem}}
+</style></head><body class="pupfit-subpage"><main class="wrap">
+<div class="top"><b>🐾 Baby <span style="color:#f5bbeb">PupFit</span></b><a class="back" href="./">← Workout tracker</a></div>
+<section class="card hero"><div class="eyebrow">Your 12-week focus</div><h1>🍑 Glutes + Six-Pack</h1><strong>Feminine athletic shape, at a sustainable pace.</strong><p class="muted">Age 32 · 5'8" · initial weight 175 lb · mostly sitting at work. Your goal: a more defined waist and abs, fuller glutes and thighs, and moderate upper-body definition. No hormones assumed.</p>
+<div class="note">Visible abs cannot be guaranteed in 12 weeks. Aim for measurable strength and waist changes without sacrificing muscle or recovery.</div></section>
+<section class="card"><h2>🎯 Your starting daily targets</h2><div class="targets">
+<div class="tile"><div class="eyebrow">Calories · trial</div><strong>2,000–2,150</strong><span class="small">Start around 2,100; reassess after 2–3 weeks</span></div>
+<div class="tile"><div class="eyebrow">Protein</div><strong>150 g</strong><span class="small">140–160 g is fine</span></div>
+<div class="tile"><div class="eyebrow">Fat</div><strong>60–70 g</strong><span class="small">Carbs fill remaining calories</span></div>
+<div class="tile"><div class="eyebrow">Steps</div><strong>6,000</strong><span class="small">Build toward 7–8k if comfortable</span></div></div>
+<p class="muted">These are provisional estimates, not a guaranteed deficit. If your average weight isn't gradually trending down after 2–3 weeks, adjust intake or activity modestly. If strength, mood or recovery falls, increase fuel or reduce the deficit.</p></section>
+<section class="card"><h2>📏 Log your progress</h2><div class="muted">Weigh under similar conditions when convenient. Weekly averages matter more than any single day. Waist is optional. Entries are stored only in this browser and included in the app's existing data backup.</div>
+<form id="checkin"><div class="fields" style="margin-top:13px">
+<div><label for="date">Date</label><input id="date" type="date" required></div>
+<div><label for="weight">Weight (lb)</label><input id="weight" type="number" min="60" max="600" step="0.1" placeholder="175"></div>
+<div><label for="waist">Waist (in) · optional</label><input id="waist" type="number" min="15" max="80" step="0.1" placeholder="At navel"></div>
+<div><label for="steps">Steps</label><input id="steps" type="number" min="0" max="100000" step="1" placeholder="6000"></div>
+<div><label for="calories">Calories eaten</label><input id="calories" type="number" min="0" max="10000" step="1" placeholder="2100"></div>
+<div><label for="protein">Protein (g)</label><input id="protein" type="number" min="0" max="500" step="1" placeholder="150"></div></div>
+<button class="btn" type="submit">💜 Save check-in</button><p class="small" id="message" role="status" aria-live="polite"></p></form></section>
+<section class="card"><h2>📈 Your trends</h2><div class="grid3">
+<div class="metric"><strong id="average">—</strong><span>7-day avg lb</span></div>
+<div class="metric"><strong id="change">—</strong><span>Weight vs first</span></div>
+<div class="metric"><strong id="waistNow">—</strong><span>Latest waist in</span></div></div>
+<div class="small" style="margin-top:12px">Today's steps</div><div class="progress"><div id="stepFill" class="fill"></div></div>
+<div id="stepText" class="muted">Log steps to see your daily goal.</div>
+<div id="history"></div></section>
+<section class="card"><h2>🏋️ Weekly training priorities</h2><div class="line"><b>Monday</b><span>Upper body + weighted abs</span></div><div class="line"><b>Tuesday</b><span>Glutes, thighs + weighted abs</span></div><div class="line"><b>Wednesday</b><span>Optional light work or walking</span></div><div class="line"><b>Thursday</b><span>Glute focus + weighted abs</span></div><div class="line"><b>Friday</b><span>Upper-body shaping</span></div><div class="line"><b>Saturday</b><span>Rest</span></div><div class="line"><b>Sunday</b><span>Easy 3–5-mile run</span></div>
+<p class="muted">For the first eight logged workouts, the app starts with at most two working sets per exercise. Add volume gradually. Most sets should finish with approximately 2–3 clean reps left.</p></section>
+<section class="card"><h2>🗓️ 12-week roadmap</h2><ol class="list"><li><b>Weeks 1–2:</b> Establish food, steps and machine baselines. Log accurately and avoid rushing weights.</li><li><b>Weeks 3–6:</b> Progress hip thrust, leg press and weighted ab crunches while maintaining moderate fat loss.</li><li><b>Weeks 7–10:</b> Compare waist and seven-day weight averages, plus your training performance. Adjust only if needed.</li><li><b>Weeks 11–12:</b> Review results. Maintain, continue, or take a recovery-focused week as needed.</li></ol><p class="muted">A loss of roughly 0.5–1 lb weekly may be reasonable if you maintain performance; 163–169 lb after 12 weeks is a possible range, <b>not</b> a required weight or guarantee of visible abs.</p></section>
+</main><script>
+(()=>{'use strict';
+const key='pupfit_physique_checkins_v1', $=id=>document.getElementById(id), today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+let records={};try{const parsed=JSON.parse(localStorage.getItem(key)||'{}');if(parsed&&typeof parsed==='object'&&!Array.isArray(parsed))records=parsed}catch(e){}
+$('date').value=today(); 
+function fmt(v,d=1){return Number.isFinite(v)?v.toFixed(d):'—'}
+function loadDay(){const r=records[$('date').value]||{};for(const f of ['weight','waist','steps','calories','protein'])$(f).value=r[f]??''}
+function update(){
+ const arr=Object.entries(records).filter(([d,r])=>/^\d{4}-\d\d-\d\d$/.test(d)&&r&&typeof r==='object').sort((a,b)=>a[0].localeCompare(b[0]));
+ const weighted=arr.filter(([d,r])=>Number(r.weight)>0),last=weighted[weighted.length-1],first=weighted[0],cut=new Date();cut.setDate(cut.getDate()-6);const since=cut.getFullYear()+'-'+String(cut.getMonth()+1).padStart(2,'0')+'-'+String(cut.getDate()).padStart(2,'0');
+ const recent=weighted.filter(([d])=>d>=since),avg=recent.length?recent.reduce((sum,[d,r])=>sum+Number(r.weight),0)/recent.length:NaN;
+ $('average').textContent=fmt(avg);$('change').textContent=last&&first?((last[1].weight-first[1].weight)>0?'+':'')+fmt(last[1].weight-first[1].weight)+' lb':'—';
+ const waists=arr.filter(([d,r])=>Number(r.waist)>0);$('waistNow').textContent=waists.length?fmt(Number(waists[waists.length-1][1].waist)):'—';
+ const st=Number((records[today()]||{}).steps),valid=Number.isFinite(st)&&st>0;$('stepFill').style.width=Math.min(100,st/6000*100)+'%';$('stepText').textContent=valid?st.toLocaleString()+' / 6,000 steps today':'Log steps to see your daily goal.';
+ $('history').innerHTML=arr.length?'<h2 style="margin-top:20px">Recent check-ins</h2>'+arr.slice(-8).reverse().map(([d,r])=>'<div class="line"><b>'+d+'</b><span>'+(r.weight?r.weight+' lb':'No weight')+(r.waist?' · '+r.waist+' in waist':'')+(r.steps?' · '+r.steps+' steps':'')+'</span></div>').join(''):'<p class="muted">Your check-in history will appear here.</p>'
+}
+$('date').addEventListener('change',loadDay);
+$('checkin').addEventListener('submit',e=>{e.preventDefault();const date=$('date').value;if(!/^\d{4}-\d\d-\d\d$/.test(date))return;const item={};for(const f of ['weight','waist','steps','calories','protein']){const raw=$(f).value.trim();if(raw){const v=Number(raw);if(!Number.isFinite(v)||v<0)return;item[f]=v}}
+if(!Object.keys(item).length){$('message').textContent='Enter at least one measurement before saving.';return}
+records[date]=item;try{localStorage.setItem(key,JSON.stringify(records));$('message').textContent='Saved for '+date+'. You can edit this day by selecting it again.';update()}catch(err){$('message').textContent='Could not save: browser storage may be unavailable.'}});
+loadDay();update();
+})();
+</script></body></html>
