@@ -1,7 +1,7 @@
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
 
 // 1. Every inline script in every page must at least parse.
-const files = ['index.html', 'machine-plan.html', 'meals.html', 'progress.html'];
+const files = ['index.html', 'machine-plan.html', 'meals.html', 'progress.html', 'physique-goal.html'];
 for (const f of files)
   for (const [, js] of fs.readFileSync(f, 'utf8').matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g))
     new vm.Script(js, { filename: f });
@@ -419,3 +419,13 @@ for (const date of week) {
 }
 
 console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescription Increase/Reduce/Repeat/EGYM/calibration; plan shape; backup round-trip; missed detection without carry-forward; adherence note; fastest-path card; rest timer; swaps; PR detect; run log + pace; e1RM charts; PWA files.');
+
+// Physique dashboard and updated training split
+{
+ const home=fs.readFileSync('index.html','utf8'),goal=fs.readFileSync('physique-goal.html','utf8'),sw=fs.readFileSync('sw.js','utf8');
+ assert.match(home,/href="physique-goal.html"/);
+ assert.match(goal,/pupfit_physique_checkins_v1/);
+ assert.match(sw,/physique-goal.html/);
+ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('plan.js','utf8'),ctx);
+ for(const day of [1,2,4])assert.equal(ctx.window.PUPFIT_PLANS[day].ex.find(x=>x[0]==='Ab Crunch Machine')[1],3);
+}
