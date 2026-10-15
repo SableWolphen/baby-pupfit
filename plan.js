@@ -2,7 +2,7 @@
 window.PUPFIT_PLANS = {
   "1": {
     "name": "🪽 Upper A • Lats + Delts",
-    "note": "Build shoulder caps and back width. Warm up 5–10 minutes; train with 2–3 clean reps in reserve.",
+    "note": "Upper shape + weighted abs. Train with 2–3 clean reps left.",
     "ex": [
       [
         "ISO-Lateral Lat Pulldown",
@@ -42,6 +42,13 @@ window.PUPFIT_PLANS = {
       [
         "EGYM Triceps Press",
         2,
+        10,
+        15,
+        "small"
+      ],
+      [
+        "Ab Crunch Machine",
+        3,
         10,
         15,
         "small"
@@ -132,7 +139,7 @@ window.PUPFIT_PLANS = {
   },
   "4": {
     "name": "🍑 Lower B • Glutes + Thighs",
-    "note": "Glute-focused second lower day. Friday and Saturday are leg recovery before Sunday's run.",
+    "note": "Glute-focused second lower day plus weighted abs. Recover Friday/Saturday before the easy Sunday run.",
     "ex": [
       [
         "Booty Builder Hip Thrust",
@@ -171,7 +178,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Ab Crunch Machine",
-        2,
+        3,
         10,
         15,
         "small"
