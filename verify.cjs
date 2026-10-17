@@ -97,6 +97,30 @@ for (const date of week) {
   assert.equal(Object.keys(r.t.plans).length, 5);
 }
 
+// 4a. Lean athletic split: upper-chest/shoulders and abs without sacrificing glutes.
+{
+ const r=run('2026-09-28'),p=r.t.plans;
+ assert.match(p[1].name,/Upper A/);
+ assert.match(p[5].name,/Upper B/);
+ for (const d of [1,2,4])assert.equal(p[d].ex.find(e=>e[0]==='Ab Crunch Machine')[1],3);
+ assert.ok(p[1].ex.some(e=>e[0]==='Incline Chest Press'));
+ assert.ok(p[1].ex.some(e=>e[0]==='EGYM Chest Press'));
+ assert.ok(p[5].ex.some(e=>e[0]==='Shoulder Press Machine'));
+ assert.ok(p[5].ex.some(e=>e[0]==='Pec Deck Chest Fly'));
+ for(const d of [2,4]){
+   assert.equal(p[d].ex[0][0],'Booty Builder Hip Thrust');
+   assert.ok(p[d].ex.some(e=>e[0]==='Booty Builder Hip Abduction'));
+ }
+ assert.match(p[3].name,/OPTIONAL/);
+ assert.equal(p[3].ex.some(e=>e[0]==='Ab Crunch Machine'),false);
+ assert.equal(p[5].ex.some(e=>/Leg (Press|Curl|Extension)/.test(e[0])),false);
+ assert.deepEqual(r.t.swaps['Pec Deck Chest Fly'], ['Chest Fly Machine','Cable Chest Fly']);
+ const saved={"2026-09-28|1":{id:'2026-09-28|1',date:'2026-09-28',dow:1,name:'Historic Upper',status:'partial',exercises:[{name:'ISO-Lateral Lat Pulldown',setsTarget:2,min:8,max:12,setData:[{weight:50,reps:9,done:true}]}]}};
+ const r2=run('2026-09-28',{pupfit_workout_sessions_v2:saved});
+ assert.equal(r2.t.session().name,'Historic Upper','saved historical plan remains untouched');
+ assert.equal(r2.t.session().exercises.length,1,'no silent replacement of saved workout');
+}
+
 // 4b. Introductory training, machine swaps, and protection for logged history.
 {
   const r=run('2026-09-28');
