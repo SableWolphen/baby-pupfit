@@ -1,9 +1,17 @@
-// Baby PupFit: machine-focused upper/lower hypertrophy split. Wed optional; Sat rest; Sun easy running.
+// Baby PupFit: balanced machine-only physique split. Four priority lifting days; Wednesday optional; Thursday legs; Sunday easy run.
+// Focus: defined chest/shoulders and abs plus fuller glutes/thighs. No aggressive daily volume.
 window.PUPFIT_PLANS = {
   "1": {
-    "name": "🪽 Upper A • Lats + Delts",
-    "note": "Upper shape + weighted abs. Train with 2–3 clean reps left.",
+    "name": "🪽 Upper A • Chest + Shoulders + Abs",
+    "note": "Chest and shoulder definition plus a balanced back. Keep 2–3 clean reps in reserve; weighted abs finish the session.",
     "ex": [
+      [
+        "Incline Chest Press",
+        3,
+        8,
+        12,
+        "big"
+      ],
       [
         "ISO-Lateral Lat Pulldown",
         3,
@@ -20,7 +28,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "EGYM Chest Press",
-        3,
+        2,
         8,
         12,
         "big"
@@ -31,13 +39,6 @@ window.PUPFIT_PLANS = {
         8,
         12,
         "big"
-      ],
-      [
-        "EGYM Biceps Curl",
-        2,
-        10,
-        15,
-        "small"
       ],
       [
         "EGYM Triceps Press",
@@ -56,18 +57,18 @@ window.PUPFIT_PLANS = {
     ]
   },
   "2": {
-    "name": "🍑 Lower A • Glutes + Quads",
-    "note": "Prioritize glute and thigh growth; control the range, leaving 2–3 clean reps in reserve.",
+    "name": "🍑 Lower A • Glutes + Thighs + Abs",
+    "note": "Hip thrusts lead; build glutes and legs with controlled reps. Leave 2–3 reps in reserve and progress loads gradually.",
     "ex": [
       [
-        "EGYM Leg Press",
+        "Booty Builder Hip Thrust",
         3,
         8,
         12,
         "big"
       ],
       [
-        "Booty Builder Hip Thrust",
+        "EGYM Leg Press",
         3,
         8,
         12,
@@ -104,16 +105,9 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "✨ OPTIONAL • Delts + Core",
-    "note": "Optional low-fatigue day, only when recovered. Easy walking or complete rest is fine. No hard intervals before Thursday legs.",
+    "name": "✨ OPTIONAL • Easy Upper Detail",
+    "note": "Light pump only when recovered: rear-delt mode on the combo machine, curls and gentle shoulder/calf work. Skip it if sore or low on energy; no hard intervals before Thursday legs.",
     "ex": [
-      [
-        "Cable Lateral Raise",
-        2,
-        12,
-        20,
-        "small"
-      ],
       [
         "Pec Fly / Rear-Delt Machine",
         2,
@@ -122,10 +116,17 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Ab Crunch Machine",
+        "Cable Lateral Raise",
+        2,
+        12,
+        20,
+        "small"
+      ],
+      [
+        "EGYM Biceps Curl",
         2,
         10,
-        20,
+        15,
         "small"
       ],
       [
@@ -138,8 +139,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "4": {
-    "name": "🍑 Lower B • Glutes + Thighs",
-    "note": "Glute-focused second lower day plus weighted abs. Recover Friday/Saturday before the easy Sunday run.",
+    "name": "🍑 Lower B • Glute Shape + Abs",
+    "note": "Your protected Thursday leg day: hip thrust, leg press, curls/extensions, abduction and abs. Friday and Saturday recover legs before Sunday's easy run.",
     "ex": [
       [
         "Booty Builder Hip Thrust",
@@ -186,12 +187,19 @@ window.PUPFIT_PLANS = {
     ]
   },
   "5": {
-    "name": "🪽 Upper B • Delts + Upper Chest",
-    "note": "Second upper day: shoulders, lats, upper chest and arms without tiring legs.",
+    "name": "💪 Upper B • Chest + Shoulder Detail",
+    "note": "Second upper day: chest press, shoulder press, side delts and a chest-fly setting on the pec-deck. Back and arms round out the athletic look, with no leg fatigue before Sunday.",
     "ex": [
       [
-        "ISO-Lateral Lat Pulldown",
+        "EGYM Chest Press",
         3,
+        8,
+        12,
+        "big"
+      ],
+      [
+        "Shoulder Press Machine",
+        2,
         8,
         12,
         "big"
@@ -204,8 +212,15 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Incline Chest Press",
-        3,
+        "Pec Deck Chest Fly",
+        2,
+        12,
+        20,
+        "small"
+      ],
+      [
+        "ISO-Lateral Lat Pulldown",
+        2,
         8,
         12,
         "big"
@@ -295,5 +310,13 @@ window.PUPFIT_SWAPS = {
   "Incline Chest Press": [
     "EGYM Chest Press",
     "Chest Press Machine"
+  ],
+  "Shoulder Press Machine": [
+    "Seated Shoulder Press Machine",
+    "ISO-Lateral Shoulder Press"
+  ],
+  "Pec Deck Chest Fly": [
+    "Chest Fly Machine",
+    "Cable Chest Fly"
   ]
 };
