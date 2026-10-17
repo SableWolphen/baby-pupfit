@@ -4,13 +4,17 @@
 
 Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
-## Weekly plan
-- **Monday Upper A:** lats, side delts, chest, row, biceps, triceps.
-- **Tuesday Lower A:** leg press, hip thrust, leg curl, leg extension, abduction, abs.
-- **Wednesday OPTIONAL:** side/rear delts, abs, calves — or rest. No hard intervals before Thursday.
-- **Thursday Lower B:** hip thrust, leg press, curls/extensions, hip abduction, abs.
-- **Friday Upper B:** lats, side delts, incline chest, row, biceps, triceps.
-- **Saturday REST. Sunday:** 3–5 miles at a conversational effort, adjusted to recovery.
+## Your machine-only weekly plan
+This phase aims for **defined chest/shoulders and a visible six-pack**, while still building full glutes/thighs and maintaining a feminine/androgynous athletic shape. Progressive strength and body composition matter more than trying to train hard every day.
+
+- **Monday — Upper A + abs:** incline chest press 3×8–12, ISO-lateral lat pulldown 3×8–12, cable lateral raise 3×12–20, EGYM chest press 2×8–12, EGYM row 2×8–12, EGYM triceps press 2×10–15, ab crunch machine 3×10–15.
+- **Tuesday — Glutes/thighs + abs:** Booty Builder hip thrust 3×8–12, EGYM leg press 3×8–12, EGYM leg curl 3×10–15, EGYM leg extension 2×10–15, Booty Builder hip abduction 2×12–20, ab crunch machine 3×10–15.
+- **Wednesday — OPTIONAL light detail:** pec fly/rear-delt combo **in rear-delt mode** 2×12–20, cable lateral raise 2×12–20, EGYM biceps curl 2×10–15, standing calf raise 2×10–15. Skip when tired; no hard cardio intervals.
+- **Thursday — Glutes/thighs + abs:** Booty Builder hip thrust 3×10–15, EGYM leg press 3×10–15, EGYM leg curl 3×10–15, EGYM leg extension 2×10–15, Booty Builder hip abduction 3×12–20, ab crunch machine 3×10–15.
+- **Friday — Upper B chest/shoulder detail:** EGYM chest press 3×8–12, shoulder press machine 2×8–12, cable lateral raise 3×12–20, **pec-deck in chest-fly mode** 2×12–20, ISO-lateral lat pulldown 2×8–12, EGYM row 2×8–12, EGYM biceps curl 2×10–15, EGYM triceps press 2×10–15.
+- **Saturday — full rest. Sunday — easy 3–5-mile run** at a conversational effort; adjust to recovery.
+
+The tracker keeps past sessions intact and generates the new prescription for upcoming sessions. If today's workout has already been created, its saved exercises won't be silently replaced. All listed days use machines or cable stations at EōS K Avenue. If a machine is busy or unavailable, use a same-muscle machine/cable swap with a separately calibrated weight.
 
 ## Progress as fast as you can recover
 - The first **8 logged lifting sessions** start at **2 sets per exercise**. Later sessions advance toward the full planned 2–3 sets if recovery allows. Past sessions are preserved.
