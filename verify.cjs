@@ -114,7 +114,7 @@ for (const date of week) {
  assert.match(p[3].name,/OPTIONAL/);
  assert.equal(p[3].ex.some(e=>e[0]==='Ab Crunch Machine'),false);
  assert.equal(p[5].ex.some(e=>/Leg (Press|Curl|Extension)/.test(e[0])),false);
- assert.deepEqual(r.t.swaps['Pec Deck Chest Fly'], ['Chest Fly Machine','Cable Chest Fly']);
+ assert.equal(r.t.swaps['Pec Deck Chest Fly'].join(','),'Chest Fly Machine,Cable Chest Fly');
  const saved={"2026-09-28|1":{id:'2026-09-28|1',date:'2026-09-28',dow:1,name:'Historic Upper',status:'partial',exercises:[{name:'ISO-Lateral Lat Pulldown',setsTarget:2,min:8,max:12,setData:[{weight:50,reps:9,done:true}]}]}};
  const r2=run('2026-09-28',{pupfit_workout_sessions_v2:saved});
  assert.equal(r2.t.session().name,'Historic Upper','saved historical plan remains untouched');
