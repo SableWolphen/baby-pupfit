@@ -1,4 +1,4 @@
-const C = 'pupfit-v6';
+const C = 'pupfit-v7';
 const A = ['./', './index.html', './machine-plan.html', './meals.html', './progress.html', './physique-goal.html',
   './plan.js', './weekly-coach.js', './polish.css', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 self.addEventListener('install', e => {
