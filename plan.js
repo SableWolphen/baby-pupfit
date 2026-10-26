@@ -1,9 +1,9 @@
-// Baby PupFit: balanced machine-only physique split. Six-week accelerated definition block, four priority lifting days; Wednesday optional; Thursday legs; Sunday easy run.
-// Focus: defined chest/shoulders and abs plus fuller glutes/thighs. No aggressive daily volume.
+// Baby PupFit evidence-informed hypertrophy block: efficient machine-only work, 4 priority lifting days, Wednesday optional; Thursday lower body and Sunday easy run.
+// Progress weights conservatively; preserve existing logged sessions. No single exercise guarantees a body shape.
 window.PUPFIT_PLANS = {
   "1": {
-    "name": "🐾 6-Week Upper A • Shoulders + Abs",
-    "note": "Chest and shoulder definition plus a balanced back. Keep 2–3 clean reps in reserve; weighted abs finish the session.",
+    "name": "🐾 Upper A • Abs + Shoulder Shape",
+    "note": "Train for rounded shoulders, balanced back and chest, and stronger abs. Leave 1–3 clean reps in reserve.",
     "ex": [
       [
         "Incline Chest Press",
@@ -28,7 +28,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "EGYM Row",
-        3,
+        2,
         8,
         12,
         "big"
@@ -43,8 +43,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "2": {
-    "name": "🍑 6-Week Lower A • Glutes + Thighs",
-    "note": "Hip thrusts lead; build glutes and legs with controlled reps. Leave 2–3 reps in reserve and progress loads gradually.",
+    "name": "🍑 Lower A • Glute Growth + Thighs",
+    "note": "Two complementary glute movements: hip thrust for hip extension, leg press for deeper hip/knee flexion. Controlled reps; prioritize range and recovery.",
     "ex": [
       [
         "Booty Builder Hip Thrust",
@@ -68,13 +68,6 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "EGYM Leg Extension",
-        2,
-        10,
-        15,
-        "small"
-      ],
-      [
         "Booty Builder Hip Abduction",
         2,
         12,
@@ -83,7 +76,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Ab Crunch Machine",
-        3,
+        2,
         10,
         15,
         "small"
@@ -91,18 +84,11 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "✨ OPTIONAL • Light Recovery + Detail",
-    "note": "Light pump only when recovered: rear-delt mode on the combo machine, curls and gentle shoulder/calf work. Skip it if sore or low on energy; no hard intervals before Thursday legs.",
+    "name": "✨ OPTIONAL • Light Detail",
+    "note": "Optional low-fatigue accessories only if recovered. Not an extra hard workout.",
     "ex": [
       [
         "Pec Fly / Rear-Delt Machine",
-        2,
-        12,
-        20,
-        "small"
-      ],
-      [
-        "Cable Lateral Raise",
         2,
         12,
         20,
@@ -118,25 +104,25 @@ window.PUPFIT_PLANS = {
       [
         "Standing Calf Raise",
         2,
-        10,
-        15,
+        12,
+        20,
         "small"
       ]
     ]
   },
   "4": {
-    "name": "🍑 6-Week Lower B • Glutes + Abs",
-    "note": "Your protected Thursday leg day: hip thrust, leg press, curls/extensions, abduction and abs. Friday and Saturday recover legs before Sunday's easy run.",
+    "name": "🍑 Lower B • Full Glutes + Thighs",
+    "note": "Second glute session. Use full comfortable range and controlled eccentric; no need to train to failure.",
     "ex": [
       [
-        "Booty Builder Hip Thrust",
+        "EGYM Leg Press",
         3,
         10,
         15,
         "big"
       ],
       [
-        "EGYM Leg Press",
+        "Booty Builder Hip Thrust",
         3,
         10,
         15,
@@ -158,14 +144,14 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Booty Builder Hip Abduction",
-        3,
+        2,
         12,
         20,
         "small"
       ],
       [
         "Ab Crunch Machine",
-        3,
+        2,
         10,
         15,
         "small"
@@ -173,8 +159,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "5": {
-    "name": "💪 6-Week Upper B • Definition + Abs",
-    "note": "Second upper day: chest press, shoulder press, side delts and a chest-fly setting on the pec-deck. Back and arms round out the athletic look, with no leg fatigue before Sunday.",
+    "name": "💪 Upper B • Shoulder Definition + Abs",
+    "note": "Balance upper chest, side delts, upper back and weighted abs. Short and repeatable before work.",
     "ex": [
       [
         "EGYM Chest Press",
@@ -198,29 +184,15 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
-        "Pec Deck Chest Fly",
-        2,
-        12,
-        20,
-        "small"
-      ],
-      [
-        "ISO-Lateral Lat Pulldown",
-        2,
-        8,
-        12,
-        "big"
-      ],
-      [
         "EGYM Row",
-        2,
+        3,
         8,
         12,
         "big"
       ],
       [
         "Ab Crunch Machine",
-        2,
+        3,
         10,
         15,
         "small"
