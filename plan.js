@@ -1,17 +1,10 @@
-// Body goal: progressively strengthen weighted abs and build fuller glutes/thighs while keeping balanced upper-body training and half-marathon runs.
-// 4 machine lifting days; Wednesday run + optional accessories; Sunday long run. Existing sessions are preserved.
+// Baby PupFit: evidence-informed machine-only physique training. Four priority lifting sessions, Wednesday optional accessories, Wednesday/Friday/Sunday endurance. Existing logs are never rewritten.
+// 2-3 RIR most sets; progressive overload only with complete quality reps and recoverable volume.
 window.PUPFIT_PLANS = {
   "1": {
-    "name": "🐾 Upper A • Abs + Balanced Shape",
-    "note": "Defined midsection and balanced shoulders/chest/back. Use controlled full range and leave 1–3 reps in reserve.",
+    "name": "💜 Upper A • Defined Abs + Shape",
+    "note": "Weighted abs, upper chest, back and side delts. Use 2–3 reps in reserve. All machines/cables; 45–55 minutes with a warm-up.",
     "ex": [
-      [
-        "Ab Crunch Machine",
-        3,
-        10,
-        15,
-        "small"
-      ],
       [
         "Incline Chest Press",
         3,
@@ -39,12 +32,19 @@ window.PUPFIT_PLANS = {
         8,
         12,
         "big"
+      ],
+      [
+        "Ab Crunch Machine",
+        3,
+        10,
+        15,
+        "small"
       ]
     ]
   },
   "2": {
     "name": "🍑 Lower A • Glute Growth",
-    "note": "Prioritize progressive glute growth. Hip thrust and leg press first; avoid failure that compromises Thursday recovery.",
+    "note": "Primary glute growth day: hip thrust and leg press, followed by abduction and hamstrings. Control each rep; avoid training to failure.",
     "ex": [
       [
         "Booty Builder Hip Thrust",
@@ -77,8 +77,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "✨ OPTIONAL • Recovery Accessories",
-    "note": "Run 20–40 minutes easy today. Only add these light machines if fresh; skipping them does not harm the plan.",
+    "name": "🏃 Easy Run • Optional Recovery Accessories",
+    "note": "Run 20–40 minutes at conversational pace. Optional recovery accessories only if fresh; do not compromise Thursday glute training.",
     "ex": [
       [
         "Pec Fly / Rear-Delt Machine",
@@ -98,7 +98,7 @@ window.PUPFIT_PLANS = {
   },
   "4": {
     "name": "🍑 Lower B • Round Glutes + Thighs",
-    "note": "Second progressive glute day, with thigh development and weighted abs. Keep Sunday's long run in mind.",
+    "note": "Second glute session, including hip thrust, leg press and side glutes. Do not add hard cardio; protect Sunday long run.",
     "ex": [
       [
         "EGYM Leg Press",
@@ -116,7 +116,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Booty Builder Hip Abduction",
-        3,
+        2,
         12,
         20,
         "small"
@@ -129,8 +129,15 @@ window.PUPFIT_PLANS = {
         "small"
       ],
       [
+        "EGYM Leg Extension",
+        2,
+        10,
+        15,
+        "small"
+      ],
+      [
         "Ab Crunch Machine",
-        3,
+        2,
         10,
         15,
         "small"
@@ -138,18 +145,18 @@ window.PUPFIT_PLANS = {
     ]
   },
   "5": {
-    "name": "💜 Upper B • Defined Abs + Shape",
-    "note": "Balanced upper-body development, weighted abs, and an optional easy run (20–35 min) separately if needed.",
+    "name": "💪 Upper B • Abs + Defined Silhouette",
+    "note": "Balanced upper body, abs and an optional 20–35 minute easy run in a separate session; keep early morning gym under ~55 minutes.",
     "ex": [
       [
-        "Ab Crunch Machine",
+        "EGYM Chest Press",
         3,
-        10,
-        15,
-        "small"
+        8,
+        12,
+        "big"
       ],
       [
-        "EGYM Chest Press",
+        "EGYM Row",
         3,
         8,
         12,
@@ -163,17 +170,17 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "EGYM Row",
-        3,
-        8,
-        12,
-        "big"
-      ],
-      [
         "Cable Lateral Raise",
         2,
         12,
         20,
+        "small"
+      ],
+      [
+        "Ab Crunch Machine",
+        3,
+        10,
+        15,
         "small"
       ]
     ]
