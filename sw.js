@@ -1,6 +1,6 @@
-const C = 'pupfit-v10';
+const C = 'pupfit-v11';
 const A = ['./', './index.html', './machine-plan.html', './meals.html', './progress.html', './physique-goal.html',
-  './reminders.html', './6-week-transformation.md', './plan.js', './weekly-coach.js', './polish.css', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
+  './reminders.html', './half-marathon.html', './6-week-transformation.md', './plan.js', './weekly-coach.js', './polish.css', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(C).then(c => c.addAll(A)).then(() => self.skipWaiting()));
 });
