@@ -4,7 +4,11 @@
 
 Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
-## Personalized 12-week transformation
+## Active 6-week transformation
+
+[Open your six-week accelerated plan](6-week-transformation.md). The actual machine-only weekly prescriptions were updated in `plan.js`; existing sessions remain intact. The goal is early measurable improvements, not a guaranteed six-pack deadline.
+
+## Previous 12-week reference plan
 
 [Open the accelerated 12-week program](12-week-transformation.md) — based on 178 lb, 34-inch waist, 5+ workouts per week, machine-only lifting, and driving home to shower before an 8 AM shift. This is a separate reference plan; the existing workout logger and prescriptions remain unchanged until explicitly migrated.
 
