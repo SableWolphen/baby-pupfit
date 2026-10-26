@@ -4,6 +4,10 @@
 
 Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
+## Personalized 12-week transformation
+
+[Open the accelerated 12-week program](12-week-transformation.md) — based on 178 lb, 34-inch waist, 5+ workouts per week, machine-only lifting, and driving home to shower before an 8 AM shift. This is a separate reference plan; the existing workout logger and prescriptions remain unchanged until explicitly migrated.
+
 ## Your machine-only weekly plan
 This phase aims for **defined chest/shoulders and a visible six-pack**, while still building full glutes/thighs and maintaining a feminine/androgynous athletic shape. Progressive strength and body composition matter more than trying to train hard every day.
 
