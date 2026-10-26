@@ -1,10 +1,17 @@
-// Baby PupFit evidence-informed hypertrophy block: efficient machine-only work, 4 priority lifting days, Wednesday optional; Thursday lower body and Sunday easy run.
-// Progress weights conservatively; preserve existing logged sessions. No single exercise guarantees a body shape.
+// Body goal: progressively strengthen weighted abs and build fuller glutes/thighs while keeping balanced upper-body training and half-marathon runs.
+// 4 machine lifting days; Wednesday run + optional accessories; Sunday long run. Existing sessions are preserved.
 window.PUPFIT_PLANS = {
   "1": {
-    "name": "🐾 Upper A • Abs + Shoulder Shape",
-    "note": "Train for rounded shoulders, balanced back and chest, and stronger abs. Leave 1–3 clean reps in reserve.",
+    "name": "🐾 Upper A • Abs + Balanced Shape",
+    "note": "Defined midsection and balanced shoulders/chest/back. Use controlled full range and leave 1–3 reps in reserve.",
     "ex": [
+      [
+        "Ab Crunch Machine",
+        3,
+        10,
+        15,
+        "small"
+      ],
       [
         "Incline Chest Press",
         3,
@@ -21,7 +28,7 @@ window.PUPFIT_PLANS = {
       ],
       [
         "Cable Lateral Raise",
-        3,
+        2,
         12,
         20,
         "small"
@@ -32,19 +39,12 @@ window.PUPFIT_PLANS = {
         8,
         12,
         "big"
-      ],
-      [
-        "Ab Crunch Machine",
-        3,
-        10,
-        15,
-        "small"
       ]
     ]
   },
   "2": {
-    "name": "🍑 Lower A • Glute Growth + Thighs",
-    "note": "Two complementary glute movements: hip thrust for hip extension, leg press for deeper hip/knee flexion. Controlled reps; prioritize range and recovery.",
+    "name": "🍑 Lower A • Glute Growth",
+    "note": "Prioritize progressive glute growth. Hip thrust and leg press first; avoid failure that compromises Thursday recovery.",
     "ex": [
       [
         "Booty Builder Hip Thrust",
@@ -61,22 +61,15 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "EGYM Leg Curl",
-        3,
-        10,
-        15,
-        "small"
-      ],
-      [
         "Booty Builder Hip Abduction",
-        2,
+        3,
         12,
         20,
         "small"
       ],
       [
-        "Ab Crunch Machine",
-        2,
+        "EGYM Leg Curl",
+        3,
         10,
         15,
         "small"
@@ -84,8 +77,8 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "✨ OPTIONAL • Light Detail",
-    "note": "Optional low-fatigue accessories only if recovered. Not an extra hard workout.",
+    "name": "✨ OPTIONAL • Recovery Accessories",
+    "note": "Run 20–40 minutes easy today. Only add these light machines if fresh; skipping them does not harm the plan.",
     "ex": [
       [
         "Pec Fly / Rear-Delt Machine",
@@ -100,19 +93,12 @@ window.PUPFIT_PLANS = {
         10,
         15,
         "small"
-      ],
-      [
-        "Standing Calf Raise",
-        2,
-        12,
-        20,
-        "small"
       ]
     ]
   },
   "4": {
-    "name": "🍑 Lower B • Full Glutes + Thighs",
-    "note": "Second glute session. Use full comfortable range and controlled eccentric; no need to train to failure.",
+    "name": "🍑 Lower B • Round Glutes + Thighs",
+    "note": "Second progressive glute day, with thigh development and weighted abs. Keep Sunday's long run in mind.",
     "ex": [
       [
         "EGYM Leg Press",
@@ -129,29 +115,22 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "EGYM Leg Curl",
-        3,
-        10,
-        15,
-        "small"
-      ],
-      [
-        "EGYM Leg Extension",
-        2,
-        10,
-        15,
-        "small"
-      ],
-      [
         "Booty Builder Hip Abduction",
-        2,
+        3,
         12,
         20,
         "small"
       ],
       [
-        "Ab Crunch Machine",
+        "EGYM Leg Curl",
         2,
+        10,
+        15,
+        "small"
+      ],
+      [
+        "Ab Crunch Machine",
+        3,
         10,
         15,
         "small"
@@ -159,9 +138,16 @@ window.PUPFIT_PLANS = {
     ]
   },
   "5": {
-    "name": "💪 Upper B • Shoulder Definition + Abs",
-    "note": "Balance upper chest, side delts, upper back and weighted abs. Short and repeatable before work.",
+    "name": "💜 Upper B • Defined Abs + Shape",
+    "note": "Balanced upper-body development, weighted abs, and an optional easy run (20–35 min) separately if needed.",
     "ex": [
+      [
+        "Ab Crunch Machine",
+        3,
+        10,
+        15,
+        "small"
+      ],
       [
         "EGYM Chest Press",
         3,
@@ -177,13 +163,6 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Cable Lateral Raise",
-        3,
-        12,
-        20,
-        "small"
-      ],
-      [
         "EGYM Row",
         3,
         8,
@@ -191,10 +170,10 @@ window.PUPFIT_PLANS = {
         "big"
       ],
       [
-        "Ab Crunch Machine",
-        3,
-        10,
-        15,
+        "Cable Lateral Raise",
+        2,
+        12,
+        20,
         "small"
       ]
     ]
