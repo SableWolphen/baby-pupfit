@@ -465,3 +465,13 @@ console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescript
  const tooFast={};for(const [day,row] of Object.entries(data))tooFast[day]={...row,weight:row.weight<175?172:175};
  assert.match(fn(tooFast,'2026-10-15').message,/Avoid cutting calories further/);
 }
+
+// Introductory volume ends after three previously logged lifting sessions.
+{
+ const sessions={};
+ for(let i=0;i<3;i++)sessions['intro'+i]={id:'intro'+i,date:'2026-09-'+(20+i),dow:2,name:'Lower',status:'complete',exercises:[]};
+ const two=run('2026-09-29',{pupfit_workout_sessions_v2:Object.fromEntries(Object.entries(sessions).slice(0,2))});
+ assert.ok(two.t.session().exercises.every(e=>e.setsTarget<=2),'two prior sessions still introductory');
+ const three=run('2026-09-29',{pupfit_workout_sessions_v2:sessions});
+ assert.equal(three.t.session().exercises[0].setsTarget,3,'three prior sessions unlock full prescribed sets');
+}
