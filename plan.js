@@ -1,4 +1,4 @@
-// Baby PupFit: evidence-informed machine-only physique training. Four priority lifting sessions, Wednesday optional accessories, Wednesday/Friday/Sunday endurance. Existing logs are never rewritten.
+// Baby PupFit: evidence-informed machine-only physique training. Four priority lifting sessions, Wednesday optional accessories, optional after-work running and Sunday endurance. Existing logs are never rewritten.
 // 2-3 RIR most sets; progressive overload only with complete quality reps and recoverable volume.
 window.PUPFIT_PLANS = {
   "1": {
@@ -78,7 +78,7 @@ window.PUPFIT_PLANS = {
   },
   "3": {
     "name": "🏃 Easy Run • Optional Recovery Accessories",
-    "note": "Run 20–40 minutes at conversational pace. Optional recovery accessories only if fresh; do not compromise Thursday glute training.",
+    "note": "Gym recovery day: light rear delts and curls, plus optional easy cardio. If running, do it after work at a conversational pace. Do not compromise Thursday glute training.",
     "ex": [
       [
         "Pec Fly / Rear-Delt Machine",
@@ -146,7 +146,7 @@ window.PUPFIT_PLANS = {
   },
   "5": {
     "name": "💪 Upper B • Abs + Defined Silhouette",
-    "note": "Balanced upper body, abs and an optional 20–35 minute easy run in a separate session; keep early morning gym under ~55 minutes.",
+    "note": "Balanced upper body and abs in the gym, with an optional 20–35 minute easy run after work. Keep gym under ~55 minutes.",
     "ex": [
       [
         "EGYM Chest Press",
