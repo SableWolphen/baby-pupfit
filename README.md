@@ -8,7 +8,7 @@ Machine- and cable-focused workout tracker for broader lats/shoulders, fuller gl
 
 [Open the 20-week finish-first half-marathon tracker](half-marathon.html). Starts from a comfortable 2–3-mile run, adds easy Wednesday and Friday running, and grows Sunday long runs. Four machine-based physique sessions remain in place (Monday/Tuesday/Thursday/Friday). Repeat weeks as needed; the running plan is a template, not a race-readiness guarantee. For runs over 75–90 minutes practice fueling and hydration. Protect sleep, especially with morning work and an at-home shower.
 
-## Active 6-week transformation
+## 12-week body recomposition\n\n[Open the 12-week recomposition dashboard](recomposition.html). Logs waist, hips, thighs, sleep and fatigue locally without rewriting historical workouts. This page is a distinct progression tracker; do not place personal photos in the public repository.\n\n## Active 6-week transformation
 
 [Open your six-week accelerated plan](6-week-transformation.md). The actual machine-only weekly prescriptions were updated in `plan.js`; existing sessions remain intact. The goal is early measurable improvements, not a guaranteed six-pack deadline.
 

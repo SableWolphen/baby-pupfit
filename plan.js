@@ -98,7 +98,7 @@ window.PUPFIT_PLANS = {
   },
   "4": {
     "name": "🍑 Lower B • Round Glutes + Thighs",
-    "note": "Second glute session, including hip thrust, leg press and side glutes. Do not add hard cardio; protect Sunday long run.",
+    "note": "Second glute session prioritizing thigh growth and side glutes. Progress leg press and hip thrust conservatively; protect Sunday run.",
     "ex": [
       [
         "EGYM Leg Press",
