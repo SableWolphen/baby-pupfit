@@ -29,7 +29,7 @@ This phase aims for **defined chest/shoulders and a visible six-pack**, while st
 The tracker keeps past sessions intact and generates the new prescription for upcoming sessions. If today's workout has already been created, its saved exercises won't be silently replaced. All listed days use machines or cable stations at EōS K Avenue. If a machine is busy or unavailable, use a same-muscle machine/cable swap with a separately calibrated weight.
 
 ## Progress as fast as you can recover
-- The first **8 logged lifting sessions** start at **2 sets per exercise**. Later sessions advance toward the full planned 2–3 sets if recovery allows. Past sessions are preserved.
+- The first **3 logged lifting sessions** start at **2 sets per exercise**. Later sessions advance toward the full planned 2–3 sets if recovery allows. Past sessions are preserved.
 - For conventional machines, log actual weights, reps, and reps-in-reserve (RIR). Suggestions only **increase** after you hit the top of the rep range on **every set at the same weight** with an explicit **2+ reps left** rating. Round to your machine's available stack increment.
 - For **EGYM Smart Strength**, follow its programmed/calibrated resistance rather than manually overriding it.
 - Wednesday is optional, and missed lifting sessions do **not** create make-up sets.
