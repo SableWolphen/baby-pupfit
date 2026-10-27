@@ -4,7 +4,7 @@
 
 Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
-## Half-marathon plus physique training
+## Current weekly schedule\n\nGym Monday through Friday, optional easy Saturday. Keep Tuesday and Thursday as priority glute/leg days; Wednesday is light accessories. Start with easy after-work runs Monday, Wednesday, and Friday (20-35 minutes), adjust gradually for recovery. Saturday is optional mobility or cardio, not another heavy leg day. Running is logged separately and may share a date with lifting.\n\n## Half-marathon plus physique training
 
 [Open the 20-week finish-first half-marathon tracker](half-marathon.html). Starts from a comfortable 2–3-mile run, adds easy Wednesday and Friday running, and grows Sunday long runs. Four machine-based physique sessions remain in place (Monday/Tuesday/Thursday/Friday). Repeat weeks as needed; the running plan is a template, not a race-readiness guarantee. For runs over 75–90 minutes practice fueling and hydration. Protect sleep, especially with morning work and an at-home shower.
 
