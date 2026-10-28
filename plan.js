@@ -1,4 +1,4 @@
-// Baby PupFit: evidence-informed machine-only physique training. Four priority lifting sessions, Wednesday optional accessories, Wednesday/Friday/Sunday endurance. Existing logs are never rewritten.
+// Baby PupFit: evidence-informed machine-only physique training. Four priority lifting sessions, Wednesday optional accessories, optional after-work running and Sunday endurance. Existing logs are never rewritten.
 // 2-3 RIR most sets; progressive overload only with complete quality reps and recoverable volume.
 window.PUPFIT_PLANS = {
   "1": {
@@ -77,23 +77,14 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "🏃 Easy Run • Optional Recovery Accessories",
-    "note": "Run 20–40 minutes at conversational pace. Optional recovery accessories only if fresh; do not compromise Thursday glute training.",
+    "name": "💜 Upper Accessories + Core",
+    "note": "Moderate Wednesday gym session, preserving recovery for Thursday glutes. Run after work only if desired, at easy conversational effort.",
     "ex": [
-      [
-        "Pec Fly / Rear-Delt Machine",
-        2,
-        12,
-        20,
-        "small"
-      ],
-      [
-        "EGYM Biceps Curl",
-        2,
-        10,
-        15,
-        "small"
-      ]
+      ["Pec Fly / Rear-Delt Machine", 2, 12, 20, "small"],
+      ["EGYM Biceps Curl", 2, 10, 15, "small"],
+      ["EGYM Triceps Press", 2, 10, 15, "small"],
+      ["Ab Crunch Machine", 3, 10, 15, "small"],
+      ["Cable Lateral Raise", 2, 12, 20, "small"]
     ]
   },
   "4": {
@@ -146,7 +137,7 @@ window.PUPFIT_PLANS = {
   },
   "5": {
     "name": "💪 Upper B • Abs + Defined Silhouette",
-    "note": "Balanced upper body, abs and an optional 20–35 minute easy run in a separate session; keep early morning gym under ~55 minutes.",
+    "note": "Balanced upper body and abs in the gym, with an optional 20–35 minute easy run after work. Keep gym under ~55 minutes.",
     "ex": [
       [
         "EGYM Chest Press",
