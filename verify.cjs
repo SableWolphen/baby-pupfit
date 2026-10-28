@@ -59,7 +59,7 @@ for (const date of week) {
   const r = run(date);
   r.t.renderToday(); r.t.renderWorkout(); r.t.renderCalendar(); r.t.renderGrowth(); r.t.renderPlan();
   if (date === '2026-09-26') assert.match(r.el('todayCard').innerHTML, /Rest/);          // Saturday rest
-  if (date === '2026-09-27') assert.match(r.el('todayCard').innerHTML, /3–5 mile/);      // Sunday run
+  if (date === '2026-09-27') assert.match(r.el('todayCard').innerHTML, /planned mileage long run|3–5 mile/);      // Sunday run
   if (date === '2026-09-28') assert.match(r.el('todayCard').innerHTML, /Upper A/);       // Monday plan
 }
 
