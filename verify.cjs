@@ -475,3 +475,19 @@ console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescript
  const three=run('2026-09-29',{pupfit_workout_sessions_v2:sessions});
  assert.equal(three.t.session().exercises[0].setsTarget,3,'three prior sessions unlock full prescribed sets');
 }
+
+
+// Untouched saved Wednesday snapshots gain newly prescribed exercises without losing existing sets.
+{
+ const existing={ '2026-09-30|3': {id:'2026-09-30|3',date:'2026-09-30',dow:3,name:'Previous Wednesday',status:'in_progress',exercises:[
+ {name:'Pec Fly / Rear-Delt Machine',base:'Pec Fly / Rear-Delt Machine',setsTarget:2,min:12,max:20,size:'small',effort:null,skipped:false,setData:[{weight:'',reps:'',done:false},{weight:'',reps:'',done:false}]},
+ {name:'EGYM Biceps Curl',base:'EGYM Biceps Curl',setsTarget:2,min:10,max:15,size:'small',effort:null,skipped:false,setData:[{weight:'',reps:'',done:false},{weight:'',reps:'',done:false}]}
+ ]}};
+ const r=run('2026-09-30',{pupfit_workout_sessions_v2:existing});
+ assert.equal(r.t.session().exercises.length,5,'untouched Wednesday gains three new exercises');
+ const touched=JSON.parse(JSON.stringify(existing));
+ touched['2026-09-30|3'].exercises[0].setData[0]={weight:25,reps:12,done:true};
+ touched['2026-09-30|3'].status='partial';
+ const r2=run('2026-09-30',{pupfit_workout_sessions_v2:touched});
+ assert.equal(r2.t.session().exercises.length,2,'partially logged workout is preserved');
+}
