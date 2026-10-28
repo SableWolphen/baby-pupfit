@@ -256,7 +256,15 @@ function carriedIsos(){const s=new Set();for(const x of Object.values(sessions))
 function carryFor(p){if(!p)return null;const t=planType(p.name);if(!t)return null;const done=carriedIsos();const m=recentMissed().find(x=>planType(x.plan.name)===t&&!done.has(x.iso));if(!m)return null;const have=new Set(p.ex.map(e=>e[0]));const lifts=m.plan.ex.filter(e=>e[4]==='big'&&!have.has(e[0])).slice(0,2).map(e=>({name:e[0],setsTarget:2,min:e[2],max:e[3],size:e[4],effort:null,skipped:false,carried:true,setData:Array.from({length:2},()=>({weight:'',reps:'',done:false}))}));return lifts.length?{from:m.plan.name,iso:m.iso,lifts}:null}
 function isMissedDay(iso,sd){return iso<today&&sd!==0&&sd!==3&&sd!==6&&!!plans[sd]&&!Object.values(sessions).find(x=>x&&x.date===iso)}
 function adherenceNote(){const names={1:'Monday',2:'Tuesday',3:'Wednesday',4:'Thursday',5:'Friday'},st={};for(let b=1;b<=28;b++){const d=new Date(now);d.setDate(d.getDate()-b);const iso=toISO(d),sd=d.getDay();if(!plans[sd]||sd===0||sd===3||sd===6)continue;const o=st[sd]||(st[sd]={day:names[sd],planned:0,done:0});o.planned++;if(Object.values(sessions).find(x=>x&&x.date===iso&&['complete','partial'].includes(x.status)))o.done++}const weak=Object.values(st).filter(a=>a.planned>=4&&a.done/a.planned<0.5);return weak.length?'<div class="card"><div class="title">📊 Your pattern</div><div class="sub">You skip '+weak.map(a=>a.day+' ('+Math.round(100*(1-a.done/a.planned))+'% missed)').join(' and ')+'. Wednesday is optional. Missed sessions create no make-up debt; simply resume.</div></div>':''}
-function session(){let s=sessions[id()];if(!s&&plan()){const p=plan();s=sessions[id()]={id:id(),date:today,dow,name:p.name,note:p.note,status:'in_progress',exercises:p.ex.map(d=>{const intro=Object.values(sessions).filter(x=>x&&x.id!==id()&&['complete','partial'].includes(x.status)).length<3;return makeEx(intro?[d[0],Math.min(2,d[1]),d[2],d[3],d[4]]:d)})};save()}return s}
+function session(){let s=sessions[id()];const p=plan();if(!s&&p){s=sessions[id()]={id:id(),date:today,dow,name:p.name,note:p.note,status:'in_progress',exercises:p.ex.map(d=>{const intro=Object.values(sessions).filter(x=>x&&x.id!==id()&&['complete','partial'].includes(x.status)).length<3;return makeEx(intro?[d[0],Math.min(2,d[1]),d[2],d[3],d[4]]:d)})};save()}
+else if(s&&p&&s.status==='in_progress'&&Array.isArray(s.exercises)&&s.exercises.every(e=>!e.skipped&&!e.effort&&(e.setData||[]).every(x=>!x.done&&!(Number(x.reps)>0)&&!(Number(x.weight)>0)))){
+ const present=new Set(s.exercises.map(e=>e.base||e.name));
+ const additions=p.ex.filter(d=>!present.has(d[0]));
+ if(additions.length){const intro=Object.values(sessions).filter(x=>x&&x.id!==id()&&['complete','partial'].includes(x.status)).length<3;
+ s.exercises.push(...additions.map(d=>makeEx(intro?[d[0],Math.min(2,d[1]),d[2],d[3],d[4]]:d)));
+ s.name=p.name;s.note=p.note;save();
+ }
+}return s}
 function completed(e){if(isRun(e.name))return e.skipped||!!e.run?.done;return e.skipped||(e.setData||[]).every(x=>x.done&&Number(x.reps)>0)}
 function syncSessionStatus(s){
  if(!s)return;
