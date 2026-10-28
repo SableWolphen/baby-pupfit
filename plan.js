@@ -77,23 +77,14 @@ window.PUPFIT_PLANS = {
     ]
   },
   "3": {
-    "name": "🏃 Easy Run • Optional Recovery Accessories",
-    "note": "Gym recovery day: light rear delts and curls, plus optional easy cardio. If running, do it after work at a conversational pace. Do not compromise Thursday glute training.",
+    "name": "💜 Upper Accessories + Core",
+    "note": "Moderate Wednesday gym session, preserving recovery for Thursday glutes. Run after work only if desired, at easy conversational effort.",
     "ex": [
-      [
-        "Pec Fly / Rear-Delt Machine",
-        2,
-        12,
-        20,
-        "small"
-      ],
-      [
-        "EGYM Biceps Curl",
-        2,
-        10,
-        15,
-        "small"
-      ]
+      ["Pec Fly / Rear-Delt Machine", 2, 12, 20, "small"],
+      ["EGYM Biceps Curl", 2, 10, 15, "small"],
+      ["EGYM Triceps Press", 2, 10, 15, "small"],
+      ["Ab Crunch Machine", 3, 10, 15, "small"],
+      ["Cable Lateral Raise", 2, 12, 20, "small"]
     ]
   },
   "4": {
