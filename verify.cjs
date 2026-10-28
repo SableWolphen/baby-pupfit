@@ -489,5 +489,6 @@ console.log('PASS: parse; 7-day render; Sat rest / Sun run / Mon plan; prescript
  touched['2026-09-30|3'].exercises[0].setData[0]={weight:25,reps:12,done:true};
  touched['2026-09-30|3'].status='partial';
  const r2=run('2026-09-30',{pupfit_workout_sessions_v2:touched});
- assert.equal(r2.t.session().exercises.length,2,'partially logged workout is preserved');
+ assert.equal(r2.t.session().exercises.length,5,'partially logged workout gains missing exercises');
+ assert.equal(r2.t.session().exercises[0].setData[0].weight,25,'previous logged weight is preserved');
 }
