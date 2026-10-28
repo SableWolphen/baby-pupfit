@@ -4,7 +4,7 @@
 
 Machine- and cable-focused workout tracker for broader lats/shoulders, fuller glutes/thighs and visible abdominal muscle as body composition permits. No physique or timeline is guaranteed.
 
-## Current weekly schedule\n\nGym Monday through Friday, optional easy Saturday. Keep Tuesday and Thursday as priority glute/leg days; Wednesday is light accessories. Start with easy after-work runs Monday, Wednesday, and Friday (20-35 minutes), adjust gradually for recovery. Saturday is optional mobility or cardio, not another heavy leg day. Running is logged separately and may share a date with lifting.\n\n## Half-marathon plus physique training
+## Current weekly schedule\n\nGym Monday through Friday, optional easy Saturday. Keep Tuesday and Thursday as priority glute/leg days; Wednesday has five light upper-body/core exercises. Start with easy after-work runs Monday, Wednesday, and Friday (20-35 minutes), adjust gradually for recovery. Saturday is optional mobility or cardio, not another heavy leg day. Running is logged separately and may share a date with lifting.\n\n## Half-marathon plus physique training
 
 [Open the 20-week finish-first half-marathon tracker](half-marathon.html). Starts from a comfortable 2–3-mile run, adds easy Wednesday and Friday running, and grows Sunday long runs. Four machine-based physique sessions remain in place (Monday/Tuesday/Thursday/Friday). Repeat weeks as needed; the running plan is a template, not a race-readiness guarantee. For runs over 75–90 minutes practice fueling and hydration. Protect sleep, especially with morning work and an at-home shower.
 
@@ -21,7 +21,7 @@ This phase aims for **defined chest/shoulders and a visible six-pack**, while st
 
 - **Monday — Upper A + abs:** incline chest press 3×8–12, ISO-lateral lat pulldown 3×8–12, cable lateral raise 3×12–20, EGYM chest press 2×8–12, EGYM row 2×8–12, EGYM triceps press 2×10–15, ab crunch machine 3×10–15.
 - **Tuesday — Glutes/thighs + abs:** Booty Builder hip thrust 3×8–12, EGYM leg press 3×8–12, EGYM leg curl 3×10–15, EGYM leg extension 2×10–15, Booty Builder hip abduction 2×12–20, ab crunch machine 3×10–15.
-- **Wednesday — OPTIONAL light detail:** pec fly/rear-delt combo **in rear-delt mode** 2×12–20, cable lateral raise 2×12–20, EGYM biceps curl 2×10–15, standing calf raise 2×10–15. Skip when tired; no hard cardio intervals.
+- **Wednesday — Upper accessories + core:** rear-delt machine 2×12–20, EGYM biceps curl 2×10–15, EGYM triceps press 2×10–15, ab crunch machine 3×10–15, cable lateral raise 2×12–20. Skip when tired; no hard cardio intervals.
 - **Thursday — Glutes/thighs + abs:** Booty Builder hip thrust 3×10–15, EGYM leg press 3×10–15, EGYM leg curl 3×10–15, EGYM leg extension 2×10–15, Booty Builder hip abduction 3×12–20, ab crunch machine 3×10–15.
 - **Friday — Upper B chest/shoulder detail:** EGYM chest press 3×8–12, shoulder press machine 2×8–12, cable lateral raise 3×12–20, **pec-deck in chest-fly mode** 2×12–20, ISO-lateral lat pulldown 2×8–12, EGYM row 2×8–12, EGYM biceps curl 2×10–15, EGYM triceps press 2×10–15.
 - **Saturday — full rest. Sunday — easy 3–5-mile run** at a conversational effort; adjust to recovery.
